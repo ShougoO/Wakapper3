@@ -2,7 +2,8 @@
 # http://git-scm.com/docs/gitignore
 
 *~
-log.txt
+*.tmp
+*.tmp.*
 *.sublime-project
 *.sublime-workspace
 .vscode/
