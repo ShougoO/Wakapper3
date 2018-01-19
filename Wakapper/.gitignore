@@ -9,7 +9,6 @@
 .vscode/
 
 .idea/
-.sourcemaps/
 .versions/
 dist/
 tmp/
