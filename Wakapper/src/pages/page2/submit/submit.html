@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>掲示板:コメントの投稿</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!--以下に設置---- target="_blank" : 新しいタブで開く-->
+  <form #comments class="test_form">
+    投稿タイトル :
+    <input type="text" id="title" name="title" />
+    投稿コメント :
+    <input type="text" id="comments" name="comments" />
+
+    <input type="submit" (click)="postURL('../src/cgi/subm.cgi')" item-right />
+  </form>
+  <!------------------>
+</ion-content>

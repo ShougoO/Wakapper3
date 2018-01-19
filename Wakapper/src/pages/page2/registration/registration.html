@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>掲示板:アカウントの登録</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!--以下に設置------>
+  <form #form class="test_form" target="_blank">
+    氏名 :
+    <input type="text" name="name" />
+
+    <input type="submit" (click)="postURL('../src/cgi/recv.cgi')" item-right />
+  </form>
+  <!------------------>
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <p *ngIf="showText == 'Page1'">
+        <button menuClose ion-item *ngFor="let p of page1" (click)="openPage(p)">
+          {{p.title}}
+        </button>
+      </p>
+      <p *ngIf="showText == 'Page2'">
+        <button menuClose ion-item *ngFor="let p of page2" (click)="openPage(p)">
+          {{p.title}}
+        </button>
+      </p>
+      <p *ngIf="showText == 'Page3'">
+        <button menuClose ion-item *ngFor="let p of page3" (click)="openPage(p)">
+          {{p.title}}
+        </button>
+      </p>
+      <p *ngIf="showText == 'Page4'">
+        <button menuClose ion-item *ngFor="let p of page4" (click)="openPage(p)">
+          {{p.title}}
+        </button>
+      </p>
+    </ion-list>
+
+    <button (click)="loadShowText()">表示されない時</button>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

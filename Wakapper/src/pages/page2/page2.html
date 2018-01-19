@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>掲示板</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div id="topContent">
+    <button ion-button id="Submit" (click)="goToSubm()">コメントの投稿</button>
+    <button ion-button id="Registration" (click)="goToRegi()">アカウントの登録</button>
+  </div>
+  <div #content id="bodyContent" *ngIf="Q == 'subm'">
+    <div *ngFor="let question of questions;">
+      <ion-card>
+        <ion-card-header>
+          {{question.title}}
+        </ion-card-header>
+        <ion-card-content>
+          {{question.comments}}
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>
