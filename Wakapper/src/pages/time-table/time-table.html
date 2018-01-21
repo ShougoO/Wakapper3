@@ -1,0 +1,47 @@
+<!--
+  Generated template for the TimeTablePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{this.selectedItem}}</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="direction">
+      <ion-segment-button value="up">
+        上り
+
+      </ion-segment-button>
+      <ion-segment-button value="down">
+        下り
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div [ngSwitch]="direction">
+
+    <ion-list *ngSwitchCase="'up'">
+      <ion-item *ngFor="let item of upTimeTable">
+        {{item}}
+      </ion-item>
+    </ion-list>
+
+
+    <ion-list *ngSwitchCase="'down'">
+      <ion-item *ngFor="let item of downTimeTable">
+        {{item}}
+      </ion-item>
+    </ion-list>
+
+  </div>
+
+</ion-content>
