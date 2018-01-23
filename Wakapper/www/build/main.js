@@ -416,11 +416,11 @@ var Page2 = (function () {
     // json取得
     Page2.prototype.getJsonDatas = function () {
         var _this = this;
-        this.dataService.getData('../assets/data/datas.json').subscribe(function (dataName) {
+        this.dataService.getData('../src/assets/data/datas.json').subscribe(function (dataName) {
             _this.dataNames = dataName.dataNames;
             _this.datasNum = 0;
             for (var i = 0; _this.dataNames[i] != null; i++) {
-                _this.dataService.getData('../assets/data/' + _this.dataNames[i]).subscribe(function (data) {
+                _this.dataService.getData('../src/assets/data/' + _this.dataNames[i]).subscribe(function (data) {
                     _this.contribution.push(data.contribution);
                 });
                 _this.datasNum++;
@@ -439,12 +439,10 @@ var Page2 = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-page2',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\page2.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <div id="topContent">\n\n    <!--\n\n    <button ion-button id="Registration" *ngIf="!login" (click)="goToRegi()">アカウントの登録</button>\n\n    \n\n    <button ion-button id="Submit" *ngIf="login!=null" (click)="goToSubm()">コメントの投稿</button>\n\n    <button ion-button id="Registration" *ngIf="login!=null" (click)="logOut()" color="danger">ログアウト</button>\n\n    -->\n\n    <button ion-button id="Submit" (click)="goToSubm()">コメントの投稿</button>\n\n  </div>\n\n\n\n  <div style="text-align: center;">\n\n      総投稿数：{{datasNum}}\n\n  </div><br>\n\n  <div *ngFor="let cont of contribution">\n\n    <ion-card>\n\n      <ion-card-header>\n\n        {{cont[0].title}}\n\n      </ion-card-header>\n\n      <ion-card-content>\n\n        {{cont[0].comments}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\page2.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */]) === "function" && _c || Object])
     ], Page2);
     return Page2;
-    var Page2_1;
+    var Page2_1, _a, _b, _c;
 }());
 
 //# sourceMappingURL=page2.js.map
