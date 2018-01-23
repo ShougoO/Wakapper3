@@ -18,9 +18,10 @@
     <button ion-button id="Submit" (click)="goToSubm()">コメントの投稿</button>
   </div>
 
+  <div style="text-align: center;">
+      総投稿数：{{datasNum}}
+  </div><br>
   <div *ngFor="let cont of contribution">
-    総投稿数：{{datasNum}}
-    <br>
     <ion-card>
       <ion-card-header>
         {{cont[0].title}}

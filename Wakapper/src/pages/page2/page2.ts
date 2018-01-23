@@ -68,7 +68,7 @@ export class Page2{
 
   // 投稿ページへ
   goToSubm() {
-    this.navCtrl.push(SubmForm);
+    this.navCtrl.push(SubmForm, { num: String(this.datasNum) });
   }
 
   // 登録・ログインへ
