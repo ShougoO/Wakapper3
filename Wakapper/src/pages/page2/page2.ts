@@ -17,6 +17,7 @@ export class Page2{
   showText: string;
 
 
+  datasNum: number;
   dataNames: any;
   contribution = [];
 
@@ -55,10 +56,12 @@ export class Page2{
     this.dataService.getData('../src/assets/data/datas.json').subscribe(dataName => {
       this.dataNames = dataName.dataNames;
       
+      this.datasNum = 0;
       for(var i=0; this.dataNames[i]!=null;i++){
-        this.dataService.getData('../assets/data/'+ this.dataNames[i]).subscribe(data => {
+        this.dataService.getData('../src/assets/data/'+ this.dataNames[i]).subscribe(data => {
           this.contribution.push(data.contribution);
         });
+        this.datasNum++;
       }
     });
   }
