@@ -465,7 +465,7 @@ var JsonData = (function () {
         this.http = http;
     }
     JsonData.prototype.getData = function () {
-        return this.http.get('../assets/data/data.json') //'../src/assets/data/data.json'
+        return this.http.get('../src/assets/data/data.json')
             .map(function (res) { return res.json(); });
     };
     ;
