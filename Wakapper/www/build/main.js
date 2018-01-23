@@ -245,8 +245,10 @@ var HomePage = (function () {
     HomePage.prototype.ionViewDidEnter = function () {
         var Url = document.location.search.substring(1);
         var urlParams = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* URLSearchParams */](Url, new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* QueryEncoder */]());
-        var Q = urlParams.get("q");
-        if (Q == "regi" || Q == "subm") {
+        var Q = urlParams.getAll("q");
+        // 全パラメータの中の先頭で判断
+        // "regi"(登録・ログイン),"subm"(投稿)したとき、page2に移動
+        if (Q[0] == "regi" || Q[0] == "subm") {
             this.goToPage2();
         }
     };
@@ -388,6 +390,7 @@ var Page2 = (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.dataService = dataService;
+        this.contribution = [];
         this.text = navParams.get("text");
         this.showText = this.text;
     }
@@ -403,7 +406,7 @@ var Page2 = (function () {
           this.login = null;
         }
         */
-        this.getQuestion();
+        this.getJsonDatas();
     };
     // ログアアウト
     Page2.prototype.logOut = function () {
@@ -411,10 +414,15 @@ var Page2 = (function () {
         this.navCtrl.setRoot(Page2_1, "Page2");
     };
     // json取得
-    Page2.prototype.getQuestion = function () {
+    Page2.prototype.getJsonDatas = function () {
         var _this = this;
-        this.dataService.getData().subscribe(function (questions) {
-            _this.questions = questions.contribution;
+        this.dataService.getData('../src/assets/data/datas.json').subscribe(function (dataName) {
+            _this.dataNames = dataName.dataNames;
+            for (var i = 0; _this.dataNames[i] != null; i++) {
+                _this.dataService.getData('../assets/data/' + _this.dataNames[i]).subscribe(function (data) {
+                    _this.contribution.push(data.contribution);
+                });
+            }
         });
     };
     // 投稿ページへ
@@ -427,7 +435,7 @@ var Page2 = (function () {
     };
     Page2 = Page2_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-page2',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\page2.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <div id="topContent">\n\n    <!--\n\n    <button ion-button id="Registration" *ngIf="!login" (click)="goToRegi()">アカウントの登録</button>\n\n    \n\n    <button ion-button id="Submit" *ngIf="login!=null" (click)="goToSubm()">コメントの投稿</button>\n\n    <button ion-button id="Registration" *ngIf="login!=null" (click)="logOut()" color="danger">ログアウト</button>\n\n    -->\n\n    <button ion-button id="Submit" (click)="goToSubm()">コメントの投稿</button>\n\n  </div>\n\n\n\n  <div *ngFor="let question of questions;">\n\n    <ion-card>\n\n      <ion-card-header>\n\n        {{question.title}}\n\n      </ion-card-header>\n\n      <ion-card-content>\n\n        {{question.comments}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\page2.html"*/
+            selector: 'page-page2',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\page2.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <div id="topContent">\n\n    <!--\n\n    <button ion-button id="Registration" *ngIf="!login" (click)="goToRegi()">アカウントの登録</button>\n\n    \n\n    <button ion-button id="Submit" *ngIf="login!=null" (click)="goToSubm()">コメントの投稿</button>\n\n    <button ion-button id="Registration" *ngIf="login!=null" (click)="logOut()" color="danger">ログアウト</button>\n\n    -->\n\n    <button ion-button id="Submit" (click)="goToSubm()">コメントの投稿</button>\n\n  </div>\n\n\n\n  <div *ngFor="let cont of contribution">\n\n    <ion-card>\n\n      <ion-card-header>\n\n        {{cont[0].title}}\n\n      </ion-card-header>\n\n      <ion-card-content>\n\n        {{cont[0].comments}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\page2.html"*/
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */]) === "function" && _c || Object])
     ], Page2);
@@ -464,17 +472,16 @@ var JsonData = (function () {
     function JsonData(http) {
         this.http = http;
     }
-    JsonData.prototype.getData = function () {
-        return this.http.get('../src/assets/data/data.json')
+    JsonData.prototype.getData = function (string) {
+        return this.http.get(string)
             .map(function (res) { return res.json(); });
     };
     ;
     JsonData = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
     ], JsonData);
     return JsonData;
-    var _a;
 }());
 
 //# sourceMappingURL=json-data.js.map

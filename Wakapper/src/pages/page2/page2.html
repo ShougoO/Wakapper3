@@ -18,13 +18,13 @@
     <button ion-button id="Submit" (click)="goToSubm()">コメントの投稿</button>
   </div>
 
-  <div *ngFor="let question of questions;">
+  <div *ngFor="let cont of contribution">
     <ion-card>
       <ion-card-header>
-        {{question.title}}
+        {{cont[0].title}}
       </ion-card-header>
       <ion-card-content>
-        {{question.comments}}
+        {{cont[0].comments}}
       </ion-card-content>
     </ion-card>
   </div>

@@ -15,7 +15,10 @@ export class Page2{
   //@ViewChild('content') content;
   text: string;
   showText: string;
-  questions: any;
+
+
+  dataNames: any;
+  contribution = [];
 
   login: string | null;
 
@@ -38,7 +41,7 @@ export class Page2{
       this.login = null;
     }
     */
-    this.getQuestion();
+    this.getJsonDatas();
   }
 
   // ログアアウト
@@ -48,9 +51,15 @@ export class Page2{
   }
 
   // json取得
-  getQuestion() {
-    this.dataService.getData().subscribe(questions => {
-      this.questions = questions.contribution;
+  getJsonDatas() {
+    this.dataService.getData('../src/assets/data/datas.json').subscribe(dataName => {
+      this.dataNames = dataName.dataNames;
+      
+      for(var i=0; this.dataNames[i]!=null;i++){
+        this.dataService.getData('../assets/data/'+ this.dataNames[i]).subscribe(data => {
+          this.contribution.push(data.contribution);
+        });
+      }
     });
   }
 

@@ -7,8 +7,8 @@ export class JsonData {
 
   constructor(public http: Http) { }
 
-  getData() {
-    return this.http.get('../src/assets/data/data.json')
+  getData(string) {
+    return this.http.get(string)
       .map(res => res.json());
   };
 }
