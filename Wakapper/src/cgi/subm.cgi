@@ -5,11 +5,11 @@
 LANG=js_JP.UTF-8
 PATH=/usr/local/bin:$PATH
 
-pag2=/home/dshougo/Wakapper/Wakapper/src/pages/page2
-homd=/home/dshougo/Wakapper/Wakapper/src
+homd=/home/dshougo/Wakapper3/Wakapper/src
+ased=$homd/assets/data
 logd=$homd/log
 
-tmp=$pag2/tmp_$$
+tmp=$ased/tmp_$$
 
 exec 2> $logd/LOG.$(basename $0).$(date +%Y%m%d)
 
@@ -21,9 +21,16 @@ Title=$(nameread title $tmp-name)
 Comments=$(nameread comments $tmp-name)
 
 
-rm -f $pag2/comment.json
+rm -f $ased/data.json
 
-echo "{\"title\": \" $Title \",\"comments\": \" $Comments \"}" > $pag2/comment.json
+echo "{
+  \"contribution\": [
+    {
+      \"title\": \"$Title\",
+      \"comments\": \"$Comments\"
+    }
+  ]
+}" > $ased/data.json
 
 echo "Location: $HTTP_REFERER?q=subm"
 echo ""

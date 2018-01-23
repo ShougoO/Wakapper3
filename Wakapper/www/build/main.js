@@ -391,39 +391,47 @@ var Page2 = (function () {
         this.text = navParams.get("text");
         this.showText = this.text;
     }
+    Page2_1 = Page2;
     Page2.prototype.ionViewDidLoad = function () {
         var Url = document.location.search.substring(1);
         var urlParams = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* URLSearchParams */](Url, new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* QueryEncoder */]());
-        this.Q = urlParams.get("q");
-        if (this.Q == "subm") {
-            this.getQuestion();
+        var Q = urlParams.getAll("q");
+        if (Q[0] == "regi") {
+            this.login = "ログイン中";
         }
+        else {
+            this.login = null;
+        }
+        this.getQuestion();
     };
+    // ログアアウト
+    Page2.prototype.logOut = function () {
+        this.login = null;
+        this.navCtrl.setRoot(Page2_1, "Page2");
+    };
+    // json取得
     Page2.prototype.getQuestion = function () {
         var _this = this;
         this.dataService.getData().subscribe(function (questions) {
             _this.questions = questions.contribution;
         });
     };
+    // 投稿ページへ
     Page2.prototype.goToSubm = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__submit_submit__["a" /* SubmForm */]);
     };
+    // 登録・ログインへ
     Page2.prototype.goToRegi = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__registration_registration__["a" /* RegiForm */]);
     };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('content'),
-        __metadata("design:type", Object)
-    ], Page2.prototype, "content", void 0);
-    Page2 = __decorate([
+    Page2 = Page2_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-page2',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\page2.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <div id="topContent">\n\n    <button ion-button id="Submit" (click)="goToSubm()">コメントの投稿</button>\n\n    <button ion-button id="Registration" (click)="goToRegi()">アカウントの登録</button>\n\n  </div>\n\n  <div #content id="bodyContent" *ngIf="Q == \'subm\'">\n\n    <div *ngFor="let question of questions;">\n\n      <ion-card>\n\n        <ion-card-header>\n\n          {{question.title}}\n\n        </ion-card-header>\n\n        <ion-card-content>\n\n          {{question.comments}}\n\n        </ion-card-content>\n\n      </ion-card>\n    </div>\n\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\page2.html"*/
+            selector: 'page-page2',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\page2.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <div id="topContent">\n\n    <button ion-button id="Registration" *ngIf="!login" (click)="goToRegi()">アカウントの登録</button>\n\n    \n\n    <button ion-button id="Submit" *ngIf="login!=null" (click)="goToSubm()">コメントの投稿</button>\n\n    <button ion-button id="Registration" *ngIf="login!=null" (click)="logOut()" color="danger">ログアウト</button>\n\n  </div>\n\n\n\n  <div *ngFor="let question of questions;">\n\n    <ion-card>\n\n      <ion-card-header>\n\n        {{question.title}}\n\n      </ion-card-header>\n\n      <ion-card-content>\n\n        {{question.comments}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\page2.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */]) === "function" && _c || Object])
     ], Page2);
     return Page2;
+    var Page2_1, _a, _b, _c;
 }());
 
 //# sourceMappingURL=page2.js.map
@@ -552,7 +560,7 @@ var SubmForm = (function () {
     ], SubmForm.prototype, "formElement", void 0);
     SubmForm = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-submit',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\submit\submit.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板:コメントの投稿</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <!--以下に設置---- target="_blank" : 新しいタブで開く-->\n\n  <form #comments class="test_form">\n\n    投稿タイトル :\n\n    <input type="text" id="title" name="title" />\n\n    投稿コメント :\n\n    <input type="text" id="comments" name="comments" />\n\n\n\n    <input type="submit" (click)="postURL(\'../src/cgi/subm.cgi\')" item-right />\n\n  </form>\n\n  <!------------------>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\submit\submit.html"*/
+            selector: 'page-submit',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\submit\submit.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板:コメントの投稿</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <!--以下に設置---- target="_blank" : 新しいタブで開く-->\n\n  <form #comments class="test_form">\n\n    投稿タイトル :\n\n    <input type="text" id="title" name="title" />\n\n    投稿コメント :\n\n    <input type="text" id="comments" name="comments" />\n\n\n\n    <input type="submit" (click)="postURL(\'../src/cgi/subm.cgi\')" item-right />\n\n  </form>\n\n  <!------------------>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\submit\submit.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
     ], SubmForm);

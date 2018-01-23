@@ -20,8 +20,11 @@ export class HomePage {
     ionViewDidEnter() {
       var Url = document.location.search.substring(1);
       var urlParams = new URLSearchParams(Url, new QueryEncoder());
-      var Q = urlParams.get("q");
-      if (Q == "regi" || Q == "subm") {
+      var Q = urlParams.getAll("q");
+
+      // 全パラメータの中の先頭で判断
+      // "regi"(登録・ログイン),"subm"(投稿)したとき、page2に移動
+      if (Q[0] == "regi" || Q[0] == "subm") {
         this.goToPage2();
       }
     }
