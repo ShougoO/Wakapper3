@@ -15,12 +15,7 @@ export class SubmForm {
 
   postURL(url) {
     //var Form = <HTMLFormElement>this.formElement.nativeElement;
-    var ele = document.createElement('input');
-    // データを設定
-    ele.setAttribute('num', this.num);
-    // 要素を追加
-    this.formElement.nativeElement.appendChild(ele);
-
+    
     this.formElement.nativeElement.method = "POST";
     this.formElement.nativeElement.action = url;
     this.formElement.nativeElement.submit();

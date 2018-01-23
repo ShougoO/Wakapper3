@@ -14,6 +14,8 @@
     <input type="text" id="title" name="title" />
     投稿コメント :
     <input type="text" id="comments" name="comments" />
+    
+    <input type="text" [(ngModel)]="this.num" id="num" name="num" value="{{this.num}}" readonly />個目の投稿
 
     <input type="submit" (click)="postURL('../src/cgi/subm.cgi')" item-right />
   </form>

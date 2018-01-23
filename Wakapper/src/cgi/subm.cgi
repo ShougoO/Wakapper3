@@ -19,9 +19,10 @@ cgi-name -i _ -d_       > $tmp-name
 
 Title=$(nameread title $tmp-name)
 Comments=$(nameread comments $tmp-name)
+Num=$(nameread num $tmp-name)
 
+var jNam=$Num
 
-rm -f $ased/data.json
 
 echo "{
   \"contribution\": [
@@ -30,11 +31,13 @@ echo "{
       \"comments\": \"$Comments\"
     }
   ]
-}" > $ased/data.json
+}" > $ased/$jNam.json
 
 echo "Location: $HTTP_REFERER?q=subm"
 echo ""
 
 rm -f $Title
 rm -f $Comments
+rm -f $Num
+rm -f $jNam
 rm -f $tmp-*

@@ -53,12 +53,12 @@ export class Page2{
 
   // json取得
   getJsonDatas() {
-    this.dataService.getData('../src/assets/data/datas.json').subscribe(dataName => {
+    this.dataService.getData('../assets/data/datas.json').subscribe(dataName => {
       this.dataNames = dataName.dataNames;
       
       this.datasNum = 0;
       for(var i=0; this.dataNames[i]!=null;i++){
-        this.dataService.getData('../src/assets/data/'+ this.dataNames[i]).subscribe(data => {
+        this.dataService.getData('../assets/data/'+ this.dataNames[i]).subscribe(data => {
           this.contribution.push(data.contribution);
         });
         this.datasNum++;
@@ -68,7 +68,7 @@ export class Page2{
 
   // 投稿ページへ
   goToSubm() {
-    this.navCtrl.push(SubmForm, { num: String(this.datasNum) });
+    this.navCtrl.push(SubmForm, { num: String(this.datasNum+1) });
   }
 
   // 登録・ログインへ
