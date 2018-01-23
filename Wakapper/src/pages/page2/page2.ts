@@ -31,11 +31,13 @@ export class Page2{
     var urlParams = new URLSearchParams(Url, new QueryEncoder());
     var Q = urlParams.getAll("q");
 
+    /*
     if (Q[0] == "regi") {         // "regi"(登録・ログイン)なら、表示を変更
       this.login = "ログイン中";
     }else{
       this.login = null;
     }
+    */
     this.getQuestion();
   }
 
