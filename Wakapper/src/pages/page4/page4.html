@@ -3,17 +3,47 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{selectedItem}}</ion-title>
+    <ion-title>運行表</ion-title>
   </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="traffic">
+      <ion-segment-button value="boat">
+        船
+      </ion-segment-button>
+      <ion-segment-button value="train">
+        電車
+      </ion-segment-button>
+      <ion-segment-button value="bus">
+        バス
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item.title, flag)">
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
+  <div [ngSwitch]="traffic">
+
+    <ion-list *ngSwitchCase="'boat'">
+      <button ion-item *ngFor="let item of boat" (click)="itemTapped($event, item)">
+        {{item}}
+      </button>
+    </ion-list>
+
+
+    <ion-list *ngSwitchCase="'train'">
+      <button ion-item *ngFor="let item of train" (click)="itemTapped($event, item)">
+        {{item}}
+      </button>
+    </ion-list>
+
+
+    <ion-list *ngSwitchCase="'bus'">
+      <button ion-item *ngFor="let item of bus" (click)="itemTapped($event, item)">
+        {{item}}
+      </button>
+    </ion-list>
+
+  </div>
+ 
 </ion-content>
