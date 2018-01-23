@@ -36,7 +36,7 @@ export class Page2{
   }
 
   getQuestion() {
-    this.dataService.getData().subscribe(questions => {
+    this.dataService.getData('../src/assets/data/data.json').subscribe(questions => {
       this.questions = questions.contribution;
     });
   }
