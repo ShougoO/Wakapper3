@@ -14,7 +14,6 @@ import { RegiForm } from '../pages/page2/registration/registration';
 import { SubmForm } from '../pages/page2/submit/submit';
 import { Page3 } from '../pages/page3/page3';
 import { Page4 } from '../pages/page4/page4';
-import {TimeTablePage} from '../pages/time-table/time-table'
 
 
 import { DataService } from './data.service';
@@ -32,8 +31,7 @@ import { CalendarModule } from 'ionic2-calendar2';
     RegiForm,
     SubmForm,
     Page3,
-    Page4,
-    TimeTablePage
+    Page4
   ],
   imports: [
     CalendarModule,
@@ -50,8 +48,7 @@ import { CalendarModule } from 'ionic2-calendar2';
     RegiForm,
     SubmForm,
     Page3,
-    Page4,
-    TimeTablePage
+    Page4
   ],
   providers: [
     GoogleMaps,
