@@ -16,18 +16,16 @@ export class Page2{
   text: string;
   showText: string;
 
-
   datasNum: number;
   dataNames: any;
   contribution = [];
 
   login: string | null;
 
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              public dataService: JsonData) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dataService: JsonData) {
     this.text = navParams.get("text");
     this.showText = this.text;
+    this.datasNum = 0;
   }
 
   ionViewDidLoad() {
@@ -45,25 +43,27 @@ export class Page2{
     this.getJsonDatas();
   }
 
-  // ログアアウト
-  logOut(){
-    this.login = null;
-    this.navCtrl.setRoot(Page2, "Page2");
-  }
-
   // json取得
   getJsonDatas() {
+    // コメントが書いてあるリストの読み込み
     this.dataService.getData('../src/assets/data/datas.json').subscribe(dataName => {
       this.dataNames = dataName.dataNames;
       
-      this.datasNum = 0;
+      // 各々のjsonを読み込みcontributionに格納 -> htmlで表示
       for(var i=0; this.dataNames[i]!=null;i++){
         this.dataService.getData('../src/assets/data/'+ this.dataNames[i]).subscribe(data => {
           this.contribution.push(data.contribution);
         });
+        // 投稿数
         this.datasNum++;
       }
     });
+  }
+
+  // ログアアウト
+  logOut(){
+    this.login = null;
+    this.navCtrl.setRoot(Page2, "Page2");
   }
 
   // 投稿ページへ

@@ -10,6 +10,7 @@ export class SubmForm {
   num: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    // 投稿数
     this.num = navParams.get("num");
   }
 

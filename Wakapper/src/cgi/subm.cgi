@@ -21,7 +21,6 @@ Title=$(nameread title $tmp-name)
 Comments=$(nameread comments $tmp-name)
 Num=$(nameread num $tmp-name)
 
-var jNam=$Num
 
 
 echo "{
@@ -31,7 +30,7 @@ echo "{
       \"comments\": \"$Comments\"
     }
   ]
-}" > $ased/$jNam.json
+}" > $ased/cont$Num.json
 
 echo "Location: $HTTP_REFERER?q=subm"
 echo ""
@@ -39,5 +38,4 @@ echo ""
 rm -f $Title
 rm -f $Comments
 rm -f $Num
-rm -f $jNam
 rm -f $tmp-*
