@@ -26,7 +26,12 @@ export class Page1 {
   map: any;     // マップ
   lat: number;  // 緯度
   lng: number;  // 経度
+  marker: any;
 
+  latdata=[33.8095253,33.9095253,34.0095253];
+  lngdata=[130.6500793,130.7500793,130.8500793];
+
+  mkState:string;
   text: string;
   showText: string;
 
@@ -36,6 +41,7 @@ export class Page1 {
     // 読み込み時に受け取った緯度と経度の位置に Marker を設置
     this.lat = navParams.get("lat");
     this.lng = navParams.get("lng");
+    this.mkState = 'マーカーを非表示にする';
   }
 
   ionViewDidLoad() {
@@ -50,18 +56,39 @@ export class Page1 {
       center: { lat: this.lat, lng: this.lng }
     });
 
+
+
+
     // Markerの設置
-    var marker = new google.maps.Marker({
-      position: { lat: 33.9095253, lng: 130.7500793 },
-      map: this.map,
-      title: 'Bus Stop(Test)',
-      icon: {
-        url: '../../assets/img/bus.png',
-        size: {
-          width: 33,
-          height: 33
+    this.marker = [];
+    for(var i=0;i<3;i++){
+      this.marker[i] = new google.maps.Marker({
+        position: { lat: this.latdata[i], lng: this.lngdata[i] },
+        map: this.map,
+        title: 'Bus Stop(Test)',
+        icon: {
+          url: '../../assets/img/bus.png',
+          size: {
+            width: 33,
+            height: 33
+          }
         }
-      }
-    });
+      });
+    }
+  }
+
+  markerVisible(){
+    if(this.mkState=='マーカーを表示する'){
+      this.mkState = 'マーカーを非表示にする';
+      this.setBool(true);
+    }else if(this.mkState == 'マーカーを非表示にする'){
+      this.mkState = 'マーカーを表示する';
+      this.setBool(false);
+    }
+  }
+  setBool(bool){
+    for(var i=0;i<3;i++){
+      this.marker[i].setVisible(bool);
+    }
   }
 }
