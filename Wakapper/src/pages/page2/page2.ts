@@ -1,4 +1,4 @@
-import { Component/*, ViewChild*/} from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { URLSearchParams, QueryEncoder } from '@angular/http';
 
@@ -12,7 +12,6 @@ import { SubmForm } from './submit/submit';
   templateUrl: 'page2.html'
 })
 export class Page2{
-  //@ViewChild('content') content;
   text: string;
   showText: string;
 

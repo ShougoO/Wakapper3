@@ -21,7 +21,9 @@ Title=$(nameread title $tmp-name)
 Comments=$(nameread comments $tmp-name)
 Num=$(nameread num $tmp-name)
 
-
+awk '{gsub("]}",",\"cont$Num.json\"]}", $0);print $0}' $ased/datas.json | tee $ased/data.json
+rm -rf $ased/datas.json
+mv $ased/data.json $ased/datas.json
 
 echo "{
   \"contribution\": [
