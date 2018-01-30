@@ -25765,32 +25765,63 @@ page-submit #comments {
   margin: 10%;
 }
 
-page-page3 #title {
+page-page3 .header-md::after {
+  background-image: none !important;
+}
+
+page-page3 .calendar-header {
+  padding-top: 18px !important;
+  text-align: left;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+page-page3 .calendar-header .title {
+  padding-left: 18px;
+  font-size: 24px;
+  color: #1F1F1F;
+}
+
+page-page3 ion-slide.swiper-slide {
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+page-page3 .no-scroll .scroll-content {
+  overflow: hidden;
+}
+
+page-page3 table {
+  table-layout: fixed;
+  width: 100%;
   text-align: center;
-  font-size: 50px;
 }
 
-page-page3 #month {
-  text-align: center;
-  font-size: 45px;
+page-page3 table td {
+  border-bottom: 1px solid #E1E1E1;
+  vertical-align: top;
+  height: 70px;
+  font-weight: bold;
 }
 
-page-page3 #content {
-  position: absolute;
-  width: 80%;
-  margin: 10%;
-  font-size: 20pt;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: normal;
-  /*
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #ffd800;
-    */
+page-page3 table .day {
+  font-size: 14px;
+  color: #616161;
+  height: 20px;
 }
 
-page-page3 #content table {
-  position: relative;
-  width: 70%;
-  right: 5%;
+page-page3 table .other {
+  font-size: 14px;
+  font-weight: normal;
+  color: #787878;
+}
+
+page-page3 table .weekday td {
+  border: none;
+  height: 32px;
+  padding-top: 5px;
+  font-size: 11px;
+  color: #757575;
 }

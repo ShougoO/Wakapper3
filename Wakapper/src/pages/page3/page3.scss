@@ -1,31 +1,52 @@
 page-page3 {
-  #title {
-    text-align: center;
-    font-size: 50px;
-  }
-
-  #month {
-    text-align: center;
-    font-size: 45px;
-  }
-
-  #content {
-    position: absolute;
-    width: 80%;
-    margin: 10%;
-    font-size: 20pt;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
-    /*
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #ffd800;
-    */
-  }
-
-  #content table {
-    position: relative;
-    width: 70%;
-    right: 5%;
-  }
+    // Android版のborder-shadowを消すために記述
+    .header-md::after{
+        background-image:none!important;
+    }
+    .calendar-header{
+        padding-top:18px!important;
+        text-align: left;
+        .title{
+            padding-left:18px;
+            font-size: 24px;
+            color:#1F1F1F;
+        }
+        box-shadow: 0 3px 3px 0 rgba(0,0,0,0.3);
+    }
+    ion-slide.swiper-slide {
+        align-items: flex-start;
+    }
+    .no-scroll .scroll-content{
+        overflow: hidden;
+    }
+    table{
+        table-layout: fixed;
+        width: 100%;
+        text-align: center;
+        td{
+            border-bottom: 1px solid #E1E1E1;
+            vertical-align: top;
+            height:70px;
+            font-weight: bold;
+        }
+        .day{
+            font-size: 14px;
+            color: #616161;
+            height:20px;
+        }
+        .other{
+            font-size: 14px;
+            font-weight: normal;
+            color:#787878;
+        }
+        .weekday{
+            td{
+                border: none;
+                height:32px;
+                padding-top:5px;
+                font-size: 11px;
+                color:#757575;
+            }
+        }
+    }
 }
