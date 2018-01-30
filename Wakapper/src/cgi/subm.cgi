@@ -10,6 +10,9 @@ ased=$homd/assets/data
 logd=$homd/log
 
 tmp=$ased/tmp_$$
+var=4
+array=()
+
 
 exec 2> $logd/LOG.$(basename $0).$(date +%Y%m%d)
 
@@ -21,9 +24,6 @@ Title=$(nameread title $tmp-name)
 Comments=$(nameread comments $tmp-name)
 Num=$(nameread num $tmp-name)
 
-awk '{gsub("]}",",\"cont$Num.json\"]}", $0);print $0}' $ased/datas.json | tee $ased/data.json
-rm -rf $ased/datas.json
-mv $ased/data.json $ased/datas.json
 
 echo "{
   \"contribution\": [
@@ -34,10 +34,34 @@ echo "{
   ]
 }" > $ased/cont$Num.json
 
+
+lim=$((Num*2+2))
+
+while :
+do
+  if [ "$var" == "$lim" ]; then
+    break
+  fi
+
+  com=$(awk -F"\"" -v "num=$var" '{print $num}' $ased/datas.json)
+  array+=("\"$com\",")
+
+  var=$(( var + 2 ))
+done
+
+array+=("\"cont$Num.json\"")
+
+echo "{\"dataNames\":["${array[*]}"]}" > $ased/datas.json
+
+
 echo "Location: $HTTP_REFERER?q=subm"
 echo ""
 
 rm -f $Title
 rm -f $Comments
 rm -f $Num
+rm -f $lim
 rm -f $tmp-*
+rm -f $array
+rm -f $com
+rm -f $ased/dataNew.json

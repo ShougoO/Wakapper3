@@ -617,7 +617,7 @@ var Page1 = (function () {
                 map: this_1.map,
                 title: 'Bus Stop(Test)',
                 icon: {
-                    url: '../../assets/img/bus.png',
+                    url: '../../src/img/bus.png',
                     size: {
                         width: this_1.sizeData[i].width,
                         height: this_1.sizeData[i].height

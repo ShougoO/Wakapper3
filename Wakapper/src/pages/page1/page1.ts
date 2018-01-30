@@ -74,7 +74,7 @@ export class Page1 {
         map: this.map,
         title: 'Bus Stop(Test)',
         icon: {
-          url: '../../assets/img/bus.png',
+          url: '../../src/img/bus.png',
           size: {
             width: this.sizeData[i].width,
             height: this.sizeData[i].height
