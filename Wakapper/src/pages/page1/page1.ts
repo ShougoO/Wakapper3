@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { JsonData } from '../../app/json-data';
-
+import { GoogleMapsLatLngBounds, GoogleMapsLatLng} from 'ionic-native';
 // GoogleMap を使用する時、 @ionic-native/core が必要(npm install)
 import {
   GoogleMaps,
@@ -33,6 +33,7 @@ export class Page1 {
   clickEvent =[];
 
   mkState:string;
+  snippet:string = "hoge";
 
   text: string;
   showText: string;
@@ -60,20 +61,25 @@ export class Page1 {
 
   // 画面が読み込まれた時のみ実行
   loadMap() {
+    let southwest: GoogleMapsLatLng = new GoogleMapsLatLng(33.7, 130.7);
+    let northeast: GoogleMapsLatLng = new GoogleMapsLatLng(34.0, 130.8);
+    let bounds = new GoogleMapsLatLngBounds(southwest,northeast);
     // GoogleMapの構築
     this.map = new google.maps.Map(this.mapChild.nativeElement, {
-      zoom: 12,
-      center: { lat: this.lat, lng: this.lng }
+      zoom: 13,
+      center: { lat: this.lat, lng: this.lng },
+      minZoom : 12,
+      maxZoom : 17
     });
-
-
+    this.map.setLatLngBoundsForCameraTarget(southwest,northeast);
     // Markerの設置
     this.marker = [];
     for(let i=0;i<3;i++){
       this.marker[i] = new google.maps.Marker({
         position: { lat: this.mkData[i].lat, lng: this.mkData[i].lng },
         map: this.map,
-        title: 'Bus Stop(Test)',
+        title: this.mkData[i].title,
+        snippet: this.mkData[i].snippet,
         icon: {
           url: '../../assets/img/bus.png',
           size: {
@@ -83,6 +89,19 @@ export class Page1 {
         }
       });
 
+      
+      let infoWindowContent = '<div id="content"><h1 id="firstHeading" class="firstHeading">' + this.marker[i].title + '</h1></div>' + this.marker[i].snippet;
+      let infoWindow = new google.maps.InfoWindow({
+        content: infoWindowContent
+      });
+
+      google.maps.event.addListener(this.marker[i], 'mouseover', () => {
+        infoWindow.open(this.map, this.marker[i]);
+      });
+
+      google.maps.event.addListener(this.marker[i], 'mouseout', () => {
+        infoWindow.close(this.map, this.marker[i]);
+      });
 
       google.maps.event.addListener(this.marker[i], 'click', () => {
         alert("お気に入り登録しました");
@@ -90,7 +109,6 @@ export class Page1 {
         alert(this.clickEvent[i]);
       });
     }
-  
   }
 
   markerVisible(){
