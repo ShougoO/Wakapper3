@@ -5,6 +5,10 @@
     </button>
     <ion-title>イベントカレンダー</ion-title>
   </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce>
+  <!-------->
   <ion-grid class="calendar-header" no-padding>
     <ion-row>
       <ion-col>
@@ -14,8 +18,8 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-</ion-header>
-<ion-content no-bounce>
+  <!-------->
+
   <ion-slides #Slides (ionSlidePrevEnd)="beforeSlide()" (ionSlideNextEnd)="nextSlide()" initialSlide="1">
     <ion-slide *ngFor="let c of cal; let idx = index;">
       <table class="date-table">
@@ -32,7 +36,15 @@
           <tr *ngFor="let week of c.week; let w = index;">
             <td *ngFor="let day of week; let d = index;">
               <div class="day">
-                <span [ngClass]="{'other':day.other}">{{day.day}}</span>
+                <span [ngClass]="{'other':day.other}">
+                  {{day.day}}
+                </span>
+                <!-------->
+                <br>
+                <span *ngIf="showEvent(current_calendar[0], c.month, day.day, day.other)!=null">
+                  {{showEvent(current_calendar[0], c.month, day.day, day.other)}}
+                </span>
+                <!-------->
               </div>
             </td>
           </tr>

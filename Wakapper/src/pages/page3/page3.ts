@@ -16,6 +16,30 @@ export class Page3 {
     current_calendar:any = [];
     wait:boolean = false;
 
+    /*****/
+    testEvents = [
+        {
+            'date': {year: 2018, month: 2, day: 20},
+            'text': 'ああああああああああ'
+        },
+        {
+            'date': {year: 2018, month: 2, day: 10},
+            'text': 'いいいいいいいいいい'
+        },
+        {
+            'date': {year: 2018, month: 2, day: 11},
+            'text': 'いいいいいいいいいい'
+        },
+        {
+            'date': {year: 2018, month: 2, day: 12},
+            'text': 'いいいいいいいいいい'
+        },
+        {
+            'date': {year: 2018, month: 2, day: 13},
+            'text': 'いいいいいいいいいい'
+        }
+    ];
+
     constructor(
         public navCtrl: NavController, 
         public calendar: CalendarProvider,
@@ -35,6 +59,7 @@ export class Page3 {
     ionViewDidLoad() {
         console.log('ionViewDidLoad SwipePage');
     }
+
     nextSlide(){
         console.log("next");
         if(this.wait == false){
@@ -50,6 +75,7 @@ export class Page3 {
         this.cal.shift();
         this.slides.slideTo(1, 0, false);
     }
+
     beforeSlide(){
         console.log("before");
         let c = this.cal[0];
@@ -60,5 +86,17 @@ export class Page3 {
         this.cal.unshift(n);
         this.cal.pop();
         this.slides.slideTo(1, 0, false);
+    }
+
+    /*****/
+    showEvent(year, month, day, bool){
+        for(let i=0;this.testEvents[i]!=null;i++){
+            if(this.testEvents[i].date.year==year
+                && this.testEvents[i].date.month==month
+                && this.testEvents[i].date.day==day
+                && bool!=true){
+                return this.testEvents[i].text;
+            }
+        }
     }
 }

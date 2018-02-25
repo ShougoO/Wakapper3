@@ -25804,10 +25804,13 @@ page-page3 table td {
   vertical-align: top;
   height: 70px;
   font-weight: bold;
+  border: solid #E1E1E1;
+  /*******/
 }
 
 page-page3 table .day {
-  font-size: 14px;
+  font-size: 15px;
+  /*******/
   color: #616161;
   height: 20px;
 }
@@ -25824,4 +25827,6 @@ page-page3 table .weekday td {
   padding-top: 5px;
   font-size: 11px;
   color: #757575;
+  border: solid #E1E1E1;
+  /*******/
 }

@@ -28,9 +28,10 @@ page-page3 {
             vertical-align: top;
             height:70px;
             font-weight: bold;
+            border: solid #E1E1E1;/*******/
         }
         .day{
-            font-size: 14px;
+            font-size: 15px;/*******/
             color: #616161;
             height:20px;
         }
@@ -46,6 +47,7 @@ page-page3 {
                 padding-top:5px;
                 font-size: 11px;
                 color:#757575;
+                border: solid #E1E1E1;/*******/
             }
         }
     }
