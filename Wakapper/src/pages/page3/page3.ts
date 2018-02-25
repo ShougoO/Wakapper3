@@ -2,7 +2,7 @@ import { ViewChild,Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import {CalendarProvider} from "../../providers/calendar/calendar";
-
+import { JsonData } from '../../app/json-data';
 
 @IonicPage()
 @Component({
@@ -17,33 +17,14 @@ export class Page3 {
     wait:boolean = false;
 
     /*****/
-    testEvents = [
-        {
-            'date': {year: 2018, month: 2, day: 20},
-            'text': 'ああああああああああ'
-        },
-        {
-            'date': {year: 2018, month: 2, day: 10},
-            'text': 'いいいいいいいいいい'
-        },
-        {
-            'date': {year: 2018, month: 2, day: 11},
-            'text': 'いいいいいいいいいい'
-        },
-        {
-            'date': {year: 2018, month: 2, day: 12},
-            'text': 'いいいいいいいいいい'
-        },
-        {
-            'date': {year: 2018, month: 2, day: 13},
-            'text': 'いいいいいいいいいい'
-        }
-    ];
+    testEvents: any;
+    testDatas = [];
 
     constructor(
         public navCtrl: NavController, 
         public calendar: CalendarProvider,
-        public navParams: NavParams
+        public navParams: NavParams, 
+        public dataService: JsonData
     ) {
         let t = this.calendar.getToday(); // 今日の日付けを取得
         this.current_calendar = t;
@@ -54,6 +35,13 @@ export class Page3 {
         let last = this.calendar.getCalendarYM(l[0], l[1]);// 前月のカレンダー情報を作成
         let next = this.calendar.getCalendarYM(n[0], n[1]);// 来月のカレンダー情報を作成
         this.cal = [last, now, next];
+
+        this.dataService.getData('../assets/data/page3Ivents.json').subscribe(data => {
+            this.testEvents = data.events;
+            for(let i=0; this.testEvents[i]!=null; i++){
+                this.testDatas.push(this.testEvents[i]);
+            }
+        });
     }
 
     ionViewDidLoad() {
@@ -90,12 +78,12 @@ export class Page3 {
 
     /*****/
     showEvent(year, month, day, bool){
-        for(let i=0;this.testEvents[i]!=null;i++){
-            if(this.testEvents[i].date.year==year
-                && this.testEvents[i].date.month==month
-                && this.testEvents[i].date.day==day
+        for(let i=0;this.testDatas[i]!=null;i++){
+            if(this.testDatas[i].date.year==year
+                && this.testDatas[i].date.month==month
+                && this.testDatas[i].date.day==day
                 && bool!=true){
-                return this.testEvents[i].text;
+                return this.testDatas[i].text;
             }
         }
     }
