@@ -636,7 +636,7 @@ var Page1 = (function () {
     Page1.prototype.mapInit = function () {
         var _this = this;
         // json取得
-        this.dataService.getData('../assets/data/mkData.json').subscribe(function (data) {
+        this.dataService.getData('../src/assets/data/mkData.json').subscribe(function (data) {
             _this.mkData = data.mkData;
             _this.loadMap();
         });
@@ -659,7 +659,7 @@ var Page1 = (function () {
                 map: this_1.map,
                 title: 'Bus Stop(Test)',
                 icon: {
-                    url: '../../assets/img/bus.png',
+                    url: '../src/assets/img/bus.png',
                     size: {
                         width: this_1.mkData[i].width,
                         height: this_1.mkData[i].height
@@ -708,10 +708,10 @@ var Page1 = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-page1',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page1\page1.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>区内マップ</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <button ion-button style="width: 50%;" (click)="mkVisible()">{{mkStatus}}</button>\n\n  <div #map id="map"></div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page1\page1.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_maps__["a" /* GoogleMaps */], __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_maps__["a" /* GoogleMaps */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_maps__["a" /* GoogleMaps */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */]) === "function" && _d || Object])
     ], Page1);
     return Page1;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=page1.js.map
