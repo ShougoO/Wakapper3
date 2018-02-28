@@ -32,25 +32,24 @@ export class Page2{
     var urlParams = new URLSearchParams(Url, new QueryEncoder());
     var Q = urlParams.getAll("q");
 
-    /*
     if (Q[0] == "regi") {         // "regi"(登録・ログイン)なら、表示を変更
       this.login = "ログイン中";
     }else{
       this.login = null;
     }
-    */
+    
     this.getJsonDatas();
   }
 
   // json取得
   getJsonDatas() {
     // コメントが書いてあるリストの読み込み
-    this.dataService.getData('../src/assets/data/datas.json').subscribe(dataName => {
+    this.dataService.getData('../assets/data/datas.json').subscribe(dataName => {//../src/assets/data/datas.json
       this.dataNames = dataName.dataNames;
       
       // 各々のjsonを読み込みcontributionに格納 -> htmlで表示
       for(var i=0; this.dataNames[i]!=null;i++){
-        this.dataService.getData('../src/assets/data/'+ this.dataNames[i]).subscribe(data => {
+        this.dataService.getData('../assets/data/'+ this.dataNames[i]).subscribe(data => {
           this.contribution.push(data.contribution);
         });
         // 投稿数
