@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { JsonData } from '../../app/json-data';
+
 // GoogleMap を使用する時、 @ionic-native/core が必要(npm install)
 import {
   GoogleMaps,
@@ -27,23 +29,18 @@ export class Page1 {
   marker: any;  // マーカー
   lat: number;  // 緯度
   lng: number;  // 経度
-  posiData = [  // マーカーの位置データ
-    {lat: 33.9095253, lng: 130.7500793},
-    {lat: 33.9195253, lng: 130.7510793},
-    {lat: 33.8595253, lng: 130.7450793}
-  ];
-  sizeData = [  // マーカーのサイズデータ
-    {width: 33, height: 33},
-    {width: 44, height: 44},
-    {width: 55, height: 55}
-  ];
+
+  mkData: any;
+
   mkStatus: string;
   clickStatus: any;
 
   text: string;
   showText: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private googleMaps: GoogleMaps) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private googleMaps: GoogleMaps, public dataService: JsonData)
+    {
     this.text = navParams.get("text");
     this.showText = this.text;
     // 読み込み時に受け取った緯度と経度の位置に Marker を設置
@@ -52,7 +49,15 @@ export class Page1 {
   }
 
   ionViewDidLoad() {
-    this.loadMap();
+    this.mapInit();
+  }
+
+  mapInit() {
+    // json取得
+    this.dataService.getData('../assets/data/mkData.json').subscribe(data => {
+      this.mkData = data.mkData;
+      this.loadMap();
+    });
   }
 
   // 画面が読み込まれた時のみ実行
@@ -70,22 +75,27 @@ export class Page1 {
 
     for(let i=0;i<3;i++){
       this.marker[i] = new google.maps.Marker({
-        position: { lat: this.posiData[i].lat, lng: this.posiData[i].lng },
+        position: { lat: this.mkData[i].lat, lng: this.mkData[i].lng },
         map: this.map,
         title: 'Bus Stop(Test)',
         icon: {
-          url: '../../src/img/bus.png',
+          url: '../../assets/img/bus.png',// assets/img/bus.png' : azure
           size: {
-            width: this.sizeData[i].width,
-            height: this.sizeData[i].height
+            width: this.mkData[i].width,
+            height: this.mkData[i].height
           }
         }
       });
       this.clickStatus[i] = 1;
 
       google.maps.event.addListener(this.marker[i], 'click', () => {
-        alert("お気に入り登録しました。");
-        this.clickStatus[i] = 0;
+        if(this.clickStatus[i]){
+          alert("お気に入り登録しました。");
+          this.clickStatus[i] = 0;
+        }else{
+          alert("お気に入り解除しました。");
+          this.clickStatus[i] = 1; 
+        }
       });
     }
   }
