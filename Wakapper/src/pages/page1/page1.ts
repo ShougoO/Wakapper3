@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { JsonData } from '../../app/json-data';
-import { GoogleMapsLatLngBounds, GoogleMapsLatLng} from 'ionic-native';
+//import { GoogleMapsLatLngBounds, GoogleMapsLatLng} from 'ionic-native';
+
 // GoogleMap を使用する時、 @ionic-native/core が必要(npm install)
 import {
   GoogleMaps,
@@ -38,7 +39,8 @@ export class Page1 {
   text: string;
   showText: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private googleMaps: GoogleMaps, public dataService: JsonData) {
+  constructor(public navCtrl: NavController, public navParams: NavParams
+            , private googleMaps: GoogleMaps, public dataService: JsonData) {
     this.text = navParams.get("text");
     this.showText = this.text;
     // 読み込み時に受け取った緯度と経度の位置に Marker を設置
@@ -49,7 +51,6 @@ export class Page1 {
 
   ionViewDidLoad() {
     this.mapInit();
-    
   }
 
   mapInit() {
@@ -61,9 +62,15 @@ export class Page1 {
 
   // 画面が読み込まれた時のみ実行
   loadMap() {
-    let southwest: GoogleMapsLatLng = new GoogleMapsLatLng(33.7, 130.7);
-    let northeast: GoogleMapsLatLng = new GoogleMapsLatLng(34.0, 130.8);
-    let bounds = new GoogleMapsLatLngBounds(southwest,northeast);
+    // map表示範囲設定
+    let southwest = new google.maps.LatLng(33.7, 130.7);
+    let northeast= new google.maps.LatLng(34.0, 130.8);
+    let bounds = new google.maps.LatLngBounds(southwest,northeast);
+    /* 2018/02/28記述
+       移動範囲の制限を上記の"bounds"に設けたが、
+       mapへは未実装
+    */
+
     // GoogleMapの構築
     this.map = new google.maps.Map(this.mapChild.nativeElement, {
       zoom: 13,
@@ -71,7 +78,8 @@ export class Page1 {
       minZoom : 12,
       maxZoom : 17
     });
-    this.map.setLatLngBoundsForCameraTarget(southwest,northeast);
+
+    
     // Markerの設置
     this.marker = [];
     for(let i=0;i<3;i++){
@@ -89,16 +97,19 @@ export class Page1 {
         }
       });
 
-      
-      let infoWindowContent = '<div id="content"><h1 id="firstHeading" class="firstHeading">' + this.marker[i].title + '</h1></div>' + this.marker[i].snippet;
+      // 情報ウィンドウの設定
+      let infoWindowContent = '<div id="content"><h1 id="firstHeading" class="firstHeading">'
+                              +this.marker[i].title
+                              +'</h1></div>'
+                              +this.marker[i].snippet;
       let infoWindow = new google.maps.InfoWindow({
         content: infoWindowContent
       });
 
+      // カーソルが乗るたびに情報表示
       google.maps.event.addListener(this.marker[i], 'mouseover', () => {
         infoWindow.open(this.map, this.marker[i]);
       });
-
       google.maps.event.addListener(this.marker[i], 'mouseout', () => {
         infoWindow.close(this.map, this.marker[i]);
       });
