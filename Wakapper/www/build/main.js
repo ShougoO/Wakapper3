@@ -636,7 +636,7 @@ var Page1 = (function () {
     Page1.prototype.mapInit = function () {
         var _this = this;
         // json取得
-        this.dataService.getData('../assets/data/mkData.json').subscribe(function (data) {
+        this.dataService.getData('../src/assets/data/mkData.json').subscribe(function (data) {
             _this.mkData = data.mkData;
             _this.loadMap();
         });
@@ -771,11 +771,11 @@ var Page2 = (function () {
     Page2.prototype.getJsonDatas = function () {
         var _this = this;
         // コメントが書いてあるリストの読み込み
-        this.dataService.getData('../assets/data/datas.json').subscribe(function (dataName) {
+        this.dataService.getData('../src/assets/data/datas.json').subscribe(function (dataName) {
             _this.dataNames = dataName.dataNames;
             // 各々のjsonを読み込みcontributionに格納 -> htmlで表示
             for (var i = 0; _this.dataNames[i] != null; i++) {
-                _this.dataService.getData('../assets/data/' + _this.dataNames[i]).subscribe(function (data) {
+                _this.dataService.getData('../src/assets/data/' + _this.dataNames[i]).subscribe(function (data) {
                     _this.contribution.push(data.contribution);
                 });
                 // 投稿数

@@ -79,7 +79,7 @@ export class Page1 {
         map: this.map,
         title: 'Bus Stop(Test)',
         icon: {
-          url: '../src/assets/img/bus.png',// ../../assets/img/bus.png
+          url: '../../assets/img/bus.png',// ../../assets/img/bus.png
           size: {
             width: this.mkData[i].width,
             height: this.mkData[i].height
