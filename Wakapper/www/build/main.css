@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -25765,13 +25766,20 @@ page-submit #comments {
   margin: 10%;
 }
 
+page-page3 {
+  /* 三・一カレンダー事件 */
+  /* ウィンドウサイズによって項目がすべて表示されないことの改善 */
+  /*****/
+  /*****/
+}
+
 page-page3 .header-md::after {
   background-image: none !important;
 }
 
 page-page3 .calendar-header {
   padding-top: 18px !important;
-  text-align: left;
+  text-align: center;
   -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3);
 }
@@ -25783,6 +25791,7 @@ page-page3 .calendar-header .title {
 }
 
 page-page3 ion-slide.swiper-slide {
+  height: 100%;
   -webkit-box-align: start;
   -webkit-align-items: flex-start;
   -ms-flex-align: start;
@@ -25791,6 +25800,23 @@ page-page3 ion-slide.swiper-slide {
 
 page-page3 .no-scroll .scroll-content {
   overflow: hidden;
+}
+
+page-page3 .slide {
+  /*****/
+  /*****/
+}
+
+@media screen and (min-width: 1100px) {
+  page-page3 .slide {
+    height: 50em;
+  }
+}
+
+@media screen and (max-width: 1099px) {
+  page-page3 .slide {
+    height: 80em;
+  }
 }
 
 page-page3 table {
@@ -25802,17 +25828,45 @@ page-page3 table {
 page-page3 table td {
   border-bottom: 1px solid #E1E1E1;
   vertical-align: top;
-  height: 70px;
   font-weight: bold;
   border: solid #E1E1E1;
-  /*******/
+}
+
+@media screen and (min-width: 1100px) {
+  page-page3 table td {
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 1099px) {
+  page-page3 table td {
+    height: 80px;
+  }
 }
 
 page-page3 table .day {
   font-size: 15px;
-  /*******/
   color: #616161;
   height: 20px;
+  /*****/
+  /*****/
+}
+
+@media screen and (max-width: 1099px) {
+  page-page3 table .day .spanSection {
+    display: inline-block;
+  }
+}
+
+page-page3 table .day .spanSection .spanText {
+  display: inline-block;
+  font-size: 1vw;
+}
+
+@media screen and (max-width: 1099px) {
+  page-page3 table .day .spanSection .spanText {
+    display: none;
+  }
 }
 
 page-page3 table .other {
@@ -25828,5 +25882,14 @@ page-page3 table .weekday td {
   font-size: 11px;
   color: #757575;
   border: solid #E1E1E1;
-  /*******/
+}
+
+page-page3 .spanEventDates {
+  text-align: left;
+}
+
+@media screen and (min-width: 1100px) {
+  page-page3 .spanEventDates {
+    display: none;
+  }
 }

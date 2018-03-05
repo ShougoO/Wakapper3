@@ -1,0 +1,20 @@
+{
+  "events": [
+    {
+      "date": {"year": 2018, "month": 3, "day": 20},
+      "text": "○○祭り"
+    },
+    {
+      "date": {"year": 2018, "month": 3, "day": 20},
+      "text": "□□大会"
+    },
+    {
+      "date": {"year": 2018, "month": 3, "day": 2},
+      "text": "△△展"
+    },
+    {
+      "date": {"year": 2018, "month": 4, "day": 10},
+      "text": "××祭り"
+    }
+  ]
+}
