@@ -11,15 +11,14 @@
   <ion-grid class="calendar-header" no-padding>
     <ion-row>
       <ion-col>
+        <button ion-button (click)="beforeSlide()">
+          ＜
+        </button>
         <span class="title">
           {{current_calendar[0]}}年{{current_calendar[1]}}月
         </span>
-        <br>
-        <button ion-button (click)="beforeSlide()">
-          前の月へ
-        </button>
         <button ion-button (click)="nextSlide()">
-          次の月へ
+          ＞
         </button>
       </ion-col>
     </ion-row>
