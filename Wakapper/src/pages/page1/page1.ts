@@ -54,7 +54,7 @@ export class Page1 {
 
   mapInit() {
     // json取得
-    this.dataService.getData('../src/assets/data/mkData.json').subscribe(data => {//../assets/data/mkData.json
+    this.dataService.getData('../src/assets/data/mkData.json').subscribe(data => {//../assets/data/mkData.json(local)
       this.mkData = data.mkData;
       this.loadMap();
     });
@@ -79,7 +79,7 @@ export class Page1 {
         map: this.map,
         title: 'Bus Stop(Test)',
         icon: {
-          url: '../../assets/img/bus.png',// ../../assets/img/bus.png
+          url: '../src/assets/img/bus.png',// ../../assets/img/bus.png(local)
           size: {
             width: this.mkData[i].width,
             height: this.mkData[i].height

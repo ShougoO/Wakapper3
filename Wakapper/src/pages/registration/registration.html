@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>アカウントの登録・ログイン</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!--以下に設置------>
+  <form #form>
+    ID
+    <input type="text" maxlength="12" name="id" />
+    <br>
+    Pass
+    <input type="password" maxlength="12" name="pass" />
+    <div style="text-align: right;">
+      <input type="submit" value="登録する" (click)="postURL('../src/cgi/regi.cgi')" />
+      <input type="submit" value="ログインする" (click)="postURL('../src/cgi/login.cgi')" />
+    </div>
+  </form>
+  <!------------------>
+</ion-content>

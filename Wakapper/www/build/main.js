@@ -79,7 +79,53 @@ var JsonData = (function () {
 
 /***/ }),
 
-/***/ 113:
+/***/ 103:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegiForm; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var RegiForm = (function () {
+    function RegiForm(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    RegiForm.prototype.postURL = function (url) {
+        //var Form = <HTMLFormElement>this.formElement.nativeElement;
+        this.formElement.nativeElement.method = "POST";
+        this.formElement.nativeElement.action = url;
+        this.formElement.nativeElement.submit();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('form'),
+        __metadata("design:type", Object)
+    ], RegiForm.prototype, "formElement", void 0);
+    RegiForm = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-registration',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\registration\registration.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>アカウントの登録・ログイン</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <!--以下に設置------>\n\n  <form #form>\n\n    ID\n\n    <input type="text" maxlength="12" name="id" />\n\n    <br>\n\n    Pass\n\n    <input type="password" maxlength="12" name="pass" />\n\n    <div style="text-align: right;">\n\n      <input type="submit" value="登録する" (click)="postURL(\'../src/cgi/regi.cgi\')" />\n\n      <input type="submit" value="ログインする" (click)="postURL(\'../src/cgi/login.cgi\')" />\n\n    </div>\n\n  </form>\n\n  <!------------------>\n\n</ion-content>'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\registration\registration.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    ], RegiForm);
+    return RegiForm;
+}());
+
+//# sourceMappingURL=registration.js.map
+
+/***/ }),
+
+/***/ 114:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -92,16 +138,16 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 113;
+webpackEmptyAsyncContext.id = 114;
 
 /***/ }),
 
-/***/ 155:
+/***/ 156:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/page3/page3.module": [
-		156
+		157
 	]
 };
 function webpackAsyncContext(req) {
@@ -115,12 +161,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 155;
+webpackAsyncContext.id = 156;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 156:
+/***/ 157:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -128,7 +174,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Page3Module", function() { return Page3Module; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__page3__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__page3__ = __webpack_require__(158);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -161,14 +207,14 @@ var Page3Module = (function () {
 
 /***/ }),
 
-/***/ 157:
+/***/ 158:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Page3; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_calendar_calendar__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_calendar_calendar__ = __webpack_require__(159);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -245,7 +291,7 @@ var Page3 = (function () {
 
 /***/ }),
 
-/***/ 158:
+/***/ 159:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -381,21 +427,22 @@ var CalendarProvider = (function () {
 
 /***/ }),
 
-/***/ 202:
+/***/ 203:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_page1_page1__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_page2_page2__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_page3_page3__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_page1_page1__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_page2_page2__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_page3_page3__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__data_service__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_registration_registration__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__data_service__ = __webpack_require__(101);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -405,6 +452,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -428,7 +476,8 @@ var MyApp = (function () {
             '区内マップ',
             '掲示板',
             'イベントカレンダー',
-            '運行表'
+            '運行表',
+            '登録・ログイン'
         ];
         this.initializeApp();
         // used for an example of ngFor and navigation
@@ -437,25 +486,29 @@ var MyApp = (function () {
             { title: this.pagesNames[0], component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */], name: 'HomePage' },
             { title: this.pagesNames[2], component: __WEBPACK_IMPORTED_MODULE_6__pages_page2_page2__["a" /* Page2 */], name: 'Page2' },
             { title: this.pagesNames[3], component: __WEBPACK_IMPORTED_MODULE_7__pages_page3_page3__["a" /* Page3 */], name: 'Page3' },
-            { title: this.pagesNames[4], component: __WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__["a" /* Page4 */], name: 'Page4' }
+            { title: this.pagesNames[4], component: __WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__["a" /* Page4 */], name: 'Page4' },
+            { title: this.pagesNames[5], component: __WEBPACK_IMPORTED_MODULE_9__pages_registration_registration__["a" /* RegiForm */], name: 'RegiForm' }
         ];
         this.page2 = [
             { title: this.pagesNames[0], component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */], name: 'HomePage' },
             { title: this.pagesNames[1], component: __WEBPACK_IMPORTED_MODULE_5__pages_page1_page1__["a" /* Page1 */], name: 'Page1' },
             { title: this.pagesNames[3], component: __WEBPACK_IMPORTED_MODULE_7__pages_page3_page3__["a" /* Page3 */], name: 'Page3' },
-            { title: this.pagesNames[4], component: __WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__["a" /* Page4 */], name: 'Page4' }
+            { title: this.pagesNames[4], component: __WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__["a" /* Page4 */], name: 'Page4' },
+            { title: this.pagesNames[5], component: __WEBPACK_IMPORTED_MODULE_9__pages_registration_registration__["a" /* RegiForm */], name: 'RegiForm' }
         ];
         this.page3 = [
             { title: this.pagesNames[0], component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */], name: 'HomePage' },
             { title: this.pagesNames[1], component: __WEBPACK_IMPORTED_MODULE_5__pages_page1_page1__["a" /* Page1 */], name: 'Page1' },
             { title: this.pagesNames[2], component: __WEBPACK_IMPORTED_MODULE_6__pages_page2_page2__["a" /* Page2 */], name: 'Page2' },
-            { title: this.pagesNames[4], component: __WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__["a" /* Page4 */], name: 'Page4' }
+            { title: this.pagesNames[4], component: __WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__["a" /* Page4 */], name: 'Page4' },
+            { title: this.pagesNames[5], component: __WEBPACK_IMPORTED_MODULE_9__pages_registration_registration__["a" /* RegiForm */], name: 'RegiForm' }
         ];
         this.page4 = [
             { title: this.pagesNames[0], component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */], name: 'HomePage' },
             { title: this.pagesNames[1], component: __WEBPACK_IMPORTED_MODULE_5__pages_page1_page1__["a" /* Page1 */], name: 'Page1' },
             { title: this.pagesNames[2], component: __WEBPACK_IMPORTED_MODULE_6__pages_page2_page2__["a" /* Page2 */], name: 'Page2' },
-            { title: this.pagesNames[3], component: __WEBPACK_IMPORTED_MODULE_7__pages_page3_page3__["a" /* Page3 */], name: 'Page3' }
+            { title: this.pagesNames[3], component: __WEBPACK_IMPORTED_MODULE_7__pages_page3_page3__["a" /* Page3 */], name: 'Page3' },
+            { title: this.pagesNames[5], component: __WEBPACK_IMPORTED_MODULE_9__pages_registration_registration__["a" /* RegiForm */], name: 'RegiForm' }
         ];
     }
     MyApp.prototype.initializeApp = function () {
@@ -484,12 +537,17 @@ var MyApp = (function () {
                     _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__["a" /* Page4 */], "Page4");
                 }
                 else {
-                    _this.showText = text;
-                    if (text == "Page1") {
-                        _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_5__pages_page1_page1__["a" /* Page1 */], _this.position);
+                    if (text == "RegiForm") {
+                        _this.nav.push(__WEBPACK_IMPORTED_MODULE_9__pages_registration_registration__["a" /* RegiForm */]);
                     }
                     else {
-                        _this.nav.setRoot(_this.page.component, { text: text });
+                        _this.showText = text;
+                        if (text == "Page1") {
+                            _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_5__pages_page1_page1__["a" /* Page1 */], _this.position);
+                        }
+                        else {
+                            _this.nav.setRoot(_this.page.component, { text: text });
+                        }
                     }
                 }
             });
@@ -508,9 +566,9 @@ var MyApp = (function () {
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'sample-component',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <p *ngIf="showText == \'Page1\'">\n\n        <button menuClose ion-item *ngFor="let p of page1" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="showText == \'Page2\'">\n\n        <button menuClose ion-item *ngFor="let p of page2" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="showText == \'Page3\'">\n\n        <button menuClose ion-item *ngFor="let p of page3" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="showText == \'Page4\'">\n\n        <button menuClose ion-item *ngFor="let p of page4" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n    </ion-list>\n\n\n\n    <button (click)="loadShowText()">表示されない時</button>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\app\app.html"*/
+            selector: 'sample-component',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <p *ngIf="showText == \'Page1\'">\n\n        <button menuClose ion-item *ngFor="let p of page1" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="showText == \'Page2\'">\n\n        <button menuClose ion-item *ngFor="let p of page2" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="showText == \'Page3\'">\n\n        <button menuClose ion-item *ngFor="let p of page3" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="showText == \'Page4\'">\n\n        <button menuClose ion-item *ngFor="let p of page4" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_9__data_service__["a" /* DataService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_10__data_service__["a" /* DataService */]])
     ], MyApp);
     return MyApp;
 }());
@@ -519,7 +577,7 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 203:
+/***/ 204:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -528,7 +586,7 @@ var MyApp = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_data_service__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_component__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_component__ = __webpack_require__(203);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -595,7 +653,7 @@ var HomePage = (function () {
 
 /***/ }),
 
-/***/ 204:
+/***/ 205:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -603,7 +661,7 @@ var HomePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_json_data__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_maps__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_maps__ = __webpack_require__(206);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -659,7 +717,7 @@ var Page1 = (function () {
                 map: this_1.map,
                 title: 'Bus Stop(Test)',
                 icon: {
-                    url: '../../assets/img/bus.png',
+                    url: '../src/assets/img/bus.png',
                     size: {
                         width: this_1.mkData[i].width,
                         height: this_1.mkData[i].height
@@ -708,17 +766,17 @@ var Page1 = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-page1',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page1\page1.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>区内マップ</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <button ion-button style="width: 50%;" (click)="mkVisible()">{{mkStatus}}</button>\n\n  <div #map id="map"></div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page1\page1.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_maps__["a" /* GoogleMaps */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_maps__["a" /* GoogleMaps */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_maps__["a" /* GoogleMaps */], __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */]])
     ], Page1);
     return Page1;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=page1.js.map
 
 /***/ }),
 
-/***/ 206:
+/***/ 207:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -727,7 +785,7 @@ var Page1 = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_json_data__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__registration_registration__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__registration_registration__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__submit_submit__ = __webpack_require__(208);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -800,59 +858,13 @@ var Page2 = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-page2',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\page2.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <div id="topContent">\n\n    <button ion-button id="Registration" *ngIf="!login" (click)="goToRegi()">アカウントの登録</button>\n\n    \n\n    <button ion-button id="Submit" *ngIf="login!=null" (click)="goToSubm()">コメントの投稿</button>\n\n    <button ion-button id="Registration" *ngIf="login!=null" (click)="logOut()" color="danger">ログアウト</button>\n\n  </div>\n\n\n\n  <div style="text-align: center;">\n\n      総投稿数：{{datasNum}}\n\n  </div><br>\n\n  <div *ngFor="let cont of contribution">\n\n    <ion-card>\n\n      <ion-card-header>\n\n        {{cont[0].title}}\n\n      </ion-card-header>\n\n      <ion-card-content>\n\n        {{cont[0].comments}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\page2.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */]])
     ], Page2);
     return Page2;
-    var Page2_1, _a, _b, _c;
+    var Page2_1;
 }());
 
 //# sourceMappingURL=page2.js.map
-
-/***/ }),
-
-/***/ 207:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegiForm; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var RegiForm = (function () {
-    function RegiForm(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    RegiForm.prototype.postURL = function (url) {
-        //var Form = <HTMLFormElement>this.formElement.nativeElement;
-        this.formElement.nativeElement.method = "POST";
-        this.formElement.nativeElement.action = url;
-        this.formElement.nativeElement.submit();
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('form'),
-        __metadata("design:type", Object)
-    ], RegiForm.prototype, "formElement", void 0);
-    RegiForm = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-registration',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\registration\registration.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板:アカウントの登録</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <!--以下に設置------>\n\n  <form #form class="test_form" target="_blank">\n\n    氏名 :\n\n    <input type="text" name="name" />\n\n\n\n    <input type="submit" (click)="postURL(\'../src/cgi/recv.cgi\')" item-right />\n\n  </form>\n\n  <!------------------>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\registration\registration.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
-    ], RegiForm);
-    return RegiForm;
-}());
-
-//# sourceMappingURL=registration.js.map
 
 /***/ }),
 
@@ -1022,20 +1034,20 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_splash_screen__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_page1_page1__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_page2_page2__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_page2_registration_registration__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_page2_submit_submit__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_page3_page3_module__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_page4_page4__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_calendar_calendar__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_splash_screen__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_page1_page1__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_page2_page2__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_page2_submit_submit__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_page3_page3_module__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_page4_page4__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_registration_registration__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_calendar_calendar__ = __webpack_require__(159);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__data_service__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__json_data__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_google_maps__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_google_maps__ = __webpack_require__(206);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1070,9 +1082,9 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */],
                 __WEBPACK_IMPORTED_MODULE_8__pages_page1_page1__["a" /* Page1 */],
                 __WEBPACK_IMPORTED_MODULE_9__pages_page2_page2__["a" /* Page2 */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_page2_registration_registration__["a" /* RegiForm */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_page2_submit_submit__["a" /* SubmForm */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_page4_page4__["a" /* Page4 */]
+                __WEBPACK_IMPORTED_MODULE_13__pages_registration_registration__["a" /* RegiForm */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_page2_submit_submit__["a" /* SubmForm */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_page4_page4__["a" /* Page4 */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], {}, {
@@ -1082,7 +1094,7 @@ var AppModule = (function () {
                 }),
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_page3_page3_module__["Page3Module"]
+                __WEBPACK_IMPORTED_MODULE_11__pages_page3_page3_module__["Page3Module"]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* IonicApp */]],
             entryComponents: [
@@ -1090,9 +1102,9 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */],
                 __WEBPACK_IMPORTED_MODULE_8__pages_page1_page1__["a" /* Page1 */],
                 __WEBPACK_IMPORTED_MODULE_9__pages_page2_page2__["a" /* Page2 */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_page2_registration_registration__["a" /* RegiForm */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_page2_submit_submit__["a" /* SubmForm */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_page4_page4__["a" /* Page4 */]
+                __WEBPACK_IMPORTED_MODULE_13__pages_registration_registration__["a" /* RegiForm */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_page2_submit_submit__["a" /* SubmForm */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_page4_page4__["a" /* Page4 */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_17__ionic_native_google_maps__["a" /* GoogleMaps */],
