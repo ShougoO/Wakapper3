@@ -51,8 +51,9 @@ done
 
 array+=("\"cont$Num.json\"")
 
-echo "{\"dataNames\":["${array[*]}"]}" > $ased/datas.json
+echo "{\"dataNames\":["${array[*]}"]}" > $ased/datasN.json
 
+cat $ased/datasN.json > $ased/datas.json
 
 echo "Location: $HTTP_REFERER"
 echo ""
@@ -64,3 +65,4 @@ rm -f $lim
 rm -f $tmp-*
 rm -f $array
 rm -f $com
+rm -f $ased/datasN.json

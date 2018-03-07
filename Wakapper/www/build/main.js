@@ -615,7 +615,9 @@ var HomePage = (function () {
         var Q = urlParams.getAll("q");
         // 全パラメータの中の先頭で判断
         // "regi"(登録・ログイン),"subm"(投稿)したとき、page2に移動
+        console.log(Q[0]);
         if (Q[0] == "regi" || Q[0] == "subm") {
+            console.log(Q[0]);
             this.goToPage2();
         }
     };
