@@ -536,6 +536,9 @@ var MyApp = (function () {
                     _this.showText = "Page4";
                     _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__["a" /* Page4 */], "Page4");
                 }
+                else if (text == "Regi") {
+                    _this.nav.push(__WEBPACK_IMPORTED_MODULE_9__pages_registration_registration__["a" /* RegiForm */]);
+                }
                 else {
                     if (text == "RegiForm") {
                         _this.nav.push(__WEBPACK_IMPORTED_MODULE_9__pages_registration_registration__["a" /* RegiForm */]);
@@ -616,9 +619,13 @@ var HomePage = (function () {
         // 全パラメータの中の先頭で判断
         // "regi"(登録・ログイン),"subm"(投稿)したとき、page2に移動
         console.log(Q[0]);
-        if (Q[0] == "regi" || Q[0] == "subm") {
+        if (Q[0] == "regi") {
             console.log(Q[0]);
             this.goToPage2();
+        }
+        else if (Q[0] == "re") {
+            console.log(Q[0]);
+            this.goToRegi();
         }
     };
     /* URL先へ遷移する
@@ -641,6 +648,10 @@ var HomePage = (function () {
     HomePage.prototype.goToPage4 = function () {
         __WEBPACK_IMPORTED_MODULE_4__app_app_component__["a" /* MyApp */].text = "Page4";
         this.dataService.sendSampleText("Page04");
+    };
+    HomePage.prototype.goToRegi = function () {
+        __WEBPACK_IMPORTED_MODULE_4__app_app_component__["a" /* MyApp */].text = "Regi";
+        this.dataService.sendSampleText("Regi");
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
@@ -814,7 +825,6 @@ var Page2 = (function () {
         this.showText = this.text;
         this.datasNum = 0;
     }
-    Page2_1 = Page2;
     Page2.prototype.ionViewDidLoad = function () {
         var Url = document.location.search.substring(1);
         var urlParams = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* URLSearchParams */](Url, new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* QueryEncoder */]());
@@ -846,7 +856,7 @@ var Page2 = (function () {
     // ログアアウト
     Page2.prototype.logOut = function () {
         this.login = null;
-        this.navCtrl.setRoot(Page2_1, "Page2");
+        window.location.href = '../src/cgi/logout.cgi';
     };
     // 投稿ページへ
     Page2.prototype.goToSubm = function () {
@@ -856,14 +866,14 @@ var Page2 = (function () {
     Page2.prototype.goToRegi = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__registration_registration__["a" /* RegiForm */]);
     };
-    Page2 = Page2_1 = __decorate([
+    Page2 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-page2',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\page2.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <div id="topContent">\n\n    <button ion-button id="Registration" *ngIf="!login" (click)="goToRegi()">アカウントの登録・ログイン</button>\n\n    \n\n    <button ion-button id="Submit" *ngIf="login!=null" (click)="goToSubm()">コメントの投稿</button>\n\n    <button ion-button id="Registration" *ngIf="login!=null" (click)="logOut()" color="danger">ログアウト</button>\n\n  </div>\n\n\n\n  <div style="text-align: center;">\n\n      総投稿数：{{datasNum}}\n\n  </div><br>\n\n  <div *ngFor="let cont of contribution">\n\n    <ion-card>\n\n      <ion-card-header>\n\n        {{cont[0].title}}\n\n      </ion-card-header>\n\n      <ion-card-content>\n\n        {{cont[0].comments}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\page2.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */]) === "function" && _c || Object])
     ], Page2);
     return Page2;
-    var Page2_1;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=page2.js.map

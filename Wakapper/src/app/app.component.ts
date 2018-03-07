@@ -20,6 +20,7 @@ import { DataService } from './data.service';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   
+  q: string = undefined;
   static text: string;
   showText: string;
   position: any = { lat: 33.9144938, lng: 130.7528295 };
@@ -101,6 +102,10 @@ export class MyApp {
         } else if (text == "Page04") {
           this.showText = "Page4";
           this.nav.setRoot(Page4, "Page4");
+
+        } else if (text == "Regi") {
+          this.q = text;
+          this.nav.push(RegiForm);
 
         } else {
           if (text == "RegiForm") {

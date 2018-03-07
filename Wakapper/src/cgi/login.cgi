@@ -99,9 +99,27 @@ ERROR_CHECK
 # echo "Content-type: text/html"
 # echo ""
 # echo $str Successful.
+url=$HTTP_REFERER
+echo $url > $inpd/url.txt
+aaa=$(awk -F"?" -v "num=2" '{print $num}' $inpd/url.txt)
+if [ "$str" == "Login" ]; then
+  if [ "$aaa" == "q=regi"  ]; then
+    echo "Location: $HTTP_REFERER&q=regi"
+    echo ""
+  else
+    echo "Location: $HTTP_REFERER?q=regi"
+    echo ""
+  fi
+else
+  if [ "$aaa" == "q=regi"  ]; then
+    echo "Location: $HTTP_REFERER&q=re"
+    echo ""
+  else
+    echo "Location: $HTTP_REFERER?q=re"
+    echo ""
+  fi
+fi
 
-echo "Location: $HTTP_REFERER?q=regi"
-echo ""
 
 ################################################
 # 終了処理
@@ -116,4 +134,7 @@ rm -f $pa
 rm -f $str
 rm -f $ID
 rm -f $PASS
+rm -f $url
+rm -f $inpd/url.txt
+rm -f $aaa
 exit 0

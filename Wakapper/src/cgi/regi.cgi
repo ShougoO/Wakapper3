@@ -95,8 +95,17 @@ ERROR_CHECK
 # echo "Content-type: text/html"
 # echo ""
 # echo Registration Successful.
-echo "Location: $HTTP_REFERER?q=regi"
-echo ""
+
+url=$HTTP_REFERER
+echo $url > $inpd/url.txt
+aaa=$(awk -F"?" -v "num=2" '{print $num}' $inpd/url.txt)
+if [ "$aaa" == "q=regi"  ]; then
+  echo "Location: $HTTP_REFERER&q=regi"
+  echo ""
+else
+  echo "Location: $HTTP_REFERER?q=regi"
+  echo ""
+fi
 
 ################################################
 # 終了処理
@@ -106,4 +115,7 @@ rm -f $count
 rm -f $array
 rm -f $sub
 rm -f $com
+rm -f $url
+rm -f $inpd/url.txt
+rm -f $aaa
 exit 0

@@ -61,7 +61,7 @@ export class Page2{
   // ログアアウト
   logOut(){
     this.login = null;
-    this.navCtrl.setRoot(Page2, "Page2");
+    window.location.href = '../src/cgi/logout.cgi';
   }
 
   // 投稿ページへ

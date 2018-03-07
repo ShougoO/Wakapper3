@@ -25,9 +25,12 @@ export class HomePage {
       // 全パラメータの中の先頭で判断
       // "regi"(登録・ログイン),"subm"(投稿)したとき、page2に移動
       console.log(Q[0]);
-      if (Q[0] == "regi" || Q[0] == "subm") {
+      if (Q[0] == "regi") {
         console.log(Q[0]);
         this.goToPage2();
+      }else if (Q[0] == "re") {
+        console.log(Q[0]);
+        this.goToRegi();
       }
     }
     
@@ -40,7 +43,7 @@ export class HomePage {
     goToPage1() {
       MyApp.text = "Page1";
       this.dataService.sendSampleText("Page01");
-     }
+    }
 
     goToPage2() {
       MyApp.text = "Page2";
@@ -55,5 +58,10 @@ export class HomePage {
     goToPage4() {
       MyApp.text = "Page4";
       this.dataService.sendSampleText("Page04");
+    }
+
+    goToRegi() {
+      MyApp.text = "Regi";
+      this.dataService.sendSampleText("Regi");
     }
 }
