@@ -8,7 +8,7 @@
 LANG=js_JP.UTF-8
 PATH=/usr/local/bin:$PATH
 
-homd=/home/dshougo/Wakapper/Wakapper/src
+homd=/home/dshougo/Wakapper3/Wakapper/src
 logd=$homd/log
 inpd=$homd/input
 
@@ -79,7 +79,7 @@ do
   var=$(( var+2 ))
 done
 
-echo "${array[*]}" > $inpd/loginData.json
+# echo "${array[*]}" > $inpd/loginData.json
 
 for var in "${array[@]}"
 do
@@ -96,9 +96,12 @@ ERROR_CHECK
 
 ################################################
 # 出力
-echo "Content-type: text/html"
+# echo "Content-type: text/html"
+# echo ""
+# echo $str Successful.
+
+echo "Location: $HTTP_REFERER?q=regi"
 echo ""
-echo $str Successful.
 
 ################################################
 # 終了処理

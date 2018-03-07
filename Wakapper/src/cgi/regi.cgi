@@ -8,7 +8,7 @@
 LANG=js_JP.UTF-8
 PATH=/usr/local/bin:$PATH
 
-homd=/home/dshougo/Wakapper/Wakapper/src
+homd=/home/dshougo/Wakapper3/Wakapper/src
 logd=$homd/log
 inpd=$homd/input
 
