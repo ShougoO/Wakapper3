@@ -50,13 +50,21 @@ export class Page2{
   getJsonDatas() {
     console.log("reading datas");
     // コメントが書いてあるリストの読み込み
+<<<<<<< HEAD
     this.dataService.getData('../src/assets/data/datas.json').subscribe(dataName => {//../assets/data/datas.json(local)
+=======
+    this.dataService.getData('../assets/data/datas.json').subscribe(dataName => {
+>>>>>>> 5764db31095b9c58a4403776c1db6dac99edcc18
       this.dataNames = dataName.dataNames;
       
       // 各々のjsonを読み込みcontributionに格納 -> htmlで表示
       for(var i=0; this.dataNames[i]!=null;i++){
+<<<<<<< HEAD
         console.log("reading data");
         this.dataService.getData('../src/assets/data/'+ this.dataNames[i]).subscribe(data => {//../assets/data/(local)
+=======
+        this.dataService.getData('../assets/data/'+ this.dataNames[i]).subscribe(data => {
+>>>>>>> 5764db31095b9c58a4403776c1db6dac99edcc18
           this.contribution.push(data.contribution);
         });
         // 投稿数
