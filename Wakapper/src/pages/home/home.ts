@@ -29,6 +29,9 @@ export class HomePage {
         console.log("login");
         this.flag = 'login';
         this.sendToDataService();
+        if(Q[1] == "subm"){
+          this.goToPage2();
+        }
       }
     }
     

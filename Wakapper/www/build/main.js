@@ -712,6 +712,9 @@ var HomePage = (function () {
             console.log("login");
             this.flag = 'login';
             this.sendToDataService();
+            if (Q[1] == "subm") {
+                this.goToPage2();
+            }
         }
     };
     HomePage.prototype.sendToDataService = function () {
