@@ -20,6 +20,7 @@ import { RegiForm } from '../pages/registration/registration';
 
 import { CalendarProvider } from '../providers/calendar/calendar';
 import { DataService } from './data.service';
+import { DataServiceSubm } from './data.service.subm';
 import { JsonData } from './json-data';
 
 import { GoogleMaps } from '@ionic-native/google-maps';
@@ -57,6 +58,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
   providers: [
     GoogleMaps,
     DataService,
+    DataServiceSubm,
     JsonData,
     StatusBar,
     SplashScreen,

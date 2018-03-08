@@ -3,6 +3,7 @@ import { URLSearchParams, QueryEncoder } from '@angular/http';
 import { NavController } from 'ionic-angular';
 
 import { DataService } from '../../app/data.service';
+import { DataServiceSubm } from '../../app/data.service.subm';
 import { MyApp } from '../../app/app.component';
 
 @Component({
@@ -13,14 +14,14 @@ export class HomePage {
     page: any;
     flag: string= 'logout';
 
-    constructor(public navCtrl: NavController, private dataService: DataService) {
-      this.gettingQ();
-    }
+    constructor(public navCtrl: NavController,
+                private dataService: DataService,
+                private dataServiceSubm: DataServiceSubm,) { }
 
     //画面表示後、掲示板の登録用のcgiから
     //パラメータが送られてきた場合(q = regi)
     //page2へ遷移する
-    gettingQ() {
+    ionViewDidEnter() {
       var Url = document.location.search.substring(1);
       var urlParams = new URLSearchParams(Url, new QueryEncoder());
       var Q = urlParams.getAll("q");
@@ -28,13 +29,13 @@ export class HomePage {
       // 全パラメータの中の先頭で判断
       // "regi"(登録・ログイン),"login"(ログイン)したときdataserviceに送信
       if (Q[0] == "regi" || Q[0] == "login") {
-        console.log("login");
         this.flag = 'login';
         this.sendToDataService();
-        if(Q[1] == "subm"){
-          console.log("submit");
-          this.goToPage2();
+        if(Q[1] == "subm"){;
+          this.dataServiceSubm.sendSampleNum(1);
         }
+      } else {
+        this.flag= 'logout';
       }
     }
     
