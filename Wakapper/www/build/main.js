@@ -875,10 +875,10 @@ var Page1 = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-page1',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page1\page1.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>区内マップ</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <button ion-button (click)="markerVisible()">{{mkState}}</button>\n\n  <div #map id="map"></div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page1\page1.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_maps__["a" /* GoogleMaps */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_maps__["a" /* GoogleMaps */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_maps__["a" /* GoogleMaps */], __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */]])
     ], Page1);
     return Page1;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=page1.js.map
@@ -969,10 +969,9 @@ var Page2 = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-page2',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\page2.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <div id="topContent">\n\n    <button ion-button id="Registration" *ngIf="!login" (click)="goToRegi()" color="secondary">アカウントの登録・ログイン</button>\n\n    \n\n    <button ion-button id="Submit" *ngIf="login!=null" (click)="goToSubm()">コメントの投稿</button>\n\n    <button ion-button id="Registration" *ngIf="login!=null" (click)="logOut()" color="danger">ログアウト</button>\n\n  </div>\n\n\n\n  <div style="text-align: center;">\n\n      総投稿数：{{datasNum}}\n\n  </div><br>\n\n  <div *ngFor="let cont of contribution">\n\n    <ion-card>\n\n      <ion-card-header>\n\n        {{cont[0].title}}\n\n      </ion-card-header>\n\n      <ion-card-content>\n\n        {{cont[0].comments}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\page2.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */]])
     ], Page2);
     return Page2;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=page2.js.map
@@ -1240,8 +1239,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/detail/detail.module#DetailPageModule', name: 'DetailPage', segment: 'detail', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/page3/page3.module#Page3Module', name: 'Page3', segment: 'page3', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/time-table/time-table.module#TimeTablePageModule', name: 'TimeTablePage', segment: 'time-table', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/time-table/time-table.module#TimeTablePageModule', name: 'TimeTablePage', segment: 'time-table', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/page3/page3.module#Page3Module', name: 'Page3', segment: 'page3', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
@@ -1310,10 +1309,9 @@ var JsonData = (function () {
     ;
     JsonData = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
     ], JsonData);
     return JsonData;
-    var _a;
 }());
 
 //# sourceMappingURL=json-data.js.map
