@@ -32,5 +32,6 @@ export class DataServiceNum {
         } else if(num==6){
             this.SampleNum.next(this.tracks);
         }
+        console.log(this.tracks);
     }
 }

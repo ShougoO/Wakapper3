@@ -1387,6 +1387,7 @@ var DataServiceNum = (function () {
         else if (num == 6) {
             this.SampleNum.next(this.tracks);
         }
+        console.log(this.tracks);
     };
     DataServiceNum = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
