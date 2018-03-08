@@ -3,8 +3,6 @@ import { NavController, NavParams } from 'ionic-angular';
 import { JsonData } from '../../app/json-data';
 //import { GoogleMapsLatLngBounds, GoogleMapsLatLng} from 'ionic-native';
 
-import { JsonData } from '../../app/json-data';
-
 // GoogleMap を使用する時、 @ionic-native/core が必要(npm install)
 import {
   GoogleMaps,
@@ -31,7 +29,6 @@ export class Page1 {
   marker: any;  // マーカー
   lat: number;  // 緯度
   lng: number;  // 経度
-  marker: any;
   mkData: any;
 
   clickEvent =[];
@@ -39,22 +36,14 @@ export class Page1 {
   mkState:string;
   snippet:string = "hoge";
 
-  mkData: any;
-
   mkStatus: string;
   clickStatus: any;
 
   text: string;
   showText: string;
 
-<<<<<<< HEAD
   constructor(public navCtrl: NavController, public navParams: NavParams
             , private googleMaps: GoogleMaps, public dataService: JsonData) {
-=======
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-    private googleMaps: GoogleMaps, public dataService: JsonData)
-    {
->>>>>>> 1c740043cb543370ac4ec91e501140e0f8d1f75e
     this.text = navParams.get("text");
     this.showText = this.text;
     // 読み込み時に受け取った緯度と経度の位置に Marker を設置
@@ -68,12 +57,8 @@ export class Page1 {
   }
 
   mapInit() {
-<<<<<<< HEAD
-    this.dataService.getData('../assets/data/mkData.json').subscribe(data => {
-=======
     // json取得
-    this.dataService.getData('../src/assets/data/mkData.json').subscribe(data => {//../assets/data/mkData.json(local)
->>>>>>> 1c740043cb543370ac4ec91e501140e0f8d1f75e
+    this.dataService.getData('../assets/data/mkData.json').subscribe(data => {//../src/assets/data/mkData.json(local)
       this.mkData = data.mkData;
       this.loadMap();
     });
@@ -100,35 +85,21 @@ export class Page1 {
 
     
     // Markerの設置
-<<<<<<< HEAD
     this.marker = [];
-=======
-    this.mkStatus = '非表示にする';
-    this.marker = [];
-    this.clickStatus = [];
-
->>>>>>> 1c740043cb543370ac4ec91e501140e0f8d1f75e
     for(let i=0;i<3;i++){
       this.marker[i] = new google.maps.Marker({
         position: { lat: this.mkData[i].lat, lng: this.mkData[i].lng },
         map: this.map,
-<<<<<<< HEAD
         title: this.mkData[i].title,
         snippet: this.mkData[i].snippet,
         icon: {
           url: '../../assets/img/bus.png',
-=======
-        title: 'Bus Stop(Test)',
-        icon: {
-          url: '../src/assets/img/bus.png',// ../../assets/img/bus.png(local)
->>>>>>> 1c740043cb543370ac4ec91e501140e0f8d1f75e
           size: {
             width: this.mkData[i].width,
             height: this.mkData[i].height
           }
         }
       });
-<<<<<<< HEAD
 
       // 情報ウィンドウの設定
       let infoWindowContent = '<div id="content"><h1 id="firstHeading" class="firstHeading">'
@@ -150,24 +121,10 @@ export class Page1 {
       google.maps.event.addListener(this.marker[i], 'click', () => {
         alert("お気に入り登録しました");
         this.clickEvent[i] = '1';
-        alert(this.clickEvent[i]);
-=======
-      this.clickStatus[i] = 1;
-
-      google.maps.event.addListener(this.marker[i], 'click', () => {
-        if(this.clickStatus[i]){
-          alert("お気に入り登録しました。");
-          this.clickStatus[i] = 0;
-        }else{
-          alert("お気に入り解除しました。");
-          this.clickStatus[i] = 1; 
-        }
->>>>>>> 1c740043cb543370ac4ec91e501140e0f8d1f75e
       });
     }
   }
 
-<<<<<<< HEAD
   markerVisible(){
     if(this.mkState=='マーカーを表示する'){
       this.mkState = 'マーカーを非表示にする';
@@ -178,30 +135,11 @@ export class Page1 {
     }
   }
   setBool(bool){
-    alert(this.clickEvent[3]);
     for(var i=0;i<3;i++){
       console.log(this.clickEvent);
       if(this.clickEvent[i] != '1'){
         this.marker[i].setVisible(bool);
-=======
-  mkVisible(){
-    if(this.mkStatus == '非表示にする'){
-      this.mkStatus = '表示する';
-      this.mkSetVisible(false);
-    }else if(this.mkStatus == '表示する'){
-      this.mkStatus = '非表示にする';
-      this.mkSetVisible(true);
-    }
-  }
-
-  mkSetVisible(bool){
-      for(let i=0;i<3;i++){
-      if(this.clickStatus[i]){
-        this.marker[i].setVisible(bool);  
->>>>>>> 1c740043cb543370ac4ec91e501140e0f8d1f75e
       }
     }
   }
-
-  
 }

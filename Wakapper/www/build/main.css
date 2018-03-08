@@ -25679,6 +25679,15 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+img {
+  margin: 30px auto;
+  max-width: 400px;
+}
+
+p {
+  white-space: pre-wrap;
+}
+
 page-home .center {
   text-align: center;
 }
