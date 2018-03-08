@@ -107,7 +107,7 @@ export class MyApp {
           this.nav.push(RegiForm);
 
         } else if (text == "relo") {
-          this.q = text;
+          this.q = text;  // メニューに表示する時のflag
 
         } else {
           if (text == "RegiForm") {

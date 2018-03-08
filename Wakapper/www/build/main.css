@@ -25687,6 +25687,14 @@ p {
   white-space: pre-wrap;
 }
 
+page-home ion-header ion-title, page-home ion-header button {
+  display: inline-block;
+}
+
+page-home ion-header button {
+  margin-left: 5%;
+}
+
 page-home .center {
   text-align: center;
 }
@@ -25781,16 +25789,14 @@ page-page1 #map {
   height: 100%;
 }
 
-page-submit #title {
-  width: 80%;
-  height: 10%;
-  margin: 10%;
+page-submit ion-content {
+  margin-top: 1%;
+  margin-left: 1%;
 }
 
-page-submit #comments {
-  width: 80%;
-  height: 10%;
-  margin: 10%;
+page-submit ion-content #content {
+  width: 100%;
+  height: 5em;
 }
 
 page-page3 .header-md::after {
@@ -25905,4 +25911,14 @@ page-page3 .spanEventDates {
   page-page3 .spanEventDates {
     display: none;
   }
+}
+
+page-registration ion-content {
+  margin-top: 1%;
+  margin-left: 1%;
+}
+
+page-registration ion-content #content {
+  width: 30%;
+  height: 2em;
 }

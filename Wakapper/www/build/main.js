@@ -73,7 +73,7 @@ var RegiForm = (function () {
     ], RegiForm.prototype, "formElement", void 0);
     RegiForm = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-registration',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\registration\registration.html"*/'<ion-header>\n\n  <ion-navbar color="secondary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>アカウントの登録・ログイン</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <form #form>\n\n    ID\n\n    <input type="text" maxlength="12" name="id" />\n\n    <br>\n\n    Pass\n\n    <input type="password" maxlength="12" name="pass" />\n\n    <div style="text-align: right;">\n\n      <input type="submit" value="登録する" (click)="postURL(\'../src/cgi/regi.cgi\')" />\n\n      <input type="submit" value="ログインする" (click)="postURL(\'../src/cgi/login.cgi\')" />\n\n    </div>\n\n  </form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\registration\registration.html"*/
+            selector: 'page-registration',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\registration\registration.html"*/'<ion-header>\n\n  <ion-navbar color="secondary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>アカウントの登録・ログイン</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n  <form #form>\n\n    ID<br>\n\n    <input type="text" maxlength="12" name="id" id="content"/><br><br>\n\n    Pass<br>\n\n    <input type="password" maxlength="12" name="pass" id="content"/><br><br>\n\n\n\n    <input type="submit" value="登録する" (click)="postURL(\'../src/cgi/regi.cgi\')" />\n\n    <input type="submit" value="ログインする" (click)="postURL(\'../src/cgi/login.cgi\')" />\n\n  </form>\n\n</ion-content>'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\registration\registration.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
     ], RegiForm);
@@ -623,7 +623,7 @@ var MyApp = (function () {
                     _this.nav.push(__WEBPACK_IMPORTED_MODULE_9__pages_registration_registration__["a" /* RegiForm */]);
                 }
                 else if (text == "relo") {
-                    _this.q = text;
+                    _this.q = text; // メニューに表示する時のflag
                 }
                 else {
                     if (text == "RegiForm") {
@@ -697,6 +697,7 @@ var HomePage = (function () {
     function HomePage(navCtrl, dataService) {
         this.navCtrl = navCtrl;
         this.dataService = dataService;
+        this.flag = 'logout';
     }
     //画面表示後、掲示板の登録用のcgiから
     //パラメータが送られてきた場合(q = regi)
@@ -708,6 +709,8 @@ var HomePage = (function () {
         // 全パラメータの中の先頭で判断
         // "regi"(登録・ログイン),"login"(ログイン)したときdataserviceに送信
         if (Q[0] == "regi" || Q[0] == "login") {
+            console.log("login");
+            this.flag = 'login';
             this.sendToDataService();
         }
     };
@@ -732,11 +735,17 @@ var HomePage = (function () {
     };
     HomePage.prototype.goToRegi = function () {
         __WEBPACK_IMPORTED_MODULE_4__app_app_component__["a" /* MyApp */].text = "Regi";
+        this.flag = 'login';
         this.dataService.sendSampleText("Regi");
+    };
+    // ログアアウト
+    HomePage.prototype.logOut = function () {
+        this.flag = 'logout';
+        window.location.href = '../src/cgi/logout.cgi';
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <ion-title>Wakapper</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding class="links">\n\n  <button ion-button (click)="goToPage1()">\n\n    <ion-icon name="map">\n\n      <p>マップ</p>\n\n    </ion-icon>\n\n  </button>\n\n  <button ion-button (click)="goToPage2()">\n\n    <ion-icon name="chatbubbles">\n\n      <p>掲示板</p>\n\n    </ion-icon>\n\n  </button>\n\n  <button ion-button (click)="goToPage3()">\n\n    <ion-icon name="paper">\n\n      <p>カレンダー</p>\n\n    </ion-icon>\n\n  </button>\n\n  <button ion-button (click)="goToPage4()">\n\n    <ion-icon name="subway">\n\n      <p>運行表</p>\n\n    </ion-icon>\n\n  </button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <ion-title>Wakapper</ion-title>\n\n    <button *ngIf="flag==\'logout\'" ion-button (click)="goToRegi()" color="secondary">\n\n      アカウント登録・ログイン\n\n    </button>\n\n    <button *ngIf="flag==\'login\'" ion-button (click)="logOut()" color="danger">\n\n      ログアウト\n\n    </button>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding class="links">\n\n  <button ion-button (click)="goToPage1()">\n\n    <ion-icon name="map">\n\n      <p>マップ</p>\n\n    </ion-icon>\n\n  </button>\n\n  <button ion-button (click)="goToPage2()">\n\n    <ion-icon name="chatbubbles">\n\n      <p>掲示板</p>\n\n    </ion-icon>\n\n  </button>\n\n  <button ion-button (click)="goToPage3()">\n\n    <ion-icon name="paper">\n\n      <p>カレンダー</p>\n\n    </ion-icon>\n\n  </button>\n\n  <button ion-button (click)="goToPage4()">\n\n    <ion-icon name="subway">\n\n      <p>運行表</p>\n\n    </ion-icon>\n\n  </button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__app_data_service__["a" /* DataService */]])
     ], HomePage);
@@ -1031,7 +1040,7 @@ var SubmForm = (function () {
     ], SubmForm.prototype, "formElement", void 0);
     SubmForm = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-submit',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\submit\submit.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板:コメントの投稿</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <!--以下に設置---- target="_blank" : 新しいタブで開く-->\n\n  <form #comments class="test_form">\n\n    投稿タイトル :\n\n    <input type="text" id="title" name="title" />\n\n    投稿コメント :\n\n    <input type="text" id="comments" name="comments" />\n\n    \n\n    <input type="text" [(ngModel)]="this.num" id="num" name="num" value="{{this.num}}" readonly />個目の投稿\n\n\n\n    <input type="submit" (click)="postURL(\'../src/cgi/subm.cgi\')" item-right />\n\n  </form>\n\n  <!------------------>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\submit\submit.html"*/
+            selector: 'page-submit',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\submit\submit.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板:コメントの投稿</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <form #comments class="test_form">\n\n    投稿タイトル :<br>\n\n    <input type="text" id="content" name="title" /><br>\n\n    投稿コメント :<br>\n\n    <input type="text" id="content" name="comments" /><br><br>\n\n    <input type="hidden" [(ngModel)]="this.num" id="num" name="num" value="{{this.num}}" readonly />\n\n\n\n    <input type="submit" (click)="postURL(\'../src/cgi/subm.cgi\')" />\n\n  </form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\submit\submit.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
     ], SubmForm);

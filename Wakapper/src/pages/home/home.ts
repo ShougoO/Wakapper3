@@ -11,6 +11,7 @@ import { MyApp } from '../../app/app.component';
 })
 export class HomePage {
     page: any;
+    flag: string= 'logout';
 
     constructor(public navCtrl: NavController, private dataService: DataService) { }
 
@@ -25,6 +26,8 @@ export class HomePage {
       // 全パラメータの中の先頭で判断
       // "regi"(登録・ログイン),"login"(ログイン)したときdataserviceに送信
       if (Q[0] == "regi" || Q[0] == "login") {
+        console.log("login");
+        this.flag = 'login';
         this.sendToDataService();
       }
     }
@@ -55,6 +58,13 @@ export class HomePage {
 
     goToRegi() {
       MyApp.text = "Regi";
+      this.flag= 'login';
       this.dataService.sendSampleText("Regi");
+    }
+
+    // ログアアウト
+    logOut(){
+      this.flag= 'logout';
+      window.location.href = '../src/cgi/logout.cgi';
     }
 }

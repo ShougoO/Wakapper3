@@ -8,16 +8,13 @@
 </ion-header>
 
 <ion-content>
-  <!--以下に設置---- target="_blank" : 新しいタブで開く-->
   <form #comments class="test_form">
-    投稿タイトル :
-    <input type="text" id="title" name="title" />
-    投稿コメント :
-    <input type="text" id="comments" name="comments" />
-    
-    <input type="text" [(ngModel)]="this.num" id="num" name="num" value="{{this.num}}" readonly />個目の投稿
+    投稿タイトル :<br>
+    <input type="text" id="content" name="title" /><br>
+    投稿コメント :<br>
+    <input type="text" id="content" name="comments" /><br><br>
+    <input type="hidden" [(ngModel)]="this.num" id="num" name="num" value="{{this.num}}" readonly />
 
-    <input type="submit" (click)="postURL('../src/cgi/subm.cgi')" item-right />
+    <input type="submit" (click)="postURL('../src/cgi/subm.cgi')" />
   </form>
-  <!------------------>
 </ion-content>

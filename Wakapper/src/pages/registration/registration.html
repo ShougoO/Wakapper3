@@ -7,16 +7,14 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
   <form #form>
-    ID
-    <input type="text" maxlength="12" name="id" />
-    <br>
-    Pass
-    <input type="password" maxlength="12" name="pass" />
-    <div style="text-align: right;">
-      <input type="submit" value="登録する" (click)="postURL('../src/cgi/regi.cgi')" />
-      <input type="submit" value="ログインする" (click)="postURL('../src/cgi/login.cgi')" />
-    </div>
+    ID<br>
+    <input type="text" maxlength="12" name="id" id="content"/><br><br>
+    Pass<br>
+    <input type="password" maxlength="12" name="pass" id="content"/><br><br>
+
+    <input type="submit" value="登録する" (click)="postURL('../src/cgi/regi.cgi')" />
+    <input type="submit" value="ログインする" (click)="postURL('../src/cgi/login.cgi')" />
   </form>
 </ion-content>

@@ -1,6 +1,12 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>Wakapper</ion-title>
+    <button *ngIf="flag=='logout'" ion-button (click)="goToRegi()" color="secondary">
+      アカウント登録・ログイン
+    </button>
+    <button *ngIf="flag=='login'" ion-button (click)="logOut()" color="danger">
+      ログアウト
+    </button>
   </ion-navbar>
 </ion-header>
 

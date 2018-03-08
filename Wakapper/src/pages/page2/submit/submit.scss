@@ -1,13 +1,10 @@
 page-submit {
-  #title {
-    width: 80%;
-    height: 10%;
-    margin: 10%;
-  }
-
-  #comments {
-    width: 80%;
-    height: 10%;
-    margin: 10%;
+  ion-content{
+    margin-top: 1%;
+    margin-left: 1%;
+    #content {
+      width: 100%;
+      height: 5em;
+    }
   }
 }
