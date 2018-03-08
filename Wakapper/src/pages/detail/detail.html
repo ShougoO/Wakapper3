@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <ion-card>
+    <img src="http://3.bp.blogspot.com/-jHdA_6VWQFw/WYAxqtZz54I/AAAAAAABFuk/rDsnpKBPpsQ1gMDDrJYRjh5IVdUBkd30QCLcBGAs/s800/building_fastfood.png"/>
+    
+    <ion-card-title>
+        {{name}}
+    </ion-card-title>
+    
+    <ion-card-content>
+      <p>{{address}}</p>
+      
+      <p>{{open}}</p>
+    </ion-card-content>
+    
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="star"></ion-icon>
+          <div>お気に入り登録</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>{{commentSize}} コメント↓</div>
+        </button>
+      </ion-col>
+    </ion-row>
+    
+  </ion-card>
+
+  <ion-card *ngFor="let item of comment"> 
+    <ion-card-title>
+      {{item.title}}
+    </ion-card-title>
+    
+    <ion-card-content>
+      {{item.comment}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
