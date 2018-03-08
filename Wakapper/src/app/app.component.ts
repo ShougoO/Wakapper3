@@ -12,7 +12,7 @@ import { Page4 } from '../pages/page4/page4';
 import { RegiForm } from '../pages/registration/registration';
 
 import { DataService } from './data.service';
-import { DataServiceSubm } from './data.service.subm';
+import { DataServiceNum } from './data.service.num';
 
 @Component({
   selector: 'sample-component',
@@ -49,7 +49,7 @@ export class MyApp {
               public statusBar: StatusBar,
               public splashScreen: SplashScreen,
               private dataService: DataService,
-              private dataServiceSubm: DataServiceSubm) {
+              private dataServiceNum: DataServiceNum) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -128,8 +128,8 @@ export class MyApp {
         }
       });
 
-      this.dataServiceSubm.Num$.subscribe(num => {
-        if(num == 0){
+      this.dataServiceNum.Num$.subscribe(num => {
+        if(num == 0 || num == 1){
           this.showText = "Page2";
           this.nav.setRoot(Page2, "Page2");
         }

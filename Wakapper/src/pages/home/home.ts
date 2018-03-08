@@ -3,7 +3,7 @@ import { URLSearchParams, QueryEncoder } from '@angular/http';
 import { NavController } from 'ionic-angular';
 
 import { DataService } from '../../app/data.service';
-import { DataServiceSubm } from '../../app/data.service.subm';
+import { DataServiceNum } from '../../app/data.service.num';
 import { MyApp } from '../../app/app.component';
 
 @Component({
@@ -16,7 +16,7 @@ export class HomePage {
 
     constructor(public navCtrl: NavController,
                 private dataService: DataService,
-                private dataServiceSubm: DataServiceSubm,) { }
+                private dataServiceNum: DataServiceNum) { }
 
     //画面表示後、掲示板の登録用のcgiから
     //パラメータが送られてきた場合(q = regi)
@@ -31,8 +31,8 @@ export class HomePage {
       if (Q[0] == "regi" || Q[0] == "login") {
         this.flag = 'login';
         this.sendToDataService();
-        if(Q[1] == "subm"){;
-          this.dataServiceSubm.sendSampleNum(1);
+        if(Q[1] == "subm"){
+          this.dataServiceNum.sendSampleNum(1);
         }
       } else {
         this.flag= 'logout';
