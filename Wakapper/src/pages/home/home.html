@@ -12,9 +12,25 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <button ion-button (click)="goToPage1()">区内マップ</button>
-  <button ion-button (click)="goToPage2()">掲示板</button>
-  <button ion-button (click)="goToPage3()">イベントカレンダー</button>
-  <button ion-button (click)="goToPage4()">運行表</button>
+<ion-content padding class="links">
+  <button ion-button (click)="goToPage1()">
+    <ion-icon name="map">
+      <p>マップ</p>
+    </ion-icon>
+  </button>
+  <button ion-button (click)="goToPage2()">
+    <ion-icon name="chatbubbles">
+      <p>掲示板</p>
+    </ion-icon>
+  </button>
+  <button ion-button (click)="goToPage3()">
+    <ion-icon name="paper">
+      <p>カレンダー</p>
+    </ion-icon>
+  </button>
+  <button ion-button (click)="goToPage4()">
+    <ion-icon name="subway">
+      <p>運行表</p>
+    </ion-icon>
+  </button>
 </ion-content>

@@ -25737,8 +25737,36 @@ page-home .ionic-logo:before {
   -webkit-border-radius: 100%;
 }
 
-page-home button {
-  width: 250px;
+page-home .links {
+  height: 100%;
+  text-align: center;
+}
+
+page-home .links button {
+  width: 48%;
+  border-radius: 10%;
+}
+
+@media screen and (min-width: 1100px) {
+  page-home .links button {
+    height: 48%;
+  }
+  page-home .links button ion-icon {
+    font-size: 400%;
+  }
+}
+
+@media screen and (max-width: 1099px) {
+  page-home .links button {
+    height: 28%;
+  }
+  page-home .links button ion-icon {
+    font-size: 300%;
+  }
+}
+
+page-home .links button ion-icon p {
+  font-size: 50%;
 }
 
 @-webkit-keyframes spin {

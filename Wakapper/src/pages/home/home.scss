@@ -45,8 +45,30 @@ page-home {
     -webkit-border-radius: 100%;
   }
 
-  button {
-    width: 250px;
+  .links{
+    height: 100%;
+    text-align: center;
+    button {
+      width: 48%;
+      @media screen and (min-width: 1100px) {
+        height: 48%;
+        ion-icon{
+          font-size: 400%;
+        }
+      }
+      @media screen and (max-width: 1099px) {
+        height: 28%;
+        ion-icon{
+          font-size: 300%;
+        }
+       }
+      border-radius: 10%;
+      ion-icon{
+        p{
+          font-size: 50%;
+        }
+      }
+    }
   }
 
   @-webkit-keyframes spin {
