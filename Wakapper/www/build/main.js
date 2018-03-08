@@ -114,7 +114,7 @@ var RegiForm = (function () {
     ], RegiForm.prototype, "formElement", void 0);
     RegiForm = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-registration',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\registration\registration.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>アカウントの登録・ログイン</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <!--以下に設置------>\n\n  <form #form>\n\n    ID\n\n    <input type="text" maxlength="12" name="id" />\n\n    <br>\n\n    Pass\n\n    <input type="password" maxlength="12" name="pass" />\n\n    <div style="text-align: right;">\n\n      <input type="submit" value="登録する" (click)="postURL(\'../src/cgi/regi.cgi\')" />\n\n      <input type="submit" value="ログインする" (click)="postURL(\'../src/cgi/login.cgi\')" />\n\n    </div>\n\n  </form>\n\n  <!------------------>\n\n</ion-content>'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\registration\registration.html"*/
+            selector: 'page-registration',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\registration\registration.html"*/'<ion-header>\n\n  <ion-navbar color="secondary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>アカウントの登録・ログイン</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <form #form>\n\n    ID\n\n    <input type="text" maxlength="12" name="id" />\n\n    <br>\n\n    Pass\n\n    <input type="password" maxlength="12" name="pass" />\n\n    <div style="text-align: right;">\n\n      <input type="submit" value="登録する" (click)="postURL(\'../src/cgi/regi.cgi\')" />\n\n      <input type="submit" value="ログインする" (click)="postURL(\'../src/cgi/login.cgi\')" />\n\n    </div>\n\n  </form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\registration\registration.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
     ], RegiForm);
@@ -469,6 +469,7 @@ var MyApp = (function () {
         this.statusBar = statusBar;
         this.splashScreen = splashScreen;
         this.dataService = dataService;
+        this.q = undefined;
         this.position = { lat: 33.9144938, lng: 130.7528295 };
         this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */];
         this.pagesNames = [
@@ -476,9 +477,13 @@ var MyApp = (function () {
             '区内マップ',
             '掲示板',
             'イベントカレンダー',
-            '運行表',
-            '登録・ログイン'
+            '運行表'
         ];
+        this.pageReLo = {
+            title: '登録・ログイン',
+            component: __WEBPACK_IMPORTED_MODULE_9__pages_registration_registration__["a" /* RegiForm */],
+            name: 'RegiForm'
+        };
         this.initializeApp();
         // used for an example of ngFor and navigation
         // "ngIf" & "ngFor"用
@@ -486,29 +491,25 @@ var MyApp = (function () {
             { title: this.pagesNames[0], component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */], name: 'HomePage' },
             { title: this.pagesNames[2], component: __WEBPACK_IMPORTED_MODULE_6__pages_page2_page2__["a" /* Page2 */], name: 'Page2' },
             { title: this.pagesNames[3], component: __WEBPACK_IMPORTED_MODULE_7__pages_page3_page3__["a" /* Page3 */], name: 'Page3' },
-            { title: this.pagesNames[4], component: __WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__["a" /* Page4 */], name: 'Page4' },
-            { title: this.pagesNames[5], component: __WEBPACK_IMPORTED_MODULE_9__pages_registration_registration__["a" /* RegiForm */], name: 'RegiForm' }
+            { title: this.pagesNames[4], component: __WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__["a" /* Page4 */], name: 'Page4' }
         ];
         this.page2 = [
             { title: this.pagesNames[0], component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */], name: 'HomePage' },
             { title: this.pagesNames[1], component: __WEBPACK_IMPORTED_MODULE_5__pages_page1_page1__["a" /* Page1 */], name: 'Page1' },
             { title: this.pagesNames[3], component: __WEBPACK_IMPORTED_MODULE_7__pages_page3_page3__["a" /* Page3 */], name: 'Page3' },
-            { title: this.pagesNames[4], component: __WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__["a" /* Page4 */], name: 'Page4' },
-            { title: this.pagesNames[5], component: __WEBPACK_IMPORTED_MODULE_9__pages_registration_registration__["a" /* RegiForm */], name: 'RegiForm' }
+            { title: this.pagesNames[4], component: __WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__["a" /* Page4 */], name: 'Page4' }
         ];
         this.page3 = [
             { title: this.pagesNames[0], component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */], name: 'HomePage' },
             { title: this.pagesNames[1], component: __WEBPACK_IMPORTED_MODULE_5__pages_page1_page1__["a" /* Page1 */], name: 'Page1' },
             { title: this.pagesNames[2], component: __WEBPACK_IMPORTED_MODULE_6__pages_page2_page2__["a" /* Page2 */], name: 'Page2' },
-            { title: this.pagesNames[4], component: __WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__["a" /* Page4 */], name: 'Page4' },
-            { title: this.pagesNames[5], component: __WEBPACK_IMPORTED_MODULE_9__pages_registration_registration__["a" /* RegiForm */], name: 'RegiForm' }
+            { title: this.pagesNames[4], component: __WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__["a" /* Page4 */], name: 'Page4' }
         ];
         this.page4 = [
             { title: this.pagesNames[0], component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */], name: 'HomePage' },
             { title: this.pagesNames[1], component: __WEBPACK_IMPORTED_MODULE_5__pages_page1_page1__["a" /* Page1 */], name: 'Page1' },
             { title: this.pagesNames[2], component: __WEBPACK_IMPORTED_MODULE_6__pages_page2_page2__["a" /* Page2 */], name: 'Page2' },
-            { title: this.pagesNames[3], component: __WEBPACK_IMPORTED_MODULE_7__pages_page3_page3__["a" /* Page3 */], name: 'Page3' },
-            { title: this.pagesNames[5], component: __WEBPACK_IMPORTED_MODULE_9__pages_registration_registration__["a" /* RegiForm */], name: 'RegiForm' }
+            { title: this.pagesNames[3], component: __WEBPACK_IMPORTED_MODULE_7__pages_page3_page3__["a" /* Page3 */], name: 'Page3' }
         ];
     }
     MyApp.prototype.initializeApp = function () {
@@ -539,6 +540,9 @@ var MyApp = (function () {
                 else if (text == "Regi") {
                     _this.nav.push(__WEBPACK_IMPORTED_MODULE_9__pages_registration_registration__["a" /* RegiForm */]);
                 }
+                else if (text == "relo") {
+                    _this.q = text;
+                }
                 else {
                     if (text == "RegiForm") {
                         _this.nav.push(__WEBPACK_IMPORTED_MODULE_9__pages_registration_registration__["a" /* RegiForm */]);
@@ -563,13 +567,16 @@ var MyApp = (function () {
         this.page = page;
         this.dataService.sendSampleText(page.name);
     };
+    MyApp.prototype.logOut = function () {
+        window.location.href = '../src/cgi/logout.cgi';
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */]),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'sample-component',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <p *ngIf="showText == \'Page1\'">\n\n        <button menuClose ion-item *ngFor="let p of page1" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="showText == \'Page2\'">\n\n        <button menuClose ion-item *ngFor="let p of page2" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="showText == \'Page3\'">\n\n        <button menuClose ion-item *ngFor="let p of page3" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="showText == \'Page4\'">\n\n        <button menuClose ion-item *ngFor="let p of page4" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\app\app.html"*/
+            selector: 'sample-component',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <p *ngIf="showText == \'Page1\'">\n\n        <button menuClose ion-item *ngFor="let p of page1" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="showText == \'Page2\'">\n\n        <button menuClose ion-item *ngFor="let p of page2" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="showText == \'Page3\'">\n\n        <button menuClose ion-item *ngFor="let p of page3" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="showText == \'Page4\'">\n\n        <button menuClose ion-item *ngFor="let p of page4" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="q == undefined">\n\n        <button menuClose ion-item (click)="openPage(pageReLo)" color="secondary">\n\n          {{pageReLo.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="q != undefined">\n\n        <button menuClose ion-item (click)="logOut()" color="danger">\n\n          ログアウトする\n\n        </button>\n\n      </p>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_10__data_service__["a" /* DataService */]])
     ], MyApp);
@@ -617,15 +624,9 @@ var HomePage = (function () {
         var urlParams = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* URLSearchParams */](Url, new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* QueryEncoder */]());
         var Q = urlParams.getAll("q");
         // 全パラメータの中の先頭で判断
-        // "regi"(登録・ログイン),"subm"(投稿)したとき、page2に移動
-        console.log(Q[0]);
-        if (Q[0] == "regi") {
-            console.log(Q[0]);
-            this.goToPage2();
-        }
-        else if (Q[0] == "re") {
-            console.log(Q[0]);
-            this.goToRegi();
+        // "regi"(登録・ログイン),"login"(ログイン)したときdataserviceに送信
+        if (Q[0] == "regi" || Q[0] == "login") {
+            this.sendToDataService();
         }
     };
     /* URL先へ遷移する
@@ -633,6 +634,9 @@ var HomePage = (function () {
         window.open(url);
     }
     */
+    HomePage.prototype.sendToDataService = function () {
+        this.dataService.sendSampleText("relo");
+    };
     HomePage.prototype.goToPage1 = function () {
         __WEBPACK_IMPORTED_MODULE_4__app_app_component__["a" /* MyApp */].text = "Page1";
         this.dataService.sendSampleText("Page01");
@@ -829,7 +833,7 @@ var Page2 = (function () {
         var Url = document.location.search.substring(1);
         var urlParams = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* URLSearchParams */](Url, new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* QueryEncoder */]());
         var Q = urlParams.getAll("q");
-        if (Q[0] == "regi") {
+        if (Q[0] == "regi" || Q[0] == "login") {
             this.login = "ログイン中";
         }
         else {
@@ -840,11 +844,13 @@ var Page2 = (function () {
     // json取得
     Page2.prototype.getJsonDatas = function () {
         var _this = this;
+        console.log("reading datas");
         // コメントが書いてあるリストの読み込み
         this.dataService.getData('../src/assets/data/datas.json').subscribe(function (dataName) {
             _this.dataNames = dataName.dataNames;
             // 各々のjsonを読み込みcontributionに格納 -> htmlで表示
             for (var i = 0; _this.dataNames[i] != null; i++) {
+                console.log("reading data");
                 _this.dataService.getData('../src/assets/data/' + _this.dataNames[i]).subscribe(function (data) {
                     _this.contribution.push(data.contribution);
                 });
@@ -852,6 +858,7 @@ var Page2 = (function () {
                 _this.datasNum++;
             }
         });
+        console.log("finished reading");
     };
     // ログアアウト
     Page2.prototype.logOut = function () {
@@ -868,12 +875,11 @@ var Page2 = (function () {
     };
     Page2 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-page2',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\page2.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <div id="topContent">\n\n    <button ion-button id="Registration" *ngIf="!login" (click)="goToRegi()">アカウントの登録・ログイン</button>\n\n    \n\n    <button ion-button id="Submit" *ngIf="login!=null" (click)="goToSubm()">コメントの投稿</button>\n\n    <button ion-button id="Registration" *ngIf="login!=null" (click)="logOut()" color="danger">ログアウト</button>\n\n  </div>\n\n\n\n  <div style="text-align: center;">\n\n      総投稿数：{{datasNum}}\n\n  </div><br>\n\n  <div *ngFor="let cont of contribution">\n\n    <ion-card>\n\n      <ion-card-header>\n\n        {{cont[0].title}}\n\n      </ion-card-header>\n\n      <ion-card-content>\n\n        {{cont[0].comments}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\page2.html"*/
+            selector: 'page-page2',template:/*ion-inline-start:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\page2.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <div id="topContent">\n\n    <button ion-button id="Registration" *ngIf="!login" (click)="goToRegi()" color="secondary">アカウントの登録・ログイン</button>\n\n    \n\n    <button ion-button id="Submit" *ngIf="login!=null" (click)="goToSubm()">コメントの投稿</button>\n\n    <button ion-button id="Registration" *ngIf="login!=null" (click)="logOut()" color="danger">ログアウト</button>\n\n  </div>\n\n\n\n  <div style="text-align: center;">\n\n      総投稿数：{{datasNum}}\n\n  </div><br>\n\n  <div *ngFor="let cont of contribution">\n\n    <ion-card>\n\n      <ion-card-header>\n\n        {{cont[0].title}}\n\n      </ion-card-header>\n\n      <ion-card-content>\n\n        {{cont[0].comments}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\workspace\newWorkspace\Wakapper\src\pages\page2\page2.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */]])
     ], Page2);
     return Page2;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=page2.js.map

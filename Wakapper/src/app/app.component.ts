@@ -31,13 +31,17 @@ export class MyApp {
     '区内マップ',
     '掲示板',
     'イベントカレンダー',
-    '運行表',
-    '登録・ログイン'
+    '運行表'
   ];
   page1: Array<{ title: string, component: any, name: string }>;
   page2: Array<{ title: string, component: any, name: string }>;
   page3: Array<{ title: string, component: any, name: string }>;
   page4: Array<{ title: string, component: any, name: string }>;
+  pageReLo = { 
+    title: '登録・ログイン',
+    component: RegiForm,
+    name: 'RegiForm'
+  };
   page: any;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private dataService: DataService) {
@@ -49,32 +53,28 @@ export class MyApp {
       { title: this.pagesNames[0], component: HomePage, name: 'HomePage' },
       { title: this.pagesNames[2], component: Page2,    name: 'Page2' },
       { title: this.pagesNames[3], component: Page3,    name: 'Page3' },
-      { title: this.pagesNames[4], component: Page4,    name: 'Page4' },
-      { title: this.pagesNames[5], component: RegiForm, name: 'RegiForm' }
+      { title: this.pagesNames[4], component: Page4,    name: 'Page4' }
     ];
 
     this.page2 = [
       { title: this.pagesNames[0], component: HomePage, name: 'HomePage' },
       { title: this.pagesNames[1], component: Page1,    name: 'Page1' },
       { title: this.pagesNames[3], component: Page3,    name: 'Page3' },
-      { title: this.pagesNames[4], component: Page4,    name: 'Page4' },
-      { title: this.pagesNames[5], component: RegiForm, name: 'RegiForm' }
+      { title: this.pagesNames[4], component: Page4,    name: 'Page4' }
     ];
 
     this.page3 = [
       { title: this.pagesNames[0], component: HomePage, name: 'HomePage' },
       { title: this.pagesNames[1], component: Page1,    name: 'Page1' },
       { title: this.pagesNames[2], component: Page2,    name: 'Page2' },
-      { title: this.pagesNames[4], component: Page4,    name: 'Page4' },
-      { title: this.pagesNames[5], component: RegiForm, name: 'RegiForm' }
+      { title: this.pagesNames[4], component: Page4,    name: 'Page4' }
     ];
 
     this.page4 = [
       { title: this.pagesNames[0], component: HomePage, name: 'HomePage' },
       { title: this.pagesNames[1], component: Page1,    name: 'Page1' },
       { title: this.pagesNames[2], component: Page2,    name: 'Page2' },
-      { title: this.pagesNames[3], component: Page3,    name: 'Page3' },
-      { title: this.pagesNames[5], component: RegiForm, name: 'RegiForm' }
+      { title: this.pagesNames[3], component: Page3,    name: 'Page3' }
     ];
   }
 
@@ -104,8 +104,10 @@ export class MyApp {
           this.nav.setRoot(Page4, "Page4");
 
         } else if (text == "Regi") {
-          this.q = text;
           this.nav.push(RegiForm);
+
+        } else if (text == "relo") {
+          this.q = text;
 
         } else {
           if (text == "RegiForm") {
@@ -130,5 +132,9 @@ export class MyApp {
 
     this.page = page;
     this.dataService.sendSampleText(page.name);
+  }
+
+  logOut(){
+    window.location.href = '../src/cgi/logout.cgi';
   }
 }

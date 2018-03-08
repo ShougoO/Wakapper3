@@ -23,14 +23,9 @@ export class HomePage {
       var Q = urlParams.getAll("q");
 
       // 全パラメータの中の先頭で判断
-      // "regi"(登録・ログイン),"subm"(投稿)したとき、page2に移動
-      console.log(Q[0]);
-      if (Q[0] == "regi") {
-        console.log(Q[0]);
-        this.goToPage2();
-      }else if (Q[0] == "re") {
-        console.log(Q[0]);
-        this.goToRegi();
+      // "regi"(登録・ログイン),"login"(ログイン)したときdataserviceに送信
+      if (Q[0] == "regi" || Q[0] == "login") {
+        this.sendToDataService();
       }
     }
     
@@ -40,6 +35,10 @@ export class HomePage {
     }
     */
     
+    sendToDataService(){
+      this.dataService.sendSampleText("relo");
+    }
+
     goToPage1() {
       MyApp.text = "Page1";
       this.dataService.sendSampleText("Page01");

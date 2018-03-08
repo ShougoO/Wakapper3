@@ -32,7 +32,7 @@ export class Page2{
     var urlParams = new URLSearchParams(Url, new QueryEncoder());
     var Q = urlParams.getAll("q");
 
-    if (Q[0] == "regi") {         // "regi"(登録・ログイン)なら、表示を変更
+    if (Q[0] == "regi" || Q[0] == "login") {         // "regi"(登録・ログイン)なら、表示を変更
       this.login = "ログイン中";
     }else{
       this.login = null;
@@ -43,12 +43,14 @@ export class Page2{
 
   // json取得
   getJsonDatas() {
+    console.log("reading datas");
     // コメントが書いてあるリストの読み込み
     this.dataService.getData('../src/assets/data/datas.json').subscribe(dataName => {//../assets/data/datas.json(local)
       this.dataNames = dataName.dataNames;
       
       // 各々のjsonを読み込みcontributionに格納 -> htmlで表示
       for(var i=0; this.dataNames[i]!=null;i++){
+        console.log("reading data");
         this.dataService.getData('../src/assets/data/'+ this.dataNames[i]).subscribe(data => {//../assets/data/(local)
           this.contribution.push(data.contribution);
         });
@@ -56,6 +58,7 @@ export class Page2{
         this.datasNum++;
       }
     });
+    console.log("finished reading");
   }
 
   // ログアアウト

@@ -27,6 +27,16 @@
           {{p.title}}
         </button>
       </p>
+      <p *ngIf="q == undefined">
+        <button menuClose ion-item (click)="openPage(pageReLo)" color="secondary">
+          {{pageReLo.title}}
+        </button>
+      </p>
+      <p *ngIf="q != undefined">
+        <button menuClose ion-item (click)="logOut()" color="danger">
+          ログアウトする
+        </button>
+      </p>
     </ion-list>
   </ion-content>
 
