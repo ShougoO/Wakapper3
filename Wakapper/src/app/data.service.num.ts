@@ -4,7 +4,7 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class DataServiceNum {
     submFlag: number = 0;
-    tracks: number;
+    static tracks: number;
 
     constructor() { }
 
@@ -28,10 +28,10 @@ export class DataServiceNum {
                 this.submFlag = 1;
             }
         } else if(1<=num && num<=5){
-            this.tracks = num;
+            DataServiceNum.tracks = num;
         } else if(num==6){
-            this.SampleNum.next(this.tracks);
+            this.SampleNum.next(DataServiceNum.tracks);
         }
-        console.log(this.tracks);
+        console.log(DataServiceNum.tracks);
     }
 }

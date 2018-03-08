@@ -1366,6 +1366,7 @@ var DataServiceNum = (function () {
         this.SampleNum = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
         this.Num$ = this.SampleNum.asObservable();
     }
+    DataServiceNum_1 = DataServiceNum;
     DataServiceNum.prototype.sendSampleNum = function (num) {
         // numリスト
         // 0 : page2に遷移するか : submFlagが0なら遷移
@@ -1382,18 +1383,19 @@ var DataServiceNum = (function () {
             }
         }
         else if (1 <= num && num <= 5) {
-            this.tracks = num;
+            DataServiceNum_1.tracks = num;
         }
         else if (num == 6) {
-            this.SampleNum.next(this.tracks);
+            this.SampleNum.next(DataServiceNum_1.tracks);
         }
-        console.log(this.tracks);
+        console.log(DataServiceNum_1.tracks);
     };
-    DataServiceNum = __decorate([
+    DataServiceNum = DataServiceNum_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
         __metadata("design:paramtypes", [])
     ], DataServiceNum);
     return DataServiceNum;
+    var DataServiceNum_1;
 }());
 
 //# sourceMappingURL=data.service.num.js.map
