@@ -1,6 +1,6 @@
 webpackJsonp([2],{
 
-/***/ 102:
+/***/ 103:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38,7 +38,7 @@ var DataService = (function () {
 
 /***/ }),
 
-/***/ 103:
+/***/ 104:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -84,7 +84,7 @@ var RegiForm = (function () {
 
 /***/ }),
 
-/***/ 104:
+/***/ 105:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -120,7 +120,7 @@ var TimeTablePage = (function () {
     }
     TimeTablePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-time-table',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\time-table\time-table.html"*/'<!--\n\n  Generated template for the TimeTablePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{this.selectedItem}}</ion-title>\n\n  </ion-navbar>\n\n\n\n  <ion-toolbar no-border-top>\n\n    <ion-segment [(ngModel)]="direction">\n\n      <ion-segment-button value="up">\n\n        上り\n\n\n\n      </ion-segment-button>\n\n      <ion-segment-button value="down">\n\n        下り\n\n      </ion-segment-button>\n\n    </ion-segment>\n\n  </ion-toolbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n\n\n  <div [ngSwitch]="direction">\n\n\n\n    <ion-list *ngSwitchCase="\'up\'">\n\n      <ion-item *ngFor="let item of upTimeTable">\n\n        {{item}}\n\n      </ion-item>\n\n    </ion-list>\n\n\n\n\n\n    <ion-list *ngSwitchCase="\'down\'">\n\n      <ion-item *ngFor="let item of downTimeTable">\n\n        {{item}}\n\n      </ion-item>\n\n    </ion-list>\n\n\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\time-table\time-table.html"*/,
+            selector: 'page-time-table',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\time-table\time-table.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{this.selectedItem}}</ion-title>\n\n  </ion-navbar>\n\n\n\n  <ion-toolbar no-border-top>\n\n    <ion-segment [(ngModel)]="direction">\n\n      <ion-segment-button value="up">\n\n        上り\n\n\n\n      </ion-segment-button>\n\n      <ion-segment-button value="down">\n\n        下り\n\n      </ion-segment-button>\n\n    </ion-segment>\n\n  </ion-toolbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n\n\n  <div [ngSwitch]="direction">\n\n\n\n    <ion-list *ngSwitchCase="\'up\'">\n\n      <ion-item *ngFor="let item of upTimeTable">\n\n        {{item}}\n\n      </ion-item>\n\n    </ion-list>\n\n\n\n\n\n    <ion-list *ngSwitchCase="\'down\'">\n\n      <ion-item *ngFor="let item of downTimeTable">\n\n        {{item}}\n\n      </ion-item>\n\n    </ion-list>\n\n\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\time-table\time-table.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */]])
     ], TimeTablePage);
@@ -131,7 +131,7 @@ var TimeTablePage = (function () {
 
 /***/ }),
 
-/***/ 115:
+/***/ 116:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -144,11 +144,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 115;
+webpackEmptyAsyncContext.id = 116;
 
 /***/ }),
 
-/***/ 157:
+/***/ 158:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -157,7 +157,7 @@ var map = {
 		1
 	],
 	"../pages/page3/page3.module": [
-		158
+		159
 	],
 	"../pages/time-table/time-table.module": [
 		287,
@@ -175,12 +175,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 157;
+webpackAsyncContext.id = 158;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 158:
+/***/ 159:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -188,7 +188,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Page3Module", function() { return Page3Module; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__page3__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__page3__ = __webpack_require__(160);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -221,15 +221,16 @@ var Page3Module = (function () {
 
 /***/ }),
 
-/***/ 159:
+/***/ 160:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Page3; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_calendar_calendar__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_calendar_calendar__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_json_data__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__detail_detail__ = __webpack_require__(52);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -239,6 +240,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -262,7 +264,7 @@ var Page3 = (function () {
         var last = this.calendar.getCalendarYM(l[0], l[1]); // 前月のカレンダー情報を作成
         var next = this.calendar.getCalendarYM(n[0], n[1]); // 来月のカレンダー情報を作成
         this.cal = [last, now, next];
-        this.dataService.getData('../assets/data/event.json').subscribe(function (data) {
+        this.dataService.getData('../src/assets/data/event.json').subscribe(function (data) {
             _this.testEvents = data.events;
             for (var i = 0; _this.testEvents[i] != null; i++) {
                 _this.testDatas.push(_this.testEvents[i]);
@@ -318,12 +320,9 @@ var Page3 = (function () {
                 str.push(this.testDatas[i].text);
             }
         }
-        /*****/
         str.shift();
-        /*****/
         return str;
     };
-    /*****/
     Page3.prototype.showThisMonthEvent = function (month) {
         var str = [];
         for (var i = 0; this.testDatas[i] != null; i++) {
@@ -340,13 +339,26 @@ var Page3 = (function () {
         });
         return str;
     };
+    Page3.prototype.goToDetail = function (event) {
+        for (var i = 0; this.testDatas[i] != null; i++) {
+            if (this.testDatas[i].text == event) {
+                this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__detail_detail__["a" /* DetailPage */], {
+                    title: this.testDatas[i].text,
+                    comment: this.testDatas[i].comment,
+                    address: this.testDatas[i].address,
+                    open: this.testDatas[i].open
+                });
+                return;
+            }
+        }
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])("Slides"),
         __metadata("design:type", Object)
     ], Page3.prototype, "slides", void 0);
     Page3 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-page3',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page3\page3.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>イベントカレンダー</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content no-bounce>\n\n  <ion-grid class="calendar-header" no-padding>\n\n    <ion-row>\n\n      <ion-col>\n\n        <button ion-button (click)="beforeSlide()">\n\n          ＜\n\n        </button>\n\n        <span class="title">\n\n          {{current_calendar[0]}}年{{current_calendar[1]}}月\n\n        </span>\n\n        <button ion-button (click)="nextSlide()">\n\n          ＞\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n  \n\n  <ion-slides class="slide" #Slides (ionSlidePrevEnd)="beforeSlide()" (ionSlideNextEnd)="nextSlide()" initialSlide="1">\n\n    <ion-slide *ngFor="let c of cal; let idx = index;">\n\n      <table class="date-table">\n\n        <tbody class="date-body">\n\n          <tr class="weekday">\n\n            <td>日</td>\n\n            <td>月</td>\n\n            <td>火</td>\n\n            <td>水</td>\n\n            <td>木</td>\n\n            <td>金</td>\n\n            <td>土</td>\n\n          </tr>\n\n          <tr *ngFor="let week of c.week; let w = index;">\n\n            <td *ngFor="let day of week; let d = index;">\n\n              <div class="day">\n\n                <span [ngClass]="{\'other\':day.other}">\n\n                  {{day.day}}\n\n                </span>\n\n                <br>\n\n                <span *ngIf="showEventFlag(current_calendar[0], c.month, day.day, day.other)==1">\n\n                  <br>\n\n                  <section class="spanSection" *ngFor="let event of showEvent(current_calendar[0], c.month, day.day, day.other)">\n\n                    <ion-icon name="star" style="color : green;">\n\n                      <section class="spanText">\n\n                        {{event}}\n\n                      </section>\n\n                    </ion-icon>\n\n                  </section>\n\n                </span>\n\n              </div>\n\n            </td>\n\n          </tr>\n\n        </tbody>\n\n      </table>\n\n      <!-- ウィンドウが小さくなったときに、表示されるリスト -->\n\n      <div class="spanEventDates" *ngFor="let event of showThisMonthEvent(c.month)">\n\n        <ion-card>\n\n          <ion-card-content>\n\n            <ion-icon name="star" style="color : green;">\n\n              {{event.date.day}}日：{{event.text}}\n\n            </ion-icon>\n\n          </ion-card-content>\n\n        </ion-card>\n\n      </div>\n\n      <!-- ウィンドウが小さくなったときに、表示されるリスト -->\n\n    </ion-slide>\n\n  </ion-slides>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page3\page3.html"*/,
+            selector: 'page-page3',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page3\page3.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>イベントカレンダー</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content no-bounce>\n\n  <ion-grid class="calendar-header" no-padding>\n\n    <ion-row>\n\n      <ion-col>\n\n        <button ion-button (click)="beforeSlide()">\n\n          ＜\n\n        </button>\n\n        <span class="title">\n\n          {{current_calendar[0]}}年{{current_calendar[1]}}月\n\n        </span>\n\n        <button ion-button (click)="nextSlide()">\n\n          ＞\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n  \n\n  <ion-slides class="slide" #Slides (ionSlidePrevEnd)="beforeSlide()" (ionSlideNextEnd)="nextSlide()" initialSlide="1">\n\n    <ion-slide *ngFor="let c of cal; let idx = index;">\n\n      <table class="date-table">\n\n        <tbody class="date-body">\n\n          <tr class="weekday">\n\n            <td>日</td>\n\n            <td>月</td>\n\n            <td>火</td>\n\n            <td>水</td>\n\n            <td>木</td>\n\n            <td>金</td>\n\n            <td>土</td>\n\n          </tr>\n\n          <tr *ngFor="let week of c.week; let w = index;">\n\n            <td *ngFor="let day of week; let d = index;">\n\n              <div class="day">\n\n                <span [ngClass]="{\'other\':day.other}">\n\n                  {{day.day}}\n\n                </span>\n\n                <br>\n\n                <span *ngIf="showEventFlag(current_calendar[0], c.month, day.day, day.other)==1">\n\n                  <br>\n\n                  <section class="spanSection" *ngFor="let event of showEvent(current_calendar[0], c.month, day.day, day.other)">\n\n                    <ion-icon name="star" style="color : green;">\n\n                      <section class="spanText">\n\n                        <button clear (click)="goToDetail(event)" style="background-color:white; font-size: 1.5em;">\n\n                          {{event}}\n\n                        </button>\n\n                      </section>\n\n                    </ion-icon>\n\n                  </section>\n\n                </span>\n\n              </div>\n\n            </td>\n\n          </tr>\n\n        </tbody>\n\n      </table>\n\n      <!-- ウィンドウが小さくなったときに、表示されるリスト -->\n\n      <div class="spanEventDates" *ngFor="let event of showThisMonthEvent(c.month)">\n\n        <ion-card>\n\n          <ion-card-content>\n\n            <ion-icon name="star" style="color : green;">\n\n              <button clear (click)="goToDetail(event.text)" style="background-color:white; font-size: 1em;">\n\n                {{event.date.day}}日：{{event.text}}\n\n              </button>\n\n            </ion-icon>\n\n          </ion-card-content>\n\n        </ion-card>\n\n      </div>\n\n      <!-- ウィンドウが小さくなったときに、表示されるリスト -->\n\n    </ion-slide>\n\n  </ion-slides>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page3\page3.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_2__providers_calendar_calendar__["a" /* CalendarProvider */]],
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
@@ -361,7 +373,7 @@ var Page3 = (function () {
 
 /***/ }),
 
-/***/ 160:
+/***/ 161:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -497,22 +509,22 @@ var CalendarProvider = (function () {
 
 /***/ }),
 
-/***/ 204:
+/***/ 205:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(205);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_page1_page1__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_page2_page2__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_page3_page3__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_registration_registration__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__data_service__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_page1_page1__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_page2_page2__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_page3_page3__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_registration_registration__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__data_service__ = __webpack_require__(103);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -646,7 +658,7 @@ var MyApp = (function () {
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'sample-component',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <p *ngIf="showText == \'Page1\'">\n\n        <button menuClose ion-item *ngFor="let p of page1" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="showText == \'Page2\'">\n\n        <button menuClose ion-item *ngFor="let p of page2" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="showText == \'Page3\'">\n\n        <button menuClose ion-item *ngFor="let p of page3" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="showText == \'Page4\'">\n\n        <button menuClose ion-item *ngFor="let p of page4" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="q == undefined">\n\n        <button menuClose ion-item (click)="openPage(pageReLo)" color="secondary">\n\n          {{pageReLo.title}}\n\n        </button>\n\n      </p>\n\n      <p *ngIf="q != undefined">\n\n        <button menuClose ion-item (click)="logOut()" color="danger">\n\n          ログアウトする\n\n        </button>\n\n      </p>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\app\app.html"*/
+            selector: 'sample-component',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <section *ngIf="showText == \'Page1\'">\n\n        <button menuClose ion-item *ngFor="let p of page1" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </section>\n\n      <section *ngIf="showText == \'Page2\'">\n\n        <button menuClose ion-item *ngFor="let p of page2" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </section>\n\n      <section *ngIf="showText == \'Page3\'">\n\n        <button menuClose ion-item *ngFor="let p of page3" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </section>\n\n      <section *ngIf="showText == \'Page4\'">\n\n        <button menuClose ion-item *ngFor="let p of page4" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </section>\n\n      <section *ngIf="q == undefined">\n\n        <button menuClose ion-item (click)="openPage(pageReLo)" color="secondary">\n\n          {{pageReLo.title}}\n\n        </button>\n\n      </section>\n\n      <section *ngIf="q != undefined">\n\n        <button menuClose ion-item (click)="logOut()" color="danger">\n\n          ログアウトする\n\n        </button>\n\n      </section>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_10__data_service__["a" /* DataService */]])
     ], MyApp);
@@ -657,7 +669,7 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 205:
+/***/ 206:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -665,8 +677,8 @@ var MyApp = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_data_service__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_component__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_data_service__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_component__ = __webpack_require__(205);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -699,11 +711,6 @@ var HomePage = (function () {
             this.sendToDataService();
         }
     };
-    /* URL先へ遷移する
-    onLink(url: string) {
-        window.open(url);
-    }
-    */
     HomePage.prototype.sendToDataService = function () {
         this.dataService.sendSampleText("relo");
     };
@@ -729,7 +736,7 @@ var HomePage = (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\home\home.html"*/'<!--\n\n  各ページの担当(敬称略)\n\n\n\n  Page1:福井・太田\n\n  Page2:太田\n\n  Page3:片岡\n\n  Page4:上田\n\n-->\n\n<ion-header>\n\n  <ion-navbar color="primary">\n\n    <ion-title>Wakapper</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding class="links">\n\n  <button ion-button (click)="goToPage1()">\n\n    <ion-icon name="map">\n\n      <p>マップ</p>\n\n    </ion-icon>\n\n  </button>\n\n  <button ion-button (click)="goToPage2()">\n\n    <ion-icon name="chatbubbles">\n\n      <p>掲示板</p>\n\n    </ion-icon>\n\n  </button>\n\n  <button ion-button (click)="goToPage3()">\n\n    <ion-icon name="paper">\n\n      <p>カレンダー</p>\n\n    </ion-icon>\n\n  </button>\n\n  <button ion-button (click)="goToPage4()">\n\n    <ion-icon name="subway">\n\n      <p>運行表</p>\n\n    </ion-icon>\n\n  </button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <ion-title>Wakapper</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding class="links">\n\n  <button ion-button (click)="goToPage1()">\n\n    <ion-icon name="map">\n\n      <p>マップ</p>\n\n    </ion-icon>\n\n  </button>\n\n  <button ion-button (click)="goToPage2()">\n\n    <ion-icon name="chatbubbles">\n\n      <p>掲示板</p>\n\n    </ion-icon>\n\n  </button>\n\n  <button ion-button (click)="goToPage3()">\n\n    <ion-icon name="paper">\n\n      <p>カレンダー</p>\n\n    </ion-icon>\n\n  </button>\n\n  <button ion-button (click)="goToPage4()">\n\n    <ion-icon name="subway">\n\n      <p>運行表</p>\n\n    </ion-icon>\n\n  </button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__app_data_service__["a" /* DataService */]])
     ], HomePage);
@@ -740,7 +747,7 @@ var HomePage = (function () {
 
 /***/ }),
 
-/***/ 206:
+/***/ 207:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -748,7 +755,8 @@ var HomePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_json_data__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_maps__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__detail_detail__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_google_maps__ = __webpack_require__(208);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -762,6 +770,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 //import { GoogleMapsLatLngBounds, GoogleMapsLatLng} from 'ionic-native';
+
 // GoogleMap を使用する時、 @ionic-native/core が必要(npm install)
 
 var Page1 = (function () {
@@ -770,7 +779,7 @@ var Page1 = (function () {
         this.navParams = navParams;
         this.googleMaps = googleMaps;
         this.dataService = dataService;
-        this.clickEvent = [];
+        this.clickEvent = []; // お気に入り登録のflag marker[i]が登録済み ⇒ clickEvent[i]==1 else clickEvent[i]==0
         this.snippet = "hoge";
         this.text = navParams.get("text");
         this.showText = this.text;
@@ -785,7 +794,7 @@ var Page1 = (function () {
     Page1.prototype.mapInit = function () {
         var _this = this;
         // json取得
-        this.dataService.getData('../assets/data/mkData.json').subscribe(function (data) {
+        this.dataService.getData('../src/assets/data/mkData.json').subscribe(function (data) {
             _this.mkData = data.mkData;
             _this.loadMap();
         });
@@ -817,12 +826,14 @@ var Page1 = (function () {
                 title: this_1.mkData[i].title,
                 snippet: this_1.mkData[i].snippet,
                 icon: {
-                    url: '../../assets/img/bus.png',
+                    // url: '../assets/img/bus.png',
                     size: {
                         width: this_1.mkData[i].width,
                         height: this_1.mkData[i].height
                     }
-                }
+                },
+                address: this_1.mkData[i].address,
+                open: this_1.mkData[i].open
             });
             // 情報ウィンドウの設定
             var infoWindowContent = '<div id="content"><h1 id="firstHeading" class="firstHeading">'
@@ -839,10 +850,16 @@ var Page1 = (function () {
             google.maps.event.addListener(this_1.marker[i], 'mouseout', function () {
                 infoWindow.close(_this.map, _this.marker[i]);
             });
+            // クリックしたら、詳細ページへ
             google.maps.event.addListener(this_1.marker[i], 'click', function () {
-                alert("お気に入り登録しました");
-                _this.clickEvent[i] = '1';
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__detail_detail__["a" /* DetailPage */], {
+                    title: _this.marker[i].title,
+                    comment: _this.marker[i].snippet,
+                    address: _this.marker[i].address,
+                    open: _this.marker[i].open
+                });
             });
+            this_1.clickEvent[i] = 0;
         };
         var this_1 = this;
         for (var i = 0; i < 3; i++) {
@@ -861,7 +878,6 @@ var Page1 = (function () {
     };
     Page1.prototype.setBool = function (bool) {
         for (var i = 0; i < 3; i++) {
-            console.log(this.clickEvent);
             if (this.clickEvent[i] != '1') {
                 this.marker[i].setVisible(bool);
             }
@@ -876,7 +892,7 @@ var Page1 = (function () {
             selector: 'page-page1',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page1\page1.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>区内マップ</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <button ion-button (click)="markerVisible()">{{mkState}}</button>\n\n  <div #map id="map"></div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page1\page1.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_google_maps__["a" /* GoogleMaps */], __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */]])
+            __WEBPACK_IMPORTED_MODULE_4__ionic_native_google_maps__["a" /* GoogleMaps */], __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */]])
     ], Page1);
     return Page1;
 }());
@@ -885,7 +901,7 @@ var Page1 = (function () {
 
 /***/ }),
 
-/***/ 208:
+/***/ 209:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -894,8 +910,8 @@ var Page1 = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_json_data__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__registration_registration__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__submit_submit__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__registration_registration__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__submit_submit__ = __webpack_require__(210);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -978,7 +994,7 @@ var Page2 = (function () {
 
 /***/ }),
 
-/***/ 209:
+/***/ 210:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1026,14 +1042,14 @@ var SubmForm = (function () {
 
 /***/ }),
 
-/***/ 210:
+/***/ 211:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Page4; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__time_table_time_table__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__time_table_time_table__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_json_data__ = __webpack_require__(30);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1080,80 +1096,6 @@ var Page4 = (function () {
 
 /***/ }),
 
-/***/ 211:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DetailPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_json_data__ = __webpack_require__(30);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/**
- * Generated class for the DetailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var DetailPage = (function () {
-    //boat: string[];
-    //train: string[];
-    //bus: string[];
-    //testJsonURL:string;
-    function DetailPage(navCtrl, navParams, getJson) {
-        /*
-        this.testJsonURL = 'https://gist.githubusercontent.com/ueken0307/6d7205f2492a48cbc2c4bcdbeb2754b1/raw/d140717972a7efe8e0bbc04728e4356643ffae2e/station.json';
-    
-        getJson.getData(this.testJsonURL).subscribe(input=>{
-          //渡船場データ取得
-          this.boat = input.boat;
-          //駅データ取得
-          this.train = input.train;
-          //バス停データ取得
-          this.bus = input.bus;
-        });
-        */
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.traffic = "boat";
-        this.name = "マック 二島リバーウォーク店";
-        this.address = "福岡県北九州市若松区二島  １－４－７";
-        this.comment = [];
-        this.comment.push({
-            title: " かなしい",
-            comment: "へいてんした"
-        });
-        this.comment.push({
-            title: "たいとる",
-            comment: "おーぷんした"
-        });
-        this.open = "\u55B6\u696D\u6642\u9593\n      \u5E73\u65E5:9:00~19:00\n      \u571F\u65E5\u795D\u65E5:10:00~19:00    \n    ";
-        this.commentSize = this.comment.length;
-    }
-    DetailPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-detail',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\detail\detail.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Home</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n  <ion-card>\n\n    <img src="http://3.bp.blogspot.com/-jHdA_6VWQFw/WYAxqtZz54I/AAAAAAABFuk/rDsnpKBPpsQ1gMDDrJYRjh5IVdUBkd30QCLcBGAs/s800/building_fastfood.png"/>\n\n    \n\n    <ion-card-title>\n\n        {{name}}\n\n    </ion-card-title>\n\n    \n\n    <ion-card-content>\n\n      <p>{{address}}</p>\n\n      \n\n      <p>{{open}}</p>\n\n    </ion-card-content>\n\n    \n\n    <ion-row>\n\n      <ion-col>\n\n        <button ion-button icon-left clear small>\n\n          <ion-icon name="star"></ion-icon>\n\n          <div>お気に入り登録</div>\n\n        </button>\n\n      </ion-col>\n\n      <ion-col>\n\n        <button ion-button icon-left clear small>\n\n          <ion-icon name="text"></ion-icon>\n\n          <div>{{commentSize}} コメント↓</div>\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n    \n\n  </ion-card>\n\n\n\n  <ion-card *ngFor="let item of comment"> \n\n    <ion-card-title>\n\n      {{item.title}}\n\n    </ion-card-title>\n\n    \n\n    <ion-card-content>\n\n      {{item.comment}}\n\n    </ion-card-content>\n\n  </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\detail\detail.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */]])
-    ], DetailPage);
-    return DetailPage;
-}());
-
-//# sourceMappingURL=detail.js.map
-
-/***/ }),
-
 /***/ 212:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1177,22 +1119,22 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_splash_screen__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(205);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_page1_page1__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_page2_page2__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_page2_submit_submit__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_page3_page3_module__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_page4_page4__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_time_table_time_table__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_detail_detail__ = __webpack_require__(211);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_registration_registration__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_calendar_calendar__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__data_service__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_splash_screen__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_page1_page1__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_page2_page2__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_page2_submit_submit__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_page3_page3_module__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_page4_page4__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_time_table_time_table__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_detail_detail__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_registration_registration__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_calendar_calendar__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__data_service__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__json_data__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_google_maps__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_google_maps__ = __webpack_require__(208);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1315,6 +1257,49 @@ var JsonData = (function () {
 }());
 
 //# sourceMappingURL=json-data.js.map
+
+/***/ }),
+
+/***/ 52:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DetailPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_json_data__ = __webpack_require__(30);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DetailPage = (function () {
+    function DetailPage(navCtrl, navParams, getJson) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.traffic = "boat";
+        this.name = navParams.get('title');
+        this.address = navParams.get('address');
+        this.comment = navParams.get('comment');
+        this.open = navParams.get('open');
+    }
+    DetailPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-detail',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\detail\detail.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>{{name}}</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n  <ion-card>\n\n    <img src="http://3.bp.blogspot.com/-jHdA_6VWQFw/WYAxqtZz54I/AAAAAAABFuk/rDsnpKBPpsQ1gMDDrJYRjh5IVdUBkd30QCLcBGAs/s800/building_fastfood.png"/>\n\n    \n\n    <ion-card-title>\n\n        {{name}}\n\n    </ion-card-title>\n\n    \n\n    <ion-card-content>\n\n      <p>場所：{{address}}</p>\n\n      \n\n      <p>営業時間：{{open}}</p>\n\n    </ion-card-content>\n\n    \n\n    <ion-row>\n\n      <ion-col>\n\n        <button ion-button icon-left clear small>\n\n          <ion-icon name="star"></ion-icon>\n\n          <div>お気に入り登録</div>\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n    \n\n  </ion-card>\n\n\n\n  <ion-card> \n\n    <ion-card-title>\n\n      コメント\n\n    </ion-card-title>\n\n    <ion-card-content>\n\n      {{comment}}\n\n    </ion-card-content>\n\n  </ion-card>\n\n  <!--\n\n  <ion-card *ngFor="let item of comment"> \n\n    <ion-card-title>\n\n      {{item.title}}\n\n    </ion-card-title>\n\n    \n\n    <ion-card-content>\n\n      {{item.comment}}\n\n    </ion-card-content>\n\n  </ion-card>\n\n  -->\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\detail\detail.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */]])
+    ], DetailPage);
+    return DetailPage;
+}());
+
+//# sourceMappingURL=detail.js.map
 
 /***/ })
 

@@ -21,14 +21,11 @@ page-page3 {
         overflow: hidden;
     }
 
-    /* 三・一カレンダー事件 */
-    /* ウィンドウサイズによって項目がすべて表示されないことの改善 */
+    // ウィンドウサイズによって項目がすべて表示されないことの改善
     .slide{
-        /*****/
         @media screen and (min-width: 1100px) {
             height: 50em;
         }
-        /*****/
         @media screen and (max-width: 1099px) {
             height: 60em;
         }
@@ -54,7 +51,6 @@ page-page3 {
             font-size: 15px;
             color: #616161;
             height:20px;
-            /*****/
             .spanSection{
                 @media screen and (max-width: 1099px) {
                     display: inline-block;
@@ -67,7 +63,6 @@ page-page3 {
                     }
                 }
             }
-            /*****/
         }
         .other{
             font-size: 14px;
@@ -86,12 +81,10 @@ page-page3 {
         }
     }
 
-    /*****/
     .spanEventDates{
         text-align: left;
         @media screen and (min-width: 1100px) {
             display: none;
         }
     }
-    /*****/
 }

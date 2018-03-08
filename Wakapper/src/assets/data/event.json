@@ -2,19 +2,31 @@
   "events": [
     {
       "date": {"year": 2018, "month": 3, "day": 20},
-      "text": "○○祭り"
+      "text": "○○祭り",
+      "comment": "～～～",
+      "address": "ー",
+      "open": "ー"
     },
     {
       "date": {"year": 2018, "month": 3, "day": 20},
-      "text": "□□大会"
+      "text": "□□大会",
+      "comment": "～～～",
+      "address": "ー",
+      "open": "ー"
     },
     {
       "date": {"year": 2018, "month": 3, "day": 2},
-      "text": "△△展"
+      "text": "△△展",
+      "comment": "～～～",
+      "address": "ー",
+      "open": "ー"
     },
     {
       "date": {"year": 2018, "month": 4, "day": 10},
-      "text": "××祭り"
+      "text": "××祭り",
+      "comment": "～～～",
+      "address": "ー",
+      "open": "ー"
     }
   ]
 }

@@ -7,36 +7,36 @@
 
   <ion-content>
     <ion-list>
-      <p *ngIf="showText == 'Page1'">
+      <section *ngIf="showText == 'Page1'">
         <button menuClose ion-item *ngFor="let p of page1" (click)="openPage(p)">
           {{p.title}}
         </button>
-      </p>
-      <p *ngIf="showText == 'Page2'">
+      </section>
+      <section *ngIf="showText == 'Page2'">
         <button menuClose ion-item *ngFor="let p of page2" (click)="openPage(p)">
           {{p.title}}
         </button>
-      </p>
-      <p *ngIf="showText == 'Page3'">
+      </section>
+      <section *ngIf="showText == 'Page3'">
         <button menuClose ion-item *ngFor="let p of page3" (click)="openPage(p)">
           {{p.title}}
         </button>
-      </p>
-      <p *ngIf="showText == 'Page4'">
+      </section>
+      <section *ngIf="showText == 'Page4'">
         <button menuClose ion-item *ngFor="let p of page4" (click)="openPage(p)">
           {{p.title}}
         </button>
-      </p>
-      <p *ngIf="q == undefined">
+      </section>
+      <section *ngIf="q == undefined">
         <button menuClose ion-item (click)="openPage(pageReLo)" color="secondary">
           {{pageReLo.title}}
         </button>
-      </p>
-      <p *ngIf="q != undefined">
+      </section>
+      <section *ngIf="q != undefined">
         <button menuClose ion-item (click)="logOut()" color="danger">
           ログアウトする
         </button>
-      </p>
+      </section>
     </ion-list>
   </ion-content>
 

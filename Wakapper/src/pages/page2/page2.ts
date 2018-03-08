@@ -32,7 +32,7 @@ export class Page2{
     var urlParams = new URLSearchParams(Url, new QueryEncoder());
     var Q = urlParams.getAll("q");
 
-    if (Q[0] == "regi" || Q[0] == "login") {         // "regi"(登録・ログイン)なら、表示を変更
+    if (Q[0] == "regi" || Q[0] == "login") {
       this.login = "ログイン中";
     }else{
       this.login = null;

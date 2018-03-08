@@ -2,27 +2,33 @@
   "mkData": [
     {
       "title":"バス停1",
-      "snippet":"hoge",
-      "lat":33.8095253,
-      "lng":130.6500793,
-      "width": 33,
-      "height": 33
+      "snippet":"バス停1",
+      "lat": 33.9095253,
+      "lng":130.7500793,
+      "width": 20,
+      "height": 20,
+      "address": "～～～～",
+      "open": "ー"
     },
     {
       "title":"バス停2",
-      "snippet":"hogehoge",
-      "lat":33.9095253,
-      "lng":130.7500793,
-      "width": 33,
-      "height": 33
+      "snippet":"バス停2",
+      "lat": 33.9055253,
+      "lng":130.7200793,
+      "width": 20,
+      "height": 20,
+      "address": "～～",
+      "open": "ー"
     },
     {
       "title":"バス停3",
-      "snippet":"hogehogehoge",
-      "lat":34.0095253,
-      "lng":130.8500793,
-      "width": 33,
-      "height": 33
+      "snippet":"バス停3",
+      "lat": 33.9055253,
+      "lng":130.7500793,
+      "width": 20,
+      "height": 20,
+      "address": "～～～～",
+      "open": "ー"
     }
   ]
 }

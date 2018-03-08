@@ -29,12 +29,6 @@ export class HomePage {
       }
     }
     
-    /* URL先へ遷移する
-    onLink(url: string) {
-        window.open(url);
-    }
-    */
-    
     sendToDataService(){
       this.dataService.sendSampleText("relo");
     }

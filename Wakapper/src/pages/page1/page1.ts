@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { JsonData } from '../../app/json-data';
 //import { GoogleMapsLatLngBounds, GoogleMapsLatLng} from 'ionic-native';
 
+import { DetailPage } from '../detail/detail';
+
 // GoogleMap を使用する時、 @ionic-native/core が必要(npm install)
 import {
   GoogleMaps,
@@ -31,13 +33,15 @@ export class Page1 {
   lng: number;  // 経度
   mkData: any;
 
-  clickEvent =[];
+  clickEvent =[];// お気に入り登録のflag marker[i]が登録済み ⇒ clickEvent[i]==1 else clickEvent[i]==0
 
   mkState:string;
   snippet:string = "hoge";
 
+  /*
   mkStatus: string;
   clickStatus: any;
+  */
 
   text: string;
   showText: string;
@@ -58,7 +62,7 @@ export class Page1 {
 
   mapInit() {
     // json取得
-    this.dataService.getData('../assets/data/mkData.json').subscribe(data => {//../src/assets/data/mkData.json(local)
+    this.dataService.getData('../src/assets/data/mkData.json').subscribe(data => {//../assets/data/mkData.json(local)
       this.mkData = data.mkData;
       this.loadMap();
     });
@@ -93,12 +97,14 @@ export class Page1 {
         title: this.mkData[i].title,
         snippet: this.mkData[i].snippet,
         icon: {
-          url: '../../assets/img/bus.png',
+          // url: '../assets/img/bus.png',
           size: {
             width: this.mkData[i].width,
             height: this.mkData[i].height
           }
-        }
+        },
+        address: this.mkData[i].address,
+        open: this.mkData[i].open
       });
 
       // 情報ウィンドウの設定
@@ -118,13 +124,21 @@ export class Page1 {
         infoWindow.close(this.map, this.marker[i]);
       });
 
+      // クリックしたら、詳細ページへ
       google.maps.event.addListener(this.marker[i], 'click', () => {
-        alert("お気に入り登録しました");
-        this.clickEvent[i] = '1';
+        this.navCtrl.push(DetailPage,
+          {
+            title: this.marker[i].title,
+            comment: this.marker[i].snippet,
+            address: this.marker[i].address,
+            open: this.marker[i].open
+          });
       });
+
+      this.clickEvent[i]=0;
     }
   }
-
+  
   markerVisible(){
     if(this.mkState=='マーカーを表示する'){
       this.mkState = 'マーカーを非表示にする';
@@ -134,9 +148,9 @@ export class Page1 {
       this.setBool(false);
     }
   }
+  
   setBool(bool){
     for(var i=0;i<3;i++){
-      console.log(this.clickEvent);
       if(this.clickEvent[i] != '1'){
         this.marker[i].setVisible(bool);
       }

@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>{{name}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -16,9 +16,9 @@
     </ion-card-title>
     
     <ion-card-content>
-      <p>{{address}}</p>
+      <p>場所：{{address}}</p>
       
-      <p>{{open}}</p>
+      <p>営業時間：{{open}}</p>
     </ion-card-content>
     
     <ion-row>
@@ -28,16 +28,19 @@
           <div>お気に入り登録</div>
         </button>
       </ion-col>
-      <ion-col>
-        <button ion-button icon-left clear small>
-          <ion-icon name="text"></ion-icon>
-          <div>{{commentSize}} コメント↓</div>
-        </button>
-      </ion-col>
     </ion-row>
     
   </ion-card>
 
+  <ion-card> 
+    <ion-card-title>
+      コメント
+    </ion-card-title>
+    <ion-card-content>
+      {{comment}}
+    </ion-card-content>
+  </ion-card>
+  <!--
   <ion-card *ngFor="let item of comment"> 
     <ion-card-title>
       {{item.title}}
@@ -47,4 +50,5 @@
       {{item.comment}}
     </ion-card-content>
   </ion-card>
+  -->
 </ion-content>

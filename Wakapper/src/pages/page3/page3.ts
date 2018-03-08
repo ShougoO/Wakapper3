@@ -5,6 +5,8 @@ import {CalendarProvider} from "../../providers/calendar/calendar";
 
 import { JsonData } from '../../app/json-data';
 
+import { DetailPage } from '../detail/detail';
+
 @IonicPage()
 @Component({
     selector: 'page-page3',
@@ -36,7 +38,7 @@ export class Page3 {
         let next = this.calendar.getCalendarYM(n[0], n[1]);// 来月のカレンダー情報を作成
         this.cal = [last, now, next];
 
-        this.dataService.getData('../assets/data/event.json').subscribe(data => {
+        this.dataService.getData('../src/assets/data/event.json').subscribe(data => {
             this.testEvents = data.events;
             for(let i=0;this.testEvents[i]!=null;i++){
                 this.testDatas.push(this.testEvents[i]);
@@ -99,13 +101,10 @@ export class Page3 {
                 str.push(this.testDatas[i].text);
             }
         }
-        /*****/
         str.shift();
-        /*****/
         return str;
     }
 
-    /*****/
     showThisMonthEvent(month){
         let str = [];
         for(let i=0;this.testDatas[i]!=null;i++){
@@ -120,5 +119,19 @@ export class Page3 {
         });
         return str;
     }
-    /*****/
+    
+    goToDetail(event){
+        for(let i=0;this.testDatas[i]!=null;i++){
+            if(this.testDatas[i].text == event){
+                this.navCtrl.push(DetailPage,
+                {
+                    title: this.testDatas[i].text,
+                    comment: this.testDatas[i].comment,
+                    address: this.testDatas[i].address,
+                    open: this.testDatas[i].open
+                });
+                return ;
+            }
+        }
+    }
 }
