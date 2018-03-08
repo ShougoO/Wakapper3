@@ -1260,8 +1260,8 @@ var AppModule = (function () {
             imports: [
                 __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/detail/detail.module#DetailPageModule', name: 'DetailPage', segment: 'detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/page3/page3.module#Page3Module', name: 'Page3', segment: 'page3', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/detail/detail.module#DetailPageModule', name: 'DetailPage', segment: 'detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/time-table/time-table.module#TimeTablePageModule', name: 'TimeTablePage', segment: 'time-table', priority: 'low', defaultHistory: [] }
                     ]
                 }),
