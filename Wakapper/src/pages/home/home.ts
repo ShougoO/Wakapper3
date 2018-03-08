@@ -33,10 +33,15 @@ export class HomePage {
         this.sendToDataService();
         if(Q[1] == "subm"){
           this.dataServiceNum.sendSampleNum(1);
+        } else {
+          this.dataServiceNum.sendSampleNum(6);
         }
       } else {
         this.flag= 'logout';
       }
+      
+      // 痕跡を残す
+      this.dataServiceNum.sendSampleNum(5);
     }
     
     sendToDataService(){

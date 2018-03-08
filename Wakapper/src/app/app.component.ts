@@ -129,9 +129,20 @@ export class MyApp {
       });
 
       this.dataServiceNum.Num$.subscribe(num => {
-        if(num == 0 || num == 1){
+        if(num == 0){
           this.showText = "Page2";
           this.nav.setRoot(Page2, "Page2");
+        } else if(1<=num&&num<=4){
+          let P = [Page1,Page2,Page3,Page4];
+          let PN = ["Page1","Page2","Page3","Page4"];
+
+          for(let i=0;i<4;i++){
+            if(i+1==num){
+              this.showText = PN[i];
+              this.nav.setRoot(P[i], PN[i]);
+            }
+            break;
+          }
         }
       });
     });

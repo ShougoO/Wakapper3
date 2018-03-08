@@ -4,6 +4,7 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class DataServiceNum {
     submFlag: number = 0;
+    tracks: number;
 
     constructor() { }
 
@@ -13,16 +14,23 @@ export class DataServiceNum {
 
     sendSampleNum(num: number) {
         // numリスト
-        // 1 : page2に遷移するか : submFlagが0なら遷移
-        // 2 : 登録・ログインがpage2から行われたかどうか : page2からなら1を渡す
-        
-        if(num==1){
+        // 0 : page2に遷移するか : submFlagが0なら遷移
+        // 1 : page1にいる(いた)
+        // 2 : page2にいる(いた)
+        // 3 : page3にいる(いた)
+        // 4 : page4にいる(いた)
+        // 5 : homeにいる(いた)
+        // 6 : どこにいたか(tracks)取得
+
+        if(num==0){
             this.SampleNum.next(this.submFlag);
             if(this.submFlag == 0){
                 this.submFlag = 1;
             }
-        } else if(num==2){
-            this.SampleNum.next(1);
+        } else if(1<=num && num<=5){
+            this.tracks = num;
+        } else if(num==6){
+            this.SampleNum.next(this.tracks);
         }
     }
 }
