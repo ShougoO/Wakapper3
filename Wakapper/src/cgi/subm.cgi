@@ -55,7 +55,7 @@ echo "{\"dataNames\":["${array[*]}"]}" > $ased/datasN.json
 
 cat $ased/datasN.json > $ased/datas.json
 
-echo "Location: $HTTP_REFERER&subm"
+echo "Location: $HTTP_REFERER&q=subm"
 echo ""
 
 rm -f $Title

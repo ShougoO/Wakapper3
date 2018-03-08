@@ -13,12 +13,14 @@ export class HomePage {
     page: any;
     flag: string= 'logout';
 
-    constructor(public navCtrl: NavController, private dataService: DataService) { }
+    constructor(public navCtrl: NavController, private dataService: DataService) {
+      this.gettingQ();
+    }
 
     //画面表示後、掲示板の登録用のcgiから
     //パラメータが送られてきた場合(q = regi)
     //page2へ遷移する
-    ionViewDidEnter() {
+    gettingQ() {
       var Url = document.location.search.substring(1);
       var urlParams = new URLSearchParams(Url, new QueryEncoder());
       var Q = urlParams.getAll("q");
@@ -30,6 +32,7 @@ export class HomePage {
         this.flag = 'login';
         this.sendToDataService();
         if(Q[1] == "subm"){
+          console.log("submit");
           this.goToPage2();
         }
       }

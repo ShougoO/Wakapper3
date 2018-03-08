@@ -698,11 +698,12 @@ var HomePage = (function () {
         this.navCtrl = navCtrl;
         this.dataService = dataService;
         this.flag = 'logout';
+        this.gettingQ();
     }
     //画面表示後、掲示板の登録用のcgiから
     //パラメータが送られてきた場合(q = regi)
     //page2へ遷移する
-    HomePage.prototype.ionViewDidEnter = function () {
+    HomePage.prototype.gettingQ = function () {
         var Url = document.location.search.substring(1);
         var urlParams = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* URLSearchParams */](Url, new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* QueryEncoder */]());
         var Q = urlParams.getAll("q");
@@ -713,6 +714,7 @@ var HomePage = (function () {
             this.flag = 'login';
             this.sendToDataService();
             if (Q[1] == "subm") {
+                console.log("submit");
                 this.goToPage2();
             }
         }
