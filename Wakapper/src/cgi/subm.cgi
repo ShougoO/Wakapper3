@@ -5,11 +5,14 @@
 LANG=js_JP.UTF-8
 PATH=/usr/local/bin:$PATH
 
-pag2=/home/dshougo/Wakapper/Wakapper/src/pages/page2
-homd=/home/dshougo/Wakapper/Wakapper/src
+homd=/home/dshougo/Wakapper3/Wakapper/src
+ased=$homd/assets/data
 logd=$homd/log
 
-tmp=$pag2/tmp_$$
+tmp=$ased/tmp_$$
+var=4
+array=()
+
 
 exec 2> $logd/LOG.$(basename $0).$(date +%Y%m%d)
 
@@ -19,15 +22,47 @@ cgi-name -i _ -d_       > $tmp-name
 
 Title=$(nameread title $tmp-name)
 Comments=$(nameread comments $tmp-name)
+Num=$(nameread num $tmp-name)
 
 
-rm -f $pag2/comment.json
+echo "{
+  \"contribution\": [
+    {
+      \"title\": \"$Title\",
+      \"comments\": \"$Comments\"
+    }
+  ]
+}" > $ased/cont$Num.json
 
-echo "{\"title\": \" $Title \",\"comments\": \" $Comments \"}" > $pag2/comment.json
 
-echo "Location: $HTTP_REFERER?q=subm"
+lim=$((Num*2+2))
+
+while :
+do
+  if [ "$var" == "$lim" ]; then
+    break
+  fi
+
+  com=$(awk -F"\"" -v "num=$var" '{print $num}' $ased/datas.json)
+  array+=("\"$com\",")
+
+  var=$(( var + 2 ))
+done
+
+array+=("\"cont$Num.json\"")
+
+echo "{\"dataNames\":["${array[*]}"]}" > $ased/datasN.json
+
+cat $ased/datasN.json > $ased/datas.json
+
+echo "Location: $HTTP_REFERER"
 echo ""
 
 rm -f $Title
 rm -f $Comments
+rm -f $Num
+rm -f $lim
 rm -f $tmp-*
+rm -f $array
+rm -f $com
+rm -f $ased/datasN.json

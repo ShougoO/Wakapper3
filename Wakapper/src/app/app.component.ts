@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -8,9 +9,9 @@ import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { Page3 } from '../pages/page3/page3';
 import { Page4 } from '../pages/page4/page4';
+import { RegiForm } from '../pages/registration/registration';
 
 import { DataService } from './data.service';
-
 
 @Component({
   selector: 'sample-component',
@@ -19,6 +20,7 @@ import { DataService } from './data.service';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   
+  q: string = undefined;
   static text: string;
   showText: string;
   position: any = { lat: 33.9144938, lng: 130.7528295 };
@@ -35,6 +37,11 @@ export class MyApp {
   page2: Array<{ title: string, component: any, name: string }>;
   page3: Array<{ title: string, component: any, name: string }>;
   page4: Array<{ title: string, component: any, name: string }>;
+  pageReLo = { 
+    title: '登録・ログイン',
+    component: RegiForm,
+    name: 'RegiForm'
+  };
   page: any;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private dataService: DataService) {
@@ -96,12 +103,22 @@ export class MyApp {
           this.showText = "Page4";
           this.nav.setRoot(Page4, "Page4");
 
+        } else if (text == "Regi") {
+          this.nav.push(RegiForm);
+
+        } else if (text == "relo") {
+          this.q = text;
+
         } else {
-          this.showText = text;
-          if (text == "Page1") {
-            this.nav.setRoot(Page1, this.position);
+          if (text == "RegiForm") {
+            this.nav.push(RegiForm);
           } else {
-            this.nav.setRoot(this.page.component, { text });
+            this.showText = text;
+            if (text == "Page1") {
+              this.nav.setRoot(Page1, this.position);
+            } else {
+              this.nav.setRoot(this.page.component, { text });
+            }
           }
         }
       });
@@ -115,5 +132,9 @@ export class MyApp {
 
     this.page = page;
     this.dataService.sendSampleText(page.name);
+  }
+
+  logOut(){
+    window.location.href = '../src/cgi/logout.cgi';
   }
 }
