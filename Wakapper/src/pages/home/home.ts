@@ -20,9 +20,12 @@ export class HomePage {
     ionViewDidEnter() {
       var Url = document.location.search.substring(1);
       var urlParams = new URLSearchParams(Url, new QueryEncoder());
-      var Q = urlParams.get("q");
-      if (Q == "regi" || Q == "subm") {
-        this.goToPage2();
+      var Q = urlParams.getAll("q");
+
+      // 全パラメータの中の先頭で判断
+      // "regi"(登録・ログイン),"login"(ログイン)したときdataserviceに送信
+      if (Q[0] == "regi" || Q[0] == "login") {
+        this.sendToDataService();
       }
     }
     
@@ -32,10 +35,14 @@ export class HomePage {
     }
     */
     
+    sendToDataService(){
+      this.dataService.sendSampleText("relo");
+    }
+
     goToPage1() {
       MyApp.text = "Page1";
       this.dataService.sendSampleText("Page01");
-     }
+    }
 
     goToPage2() {
       MyApp.text = "Page2";
@@ -50,5 +57,10 @@ export class HomePage {
     goToPage4() {
       MyApp.text = "Page4";
       this.dataService.sendSampleText("Page04");
+    }
+
+    goToRegi() {
+      MyApp.text = "Regi";
+      this.dataService.sendSampleText("Regi");
     }
 }

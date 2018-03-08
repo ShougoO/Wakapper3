@@ -1,31 +1,97 @@
 page-page3 {
-  #title {
-    text-align: center;
-    font-size: 50px;
-  }
+    // Android版のborder-shadowを消すために記述
+    .header-md::after{
+        background-image:none!important;
+    }
+    .calendar-header{
+        padding-top:18px!important;
+        text-align: center;
+        .title{
+            padding-left:18px;
+            font-size: 24px;
+            color:#1F1F1F;
+        }
+        box-shadow: 0 3px 3px 0 rgba(0,0,0,0.3);
+    }
+    ion-slide.swiper-slide {
+        height: 100%;
+        align-items: flex-start;
+    }
+    .no-scroll .scroll-content{
+        overflow: hidden;
+    }
 
-  #month {
-    text-align: center;
-    font-size: 45px;
-  }
+    /* 三・一カレンダー事件 */
+    /* ウィンドウサイズによって項目がすべて表示されないことの改善 */
+    .slide{
+        /*****/
+        @media screen and (min-width: 1100px) {
+            height: 50em;
+        }
+        /*****/
+        @media screen and (max-width: 1099px) {
+            height: 60em;
+        }
+    }
 
-  #content {
-    position: absolute;
-    width: 80%;
-    margin: 10%;
-    font-size: 20pt;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
-    /*
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #ffd800;
-    */
-  }
+    table{
+        table-layout: fixed;
+        width: 100%;
+        text-align: center;
+        td{
+            border-bottom: 1px solid #E1E1E1;
+            vertical-align: top;
+            @media screen and (min-width: 1100px) {
+                height:100px;
+            }
+            @media screen and (max-width: 1099px) {
+                height:80px;
+            }
+            font-weight: bold;
+            border: solid #E1E1E1;
+        }
+        .day{
+            font-size: 15px;
+            color: #616161;
+            height:20px;
+            /*****/
+            .spanSection{
+                @media screen and (max-width: 1099px) {
+                    display: inline-block;
+                }
+                .spanText{
+                    display: inline-block;
+                    font-size: 1vw;
+                    @media screen and (max-width: 1099px) {
+                        display: none;
+                    }
+                }
+            }
+            /*****/
+        }
+        .other{
+            font-size: 14px;
+            font-weight: normal;
+            color:#787878;
+        }
+        .weekday{
+            td{
+                border: none;
+                height:32px;
+                padding-top:5px;
+                font-size: 11px;
+                color:#757575;
+                border: solid #E1E1E1;
+            }
+        }
+    }
 
-  #content table {
-    position: relative;
-    width: 70%;
-    right: 5%;
-  }
+    /*****/
+    .spanEventDates{
+        text-align: left;
+        @media screen and (min-width: 1100px) {
+            display: none;
+        }
+    }
+    /*****/
 }

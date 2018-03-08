@@ -7,29 +7,69 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="has-header">
-    <calendar></calendar>
+<ion-content no-bounce>
+  <ion-grid class="calendar-header" no-padding>
+    <ion-row>
+      <ion-col>
+        <button ion-button (click)="beforeSlide()">
+          ＜
+        </button>
+        <span class="title">
+          {{current_calendar[0]}}年{{current_calendar[1]}}月
+        </span>
+        <button ion-button (click)="nextSlide()">
+          ＞
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-slides class="slide" #Slides (ionSlidePrevEnd)="beforeSlide()" (ionSlideNextEnd)="nextSlide()" initialSlide="1">
+    <ion-slide *ngFor="let c of cal; let idx = index;">
+      <table class="date-table">
+        <tbody class="date-body">
+          <tr class="weekday">
+            <td>日</td>
+            <td>月</td>
+            <td>火</td>
+            <td>水</td>
+            <td>木</td>
+            <td>金</td>
+            <td>土</td>
+          </tr>
+          <tr *ngFor="let week of c.week; let w = index;">
+            <td *ngFor="let day of week; let d = index;">
+              <div class="day">
+                <span [ngClass]="{'other':day.other}">
+                  {{day.day}}
+                </span>
+                <br>
+                <span *ngIf="showEventFlag(current_calendar[0], c.month, day.day, day.other)==1">
+                  <br>
+                  <section class="spanSection" *ngFor="let event of showEvent(current_calendar[0], c.month, day.day, day.other)">
+                    <ion-icon name="star" style="color : green;">
+                      <section class="spanText">
+                        {{event}}
+                      </section>
+                    </ion-icon>
+                  </section>
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- ウィンドウが小さくなったときに、表示されるリスト -->
+      <div class="spanEventDates" *ngFor="let event of showThisMonthEvent(c.month)">
+        <ion-card>
+          <ion-card-content>
+            <ion-icon name="star" style="color : green;">
+              {{event.date.day}}日：{{event.text}}
+            </ion-icon>
+          </ion-card-content>
+        </ion-card>
+      </div>
+      <!-- ウィンドウが小さくなったときに、表示されるリスト -->
+    </ion-slide>
+  </ion-slides>
 </ion-content>
-
-<!--
-<ion-content>
-  <!--以下に設置------
-  <div id="title">カレンダー</div>
-  <div #month id="month"></div>
-  <div #content id="content" style="font-family:'MS Gothic'"></div>
-  <!------------------
-</ion-content>
-
-<ion-header>
-  <ion-navbar color="primary">
-    <ion-title>{{viewTitle}}</ion-title>
-    <ion-buttons end>
-      <button ion-button [disabled]="isToday" (click)="today()">Today</button>
-      <button ion-button (click)="changeMode('month')">M</button>
-      <button ion-button (click)="changeMode('week')">W</button>
-      <button ion-button (click)="changeMode('day')">D</button>
-      <button ion-button (click)="loadEvents()">Load Events</button>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>
--->
