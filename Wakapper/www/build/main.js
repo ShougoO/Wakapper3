@@ -1669,7 +1669,7 @@ var DetailPage = (function () {
         this.flag = navParams.get('flag');
     }
     DetailPage.prototype.ionViewDidLoad = function () {
-        this.showFlag = this.dataServiceFavo.sendSampleEvent('', -1 * (this.num + 1));
+        this.showFlag = this.dataServiceFavo.sendSampleEvent(this.name, -1 * (this.num + 1));
     };
     DetailPage.prototype.setFavo = function () {
         if (this.flag == 1) {
@@ -1680,7 +1680,7 @@ var DetailPage = (function () {
             else {
                 alert("お気に入り登録しました");
             }
-            this.showFlag = this.dataServiceFavo.sendSampleEvent('', -1 * (this.num + 1));
+            this.showFlag = this.dataServiceFavo.sendSampleEvent(this.name, -1 * (this.num + 1));
         }
         else if (this.flag != 1) {
             alert("ログインしてください");

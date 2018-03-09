@@ -36,7 +36,7 @@ export class DetailPage {
   }
 
   ionViewDidLoad(){
-    this.showFlag = this.dataServiceFavo.sendSampleEvent('', -1*(this.num+1));
+    this.showFlag = this.dataServiceFavo.sendSampleEvent(this.name, -1*(this.num+1));
   }
 
   setFavo(){
@@ -48,7 +48,7 @@ export class DetailPage {
         alert("お気に入り登録しました");
       }
       
-      this.showFlag = this.dataServiceFavo.sendSampleEvent('', -1*(this.num+1));
+      this.showFlag = this.dataServiceFavo.sendSampleEvent(this.name, -1*(this.num+1));
     }else if(this.flag!=1){
       alert("ログインしてください");
     }
