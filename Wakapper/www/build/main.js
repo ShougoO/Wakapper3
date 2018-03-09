@@ -1199,18 +1199,18 @@ var SubmForm = (function () {
         this.num = navParams.get("num");
     }
     SubmForm.prototype.postURL = function (url) {
-        var Form = this.formElement.nativeElement;
-        window.location.href = url + '?' + Form.elements['titleID'].value
-            + "+" + Form.elements['commentID'].value
-            + "+" + this.num;
+        //var Form = <HTMLFormElement>this.formElement.nativeElement;
+        this.formElement.nativeElement.method = "POST";
+        this.formElement.nativeElement.action = url;
+        this.formElement.nativeElement.submit();
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('form'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('comments'),
         __metadata("design:type", Object)
     ], SubmForm.prototype, "formElement", void 0);
     SubmForm = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-submit',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\submit\submit.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板:コメントの投稿</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <form #form class="test_form">\n\n    投稿タイトル :<br>\n\n    <input #title type="text" id="titleID" name="title" /><br>\n\n    投稿コメント :<br>\n\n    <input #comment type="text" id="commentID" name="comments" /><br><br>\n\n\n\n    <input type="submit" (click)="postURL(\'../src/cgi/subm.cgi\')" />\n\n  </form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\submit\submit.html"*/
+            selector: 'page-submit',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\submit\submit.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板:コメントの投稿</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <form #comments class="test_form">\n\n    投稿タイトル :<br>\n\n    <input type="text" id="content" name="title" /><br>\n\n    投稿コメント :<br>\n\n    <input type="text" id="content" name="comments" /><br><br>\n\n    <input type="hidden" [(ngModel)]="this.num" id="num" name="num" value="{{this.num}}" readonly />\n\n\n\n    <input type="submit" (click)="postURL(\'../src/cgi/subm.cgi\')" />\n\n  </form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\submit\submit.html"*/
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object])
     ], SubmForm);

@@ -16,12 +16,14 @@ array=()
 
 exec 2> $logd/LOG.$(basename $0).$(date +%Y%m%d)
 
-# dd bs=$CONTENT_LENGTH   |
-# cgi-name -i _ -d_       > $tmp-name
 
-Title=$1
-Comments=$2
-Num=$3
+dd bs=$CONTENT_LENGTH   |
+cgi-name -i _ -d_       > $tmp-name
+
+Title=$(nameread title $tmp-name)
+Comments=$(nameread comments $tmp-name)
+Num=$(nameread num $tmp-name)
+
 
 echo "{
   \"contribution\": [
