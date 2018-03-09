@@ -664,6 +664,7 @@ var MyApp = (function () {
                 }
                 else if (num < 0) {
                     num *= -1;
+                    num -= 1;
                     var P = [__WEBPACK_IMPORTED_MODULE_5__pages_page1_page1__["a" /* Page1 */], __WEBPACK_IMPORTED_MODULE_6__pages_page2_page2__["a" /* Page2 */], __WEBPACK_IMPORTED_MODULE_7__pages_page3_page3__["a" /* Page3 */], __WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__["a" /* Page4 */]];
                     var PN = ["Page1", "Page2", "Page3", "Page4"];
                     _this.showText = PN[num];
