@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { DataServiceNum } from '../../app/data.service.num';
-
 import {TimeTablePage} from '../time-table/time-table';
 import {JsonData} from '../../app/json-data';
 
@@ -22,11 +20,7 @@ export class Page4 {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              getJson:JsonData,
-              private dataServiceNum: DataServiceNum) {
-    // 痕跡を残す
-    this.dataServiceNum.sendSampleNum(4);
-    
+              getJson:JsonData) {
     this.testJsonURL = 'https://gist.githubusercontent.com/ueken0307/6d7205f2492a48cbc2c4bcdbeb2754b1/raw/d140717972a7efe8e0bbc04728e4356643ffae2e/station.json';
 
     getJson.getData(this.testJsonURL).subscribe(input=>{

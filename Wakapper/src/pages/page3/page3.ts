@@ -5,8 +5,6 @@ import {CalendarProvider} from "../../providers/calendar/calendar";
 
 import { JsonData } from '../../app/json-data';
 
-import { DataServiceNum } from '../../app/data.service.num';
-
 import { DetailPage } from '../detail/detail';
 
 @IonicPage()
@@ -28,12 +26,8 @@ export class Page3 {
         public navCtrl: NavController, 
         public calendar: CalendarProvider,
         public navParams: NavParams,
-        public dataService: JsonData,
-        private dataServiceNum: DataServiceNum
+        public dataService: JsonData
     ) {
-        // 痕跡を残す
-        this.dataServiceNum.sendSampleNum(3);
-
         let t = this.calendar.getToday(); // 今日の日付けを取得
         this.current_calendar = t;
         let l = this.calendar.lastMonth(t[0], t[1]); // 前月の年月を取得

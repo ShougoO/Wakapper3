@@ -2,8 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { JsonData } from '../../app/json-data';
 
-import { DataServiceNum } from '../../app/data.service.num';
-
 import { DetailPage } from '../detail/detail';
 
 // GoogleMap を使用する時、 @ionic-native/core が必要(npm install)
@@ -50,11 +48,7 @@ export class Page1 {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private googleMaps: GoogleMaps,
-              public dataService: JsonData,
-              private dataServiceNum: DataServiceNum) {
-    // 痕跡を残す
-    this.dataServiceNum.sendSampleNum(1);
-    
+              public dataService: JsonData) {
     this.text = navParams.get("text");
     this.showText = this.text;
     // 読み込み時に受け取った緯度と経度の位置に Marker を設置

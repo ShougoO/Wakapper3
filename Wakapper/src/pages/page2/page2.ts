@@ -4,8 +4,6 @@ import { URLSearchParams, QueryEncoder } from '@angular/http';
 
 import { JsonData } from '../../app/json-data';
 
-import { DataServiceNum } from '../../app/data.service.num';
-
 import { RegiForm } from '../registration/registration';
 import { SubmForm } from './submit/submit';
 
@@ -25,17 +23,13 @@ export class Page2{
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public dataService: JsonData,
-              private dataServiceNum: DataServiceNum) {
+              public dataService: JsonData) {
     this.text = navParams.get("text");
     this.showText = this.text;
     this.datasNum = 0;
   }
 
-  ionViewDidLoad() {  
-    // 痕跡を残す
-    this.dataServiceNum.sendSampleNum(2);
-
+  ionViewDidLoad() {
     var Url = document.location.search.substring(1);
     var urlParams = new URLSearchParams(Url, new QueryEncoder());
     var Q = urlParams.getAll("q");
