@@ -56,8 +56,9 @@ export class DataServiceFavo {
     getMKFavo(){
         let str: string;
         for(let i=0;;i++){
+            if(this.mkFavo[0]==null) return '999';
             str+=this.mkFavo[i];
-            if(this.mkFavo[i]!=null) break;
+            if(this.mkFavo[i]==null) break;
             else str+=',';
         }
         return str;

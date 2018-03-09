@@ -75,10 +75,14 @@ export class Page2{
   // ログアアウト
   logOut(){
     this.login = null;
-    //this.formElement.nativeElement.method = "POST";
-    //this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+this.dataServiceFavo.getMKFavo();
-    alert('../src/cgi/logout.cgi'+this.dataServiceFavo.getMKFavo());
-    //this.formElement.nativeElement.submit();
+    this.formElement.nativeElement.method = "POST";
+    if(this.dataServiceFavo.getMKFavo()!='999'){
+      this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+'?'+this.dataServiceFavo.getMKFavo();
+    }else{
+      this.formElement.nativeElement.action = '../src/cgi/logout.cgi';
+    }
+    alert(this.formElement.nativeElement.action);
+    this.formElement.nativeElement.submit();
     //window.location.href = '../src/cgi/logout.cgi';
   }
 
