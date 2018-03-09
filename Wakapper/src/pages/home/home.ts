@@ -4,6 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { DataService } from '../../app/data.service';
 import { DataServiceNum } from '../../app/data.service.num';
+import { DataServiceFavo } from '../../app/data.service.favorite';
 import { MyApp } from '../../app/app.component';
 
 @Component({
@@ -22,7 +23,8 @@ export class HomePage {
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 private dataService: DataService,
-                private dataServiceNum: DataServiceNum) {
+                private dataServiceNum: DataServiceNum,
+                private dataServiceFavo: DataServiceFavo) {
       this.text = navParams.get("text");
       this.showText = this.text;
       console.log(this.showText);
@@ -59,6 +61,7 @@ export class HomePage {
 
       if (Q[1] == "regi" || Q[1] == "login") {
         this.flag = 'login';
+        this.dataServiceFavo.sendSampleEvent(999);
         this.sendToDataService();
       } else {
         this.flag= 'logout';

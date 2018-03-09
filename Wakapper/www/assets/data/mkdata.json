@@ -5,30 +5,33 @@
       "snippet":"バス停1",
       "lat": 33.9095253,
       "lng":130.7500793,
-      "width": 20,
-      "height": 20,
+      "width": 50,
+      "height": 50,
       "address": "～～～～",
-      "open": "ー"
+      "open": "ー",
+      "icon": "bus"
     },
     {
       "title":"バス停2",
       "snippet":"バス停2",
       "lat": 33.9055253,
       "lng":130.7200793,
-      "width": 20,
-      "height": 20,
+      "width": 50,
+      "height": 50,
       "address": "～～",
-      "open": "ー"
+      "open": "ー",
+      "icon": "bus"
     },
     {
       "title":"バス停3",
       "snippet":"バス停3",
       "lat": 33.9055253,
       "lng":130.7500793,
-      "width": 20,
-      "height": 20,
+      "width": 50,
+      "height": 50,
       "address": "～～～～",
-      "open": "ー"
+      "open": "ー",
+      "icon": "bus"
     }
   ]
 }

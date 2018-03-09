@@ -25687,11 +25687,15 @@ p {
   white-space: pre-wrap;
 }
 
-page-home ion-header ion-title, page-home ion-header button {
+page-home ion-header ion-navbar {
+  height: 5em;
+}
+
+page-home ion-header ion-navbar ion-title, page-home ion-header ion-navbar button {
   display: inline-block;
 }
 
-page-home ion-header button {
+page-home ion-header ion-navbar button {
   margin-left: 5%;
 }
 

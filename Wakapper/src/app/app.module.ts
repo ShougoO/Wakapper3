@@ -13,14 +13,15 @@ import { Page2 } from '../pages/page2/page2';
 import { SubmForm } from '../pages/page2/submit/submit';
 import { Page3Module } from '../pages/page3/page3.module';
 import { Page4 } from '../pages/page4/page4';
-import {TimeTablePage} from '../pages/time-table/time-table'
-import {DetailPage} from '../pages/detail/detail';
+import { TimeTablePage } from '../pages/time-table/time-table'
+import { DetailPage } from '../pages/detail/detail';
 
 import { RegiForm } from '../pages/registration/registration';
 
 import { CalendarProvider } from '../providers/calendar/calendar';
 import { DataService } from './data.service';
 import { DataServiceNum } from './data.service.num';
+import { DataServiceFavo } from './data.service.favorite';
 import { JsonData } from './json-data';
 
 import { GoogleMaps } from '@ionic-native/google-maps';
@@ -43,7 +44,9 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     HttpModule,
     Page3Module
   ],
-  bootstrap: [IonicApp],
+  bootstrap: [
+    IonicApp
+  ],
   entryComponents: [
     MyApp,
     HomePage,
@@ -59,6 +62,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     GoogleMaps,
     DataService,
     DataServiceNum,
+    DataServiceFavo,
     JsonData,
     StatusBar,
     SplashScreen,

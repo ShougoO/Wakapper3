@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { JsonData } from '../../app/json-data';
 
 import { DataServiceNum } from '../../app/data.service.num';
+import { DataServiceFavo } from '../../app/data.service.favorite';
 
 import { DetailPage } from '../detail/detail';
 
@@ -34,15 +35,8 @@ export class Page1 {
   lng: number;  // 経度
   mkData: any;
 
-  clickEvent =[];// お気に入り登録のflag marker[i]が登録済み ⇒ clickEvent[i]==1 else clickEvent[i]==0
-
   mkState:string;
   snippet:string = "hoge";
-
-  /*
-  mkStatus: string;
-  clickStatus: any;
-  */
 
   text: string;
   showText: string;
@@ -51,7 +45,8 @@ export class Page1 {
               public navParams: NavParams,
               private googleMaps: GoogleMaps,
               public dataService: JsonData,
-              private dataServiceNum: DataServiceNum) {
+              private dataServiceNum: DataServiceNum,
+              private dataServiceFavo: DataServiceFavo) {
     this.text = navParams.get("text");
     this.showText = this.text;
     console.log(this.showText);
@@ -105,11 +100,8 @@ export class Page1 {
         title: this.mkData[i].title,
         snippet: this.mkData[i].snippet,
         icon: {
-          // url: '../assets/img/bus.png',
-          size: {
-            width: this.mkData[i].width,
-            height: this.mkData[i].height
-          }
+          url: '../src/assets/img/'+this.mkData[i].icon+'.png',
+          scaledSize: new google.maps.Size(this.mkData[i].width, this.mkData[i].height)
         },
         address: this.mkData[i].address,
         open: this.mkData[i].open
@@ -139,11 +131,11 @@ export class Page1 {
             title: this.marker[i].title,
             comment: this.marker[i].snippet,
             address: this.marker[i].address,
-            open: this.marker[i].open
+            open: this.marker[i].open,
+            num: i,
+            flag: this.dataServiceFavo.sendSampleEvent(666)
           });
       });
-
-      this.clickEvent[i]=0;
     }
   }
   
@@ -158,8 +150,8 @@ export class Page1 {
   }
   
   setBool(bool){
-    for(var i=0;i<3;i++){
-      if(this.clickEvent[i] != '1'){
+    for(let i=0;i<3;i++){
+      if(this.dataServiceFavo.sendSampleEvent(-1*(i+1))==0){
         this.marker[i].setVisible(bool);
       }
     }

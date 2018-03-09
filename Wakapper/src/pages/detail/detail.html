@@ -23,9 +23,13 @@
     
     <ion-row>
       <ion-col>
-        <button ion-button icon-left clear small>
+        <button *ngIf="showFlag==0" ion-button icon-left clear small (click)="setFavo()">
           <ion-icon name="star"></ion-icon>
           <div>お気に入り登録</div>
+        </button>
+        <button *ngIf="showFlag!=0" ion-button icon-left clear small (click)="setFavo()">
+          <ion-icon name="star"></ion-icon>
+          <div>お気に入り解除</div>
         </button>
       </ion-col>
     </ion-row>
