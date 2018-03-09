@@ -1614,14 +1614,10 @@ var DataServiceFavo = (function () {
     // url用にmkFavoの中身全てを結合して返す
     DataServiceFavo.prototype.getMKFavo = function () {
         var str = "";
-        for (var i = 0;; i++) {
-            if (this.mkFavo[0] == null)
+        for (var i in this.mkFavo) {
+            if (i == null)
                 return '-1'; // nkFavoが空の時
-            str += this.mkFavo[i];
-            if (this.mkFavo[i + 1] == null)
-                break; // 最後に来たら終了
-            else
-                str += ',';
+            str += i + ',';
         }
         return str;
     };

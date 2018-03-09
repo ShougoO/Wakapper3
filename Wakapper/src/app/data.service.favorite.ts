@@ -84,11 +84,9 @@ export class DataServiceFavo {
     // url用にmkFavoの中身全てを結合して返す
     getMKFavo(){
         let str: string = "";
-        for(let i=0;;i++){
-            if(this.mkFavo[0]==null) return '-1'; // nkFavoが空の時
-            str+=this.mkFavo[i];
-            if(this.mkFavo[i+1]==null) break;     // 最後に来たら終了
-            else str+=',';
+        for(let i in this.mkFavo){
+            if(i==null) return '-1'; // nkFavoが空の時
+            str+=i+',';
         }
         return str;
     }
