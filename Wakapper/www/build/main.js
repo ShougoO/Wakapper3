@@ -662,6 +662,13 @@ var MyApp = (function () {
                     _this.showText = "Page2";
                     _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_6__pages_page2_page2__["a" /* Page2 */], "Page2");
                 }
+                else if (num < 0) {
+                    num *= -1;
+                    var P = [__WEBPACK_IMPORTED_MODULE_5__pages_page1_page1__["a" /* Page1 */], __WEBPACK_IMPORTED_MODULE_6__pages_page2_page2__["a" /* Page2 */], __WEBPACK_IMPORTED_MODULE_7__pages_page3_page3__["a" /* Page3 */], __WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__["a" /* Page4 */]];
+                    var PN = ["Page1", "Page2", "Page3", "Page4"];
+                    _this.showText = PN[num];
+                    _this.nav.setRoot(P[num], PN[num]);
+                }
             });
         });
     };
@@ -748,16 +755,16 @@ var HomePage = (function () {
             console.log("Q[1] : " + Q[1]);
             switch (Q[1]) {
                 case '1':
-                    this.goToPage1();
+                    this.dataServiceNum.sendSampleNum(-1);
                     break;
                 case '2':
-                    this.goToPage2();
+                    this.dataServiceNum.sendSampleNum(-2);
                     break;
                 case '3':
-                    this.goToPage3();
+                    this.dataServiceNum.sendSampleNum(-3);
                     break;
                 case '4':
-                    this.goToPage4();
+                    this.dataServiceNum.sendSampleNum(-4);
                     break;
             }
             if (Q[2] == "subm") {
@@ -1348,9 +1355,14 @@ var DataServiceNum = (function () {
         // 3 : page3
         // 4 : page4
         // 5 : homep
-        if (num == 0) {
+        if (num <= 0) {
             console.log("num : " + num);
-            this.SampleNum.next(this.submFlag);
+            if (num == 0) {
+                this.SampleNum.next(this.submFlag);
+            }
+            else if (num < 0) {
+                this.SampleNum.next(num);
+            }
             if (this.submFlag == 0) {
                 this.submFlag = 1;
             }

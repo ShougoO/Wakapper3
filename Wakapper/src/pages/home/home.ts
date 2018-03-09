@@ -43,16 +43,16 @@ export class HomePage {
         console.log("Q[1] : "+Q[1]);
         switch(Q[1]){
           case '1' :
-                    this.goToPage1();
+                    this.dataServiceNum.sendSampleNum(-1);
                     break;
           case '2' :
-                    this.goToPage2();
+                    this.dataServiceNum.sendSampleNum(-2);
                     break;
           case '3' :
-                    this.goToPage3();
+                    this.dataServiceNum.sendSampleNum(-3);
                     break;
           case '4' :
-                    this.goToPage4();
+                    this.dataServiceNum.sendSampleNum(-4);
                     break;
         }
         if(Q[2] == "subm"){

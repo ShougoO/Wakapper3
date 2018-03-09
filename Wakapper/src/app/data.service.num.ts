@@ -21,9 +21,14 @@ export class DataServiceNum {
         // 4 : page4
         // 5 : homep
 
-        if(num==0){
+        if(num<=0){
             console.log("num : "+num);
-            this.SampleNum.next(this.submFlag);
+            if(num==0){
+                this.SampleNum.next(this.submFlag);
+            }else if(num<0){
+                this.SampleNum.next(num);
+            }
+            
             if(this.submFlag == 0){
                 this.submFlag = 1;
             }
