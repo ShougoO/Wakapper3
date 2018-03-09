@@ -623,18 +623,22 @@ var MyApp = (function () {
             // Page1に移動する際は若松区の座標（緯度(lat),経度(lng)）を渡す
             _this.dataService.Text$.subscribe(function (text) {
                 if (text == "Page01") {
+                    _this.qNum = 1;
                     _this.showText = "Page1";
                     _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_5__pages_page1_page1__["a" /* Page1 */], { text: "Page1" });
                 }
                 else if (text == "Page02") {
+                    _this.qNum = 2;
                     _this.showText = "Page2";
                     _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_6__pages_page2_page2__["a" /* Page2 */], { text: "Page2" });
                 }
                 else if (text == "Page03") {
+                    _this.qNum = 3;
                     _this.showText = "Page3";
                     _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_7__pages_page3_page3__["a" /* Page3 */], { text: "Page3" });
                 }
                 else if (text == "Page04") {
+                    _this.qNum = 4;
                     _this.showText = "Page4";
                     _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__["a" /* Page4 */], { text: "Page4" });
                 }
@@ -651,10 +655,24 @@ var MyApp = (function () {
                     else {
                         _this.showText = text;
                         if (text == "Page1") {
+                            _this.qNum = 1;
                             _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_5__pages_page1_page1__["a" /* Page1 */], { text: "Page1" });
                         }
                         else {
-                            _this.nav.setRoot(_this.page.component, { text: text });
+                            var N = [0, 1, 2, 3];
+                            var PN = ["Page1", "Page2", "Page3", "Page4"];
+                            var flag = 0;
+                            for (var i = 0; i < 4; i++) {
+                                if (text == PN[i]) {
+                                    _this.qNum = i;
+                                    _this.nav.setRoot(_this.page.component, { text: text });
+                                    flag = 1;
+                                    break;
+                                }
+                            }
+                            if (flag == 0) {
+                                _this.nav.setRoot(_this.page.component, { text: text });
+                            }
                         }
                     }
                 }
@@ -662,6 +680,7 @@ var MyApp = (function () {
             _this.dataServiceNum.Num$.subscribe(function (num) {
                 if (num == 0) {
                     console.log("num : " + num);
+                    _this.qNum = 2;
                     _this.showText = "Page2";
                     _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_6__pages_page2_page2__["a" /* Page2 */], "Page2");
                 }
@@ -697,7 +716,7 @@ var MyApp = (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */]) === "function" && _a || Object)
     ], MyApp.prototype, "nav", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('form'),
@@ -707,14 +726,10 @@ var MyApp = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'sample-component',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <section *ngIf="showText == \'Page1\'">\n\n        <button menuClose ion-item *ngFor="let p of page1" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </section>\n\n      <section *ngIf="showText == \'Page2\'">\n\n        <button menuClose ion-item *ngFor="let p of page2" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </section>\n\n      <section *ngIf="showText == \'Page3\'">\n\n        <button menuClose ion-item *ngFor="let p of page3" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </section>\n\n      <section *ngIf="showText == \'Page4\'">\n\n        <button menuClose ion-item *ngFor="let p of page4" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </section>\n\n      <section *ngIf="q == undefined">\n\n        <button menuClose ion-item (click)="openPage(pageReLo)" color="secondary">\n\n          {{pageReLo.title}}\n\n        </button>\n\n      </section>\n\n      <section *ngIf="q != undefined">\n\n        <button menuClose ion-item (click)="logOut()" color="danger">\n\n          ログアウトする\n\n        </button>\n\n      </section>\n\n    </ion-list>\n\n  </ion-content>\n\n  <form #form>\n\n    <input type="hidden" [(ngModel)]="this.qNum" name="num" id="content" value="{{this.qNum}}" readonly />\n\n  </form>    \n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
-            __WEBPACK_IMPORTED_MODULE_10__data_service__["a" /* DataService */],
-            __WEBPACK_IMPORTED_MODULE_11__data_service_num__["a" /* DataServiceNum */],
-            __WEBPACK_IMPORTED_MODULE_12__data_service_favorite__["a" /* DataServiceFavo */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_10__data_service__["a" /* DataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__data_service__["a" /* DataService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_11__data_service_num__["a" /* DataServiceNum */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__data_service_num__["a" /* DataServiceNum */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_12__data_service_favorite__["a" /* DataServiceFavo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_12__data_service_favorite__["a" /* DataServiceFavo */]) === "function" && _g || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=app.component.js.map

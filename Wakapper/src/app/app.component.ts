@@ -96,18 +96,22 @@ export class MyApp {
       // Page1に移動する際は若松区の座標（緯度(lat),経度(lng)）を渡す
       this.dataService.Text$.subscribe(text => {
         if (text == "Page01") {
+          this.qNum = 1;
           this.showText = "Page1";
           this.nav.setRoot(Page1, { text: "Page1" });
 
         } else if (text == "Page02") {
+          this.qNum = 2;
           this.showText = "Page2";
           this.nav.setRoot(Page2, { text: "Page2" });
 
         } else if (text == "Page03") {
+          this.qNum = 3;
           this.showText = "Page3";
           this.nav.setRoot(Page3, { text: "Page3" });
 
         } else if (text == "Page04") {
+          this.qNum = 4;
           this.showText = "Page4";
           this.nav.setRoot(Page4, { text: "Page4" });
 
@@ -123,9 +127,23 @@ export class MyApp {
           } else {
             this.showText = text;
             if (text == "Page1") {
+              this.qNum = 1;
               this.nav.setRoot(Page1, { text: "Page1" });
             } else {
-              this.nav.setRoot(this.page.component, { text: text });
+              let N = [0,1,2,3];
+              let PN = ["Page1", "Page2", "Page3", "Page4"];
+              let flag = 0;
+              for(let i=0;i<4;i++){
+                if(text==PN[i]){
+                  this.qNum=i;
+                  this.nav.setRoot(this.page.component, { text: text });
+                  flag = 1;
+                  break;
+                }
+              }
+              if(flag==0){
+                this.nav.setRoot(this.page.component, { text: text });
+              }
             }
           }
         }
@@ -134,6 +152,7 @@ export class MyApp {
       this.dataServiceNum.Num$.subscribe(num => {
         if(num == 0){
           console.log("num : "+num);
+          this.qNum = 2;
           this.showText = "Page2";
           this.nav.setRoot(Page2, "Page2");
         }else if(num < 0){
