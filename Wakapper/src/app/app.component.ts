@@ -13,6 +13,7 @@ import { RegiForm } from '../pages/registration/registration';
 
 import { DataService } from './data.service';
 import { DataServiceNum } from './data.service.num';
+import { DataServiceFavo } from './data.service.favorite';
 
 @Component({
   selector: 'sample-component',
@@ -50,7 +51,8 @@ export class MyApp {
               public statusBar: StatusBar,
               public splashScreen: SplashScreen,
               private dataService: DataService,
-              private dataServiceNum: DataServiceNum) {
+              private dataServiceNum: DataServiceNum,
+              private dataServiceFavo: DataServiceFavo) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -159,7 +161,7 @@ export class MyApp {
 
   logOut(){
     this.formElement.nativeElement.method = "POST";
-    this.formElement.nativeElement.action = '../src/cgi/logout.cgi';
+    this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+this.dataServiceFavo.getMKFavo();
     this.formElement.nativeElement.submit();
   }
 }

@@ -17,12 +17,10 @@ export class DataServiceFavo {
                 num--;
             }
             
-            console.log(this.mkFavo);
             return this.searchNum(num);
         } else if(num==999){
             this.flag = 1;
         } else if(num==666){
-            console.log(this.mkFavo);
             return this.flag;
         } else {// num ≧ 0
             let x = this.searchNum(num);
@@ -37,13 +35,11 @@ export class DataServiceFavo {
                         break;
                     }
                 }
-
-                console.log(this.mkFavo);
+                
                 return 1;
             }
             this.mkFavo.push(num);
             
-            console.log(this.mkFavo);
             return 0;
         }
     }
@@ -55,5 +51,15 @@ export class DataServiceFavo {
             }
         }
         return 0;
+    }
+
+    getMKFavo(){
+        let str: string;
+        for(let i=0;;i++){
+            str+=this.mkFavo[i];
+            if(this.mkFavo[i]!=null) break;
+            else str+=',';
+        }
+        return str;
     }
 }

@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { URLSearchParams, QueryEncoder } from '@angular/http';
 
 import { JsonData } from '../../app/json-data';
+import { DataServiceFavo } from '../../app/data.service.favorite';
 
 import { RegiForm } from '../registration/registration';
 import { SubmForm } from './submit/submit';
@@ -27,7 +28,8 @@ export class Page2{
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public dataService: JsonData,
-              private dataServiceNum: DataServiceNum) {
+              private dataServiceNum: DataServiceNum,
+              private dataServiceFavo: DataServiceFavo) {
     this.text = navParams.get("text");
     this.showText = this.text;
     console.log(this.showText);
@@ -74,7 +76,7 @@ export class Page2{
   logOut(){
     this.login = null;
     this.formElement.nativeElement.method = "POST";
-    this.formElement.nativeElement.action = '../src/cgi/logout.cgi';
+    this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+this.dataServiceFavo.getMKFavo();
     this.formElement.nativeElement.submit();
     //window.location.href = '../src/cgi/logout.cgi';
   }

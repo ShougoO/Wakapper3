@@ -105,7 +105,7 @@ export class HomePage {
       this.flag= 'logout';
       
       this.formElement.nativeElement.method = "POST";
-      this.formElement.nativeElement.action = '../src/cgi/logout.cgi';
+      this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+this.dataServiceFavo.getMKFavo();
       this.formElement.nativeElement.submit();
       //window.location.href = '../src/cgi/logout.cgi';
     }
