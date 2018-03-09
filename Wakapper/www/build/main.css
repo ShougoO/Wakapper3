@@ -25798,7 +25798,7 @@ page-submit ion-content {
   margin-left: 1%;
 }
 
-page-submit ion-content #content {
+page-submit ion-content #titleID, page-submit ion-content #commentID {
   width: 100%;
   height: 5em;
 }

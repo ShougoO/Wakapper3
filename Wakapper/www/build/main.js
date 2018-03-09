@@ -374,10 +374,13 @@ var Page3 = (function () {
             selector: 'page-page3',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page3\page3.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>イベントカレンダー</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content no-bounce>\n\n  <ion-grid class="calendar-header" no-padding>\n\n    <ion-row>\n\n      <ion-col>\n\n        <button ion-button (click)="beforeSlide()">\n\n          ＜\n\n        </button>\n\n        <span class="title">\n\n          {{current_calendar[0]}}年{{current_calendar[1]}}月\n\n        </span>\n\n        <button ion-button (click)="nextSlide()">\n\n          ＞\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n  \n\n  <ion-slides class="slide" #Slides (ionSlidePrevEnd)="beforeSlide()" (ionSlideNextEnd)="nextSlide()" initialSlide="1">\n\n    <ion-slide *ngFor="let c of cal; let idx = index;">\n\n      <table class="date-table">\n\n        <tbody class="date-body">\n\n          <tr class="weekday">\n\n            <td>日</td>\n\n            <td>月</td>\n\n            <td>火</td>\n\n            <td>水</td>\n\n            <td>木</td>\n\n            <td>金</td>\n\n            <td>土</td>\n\n          </tr>\n\n          <tr *ngFor="let week of c.week; let w = index;">\n\n            <td *ngFor="let day of week; let d = index;">\n\n              <div class="day">\n\n                <span [ngClass]="{\'other\':day.other}">\n\n                  {{day.day}}\n\n                </span>\n\n                <br>\n\n                <span *ngIf="showEventFlag(current_calendar[0], c.month, day.day, day.other)==1">\n\n                  <br>\n\n                  <section class="spanSection" *ngFor="let event of showEvent(current_calendar[0], c.month, day.day, day.other)">\n\n                    <ion-icon name="star" style="color : green;">\n\n                      <section class="spanText">\n\n                        <button clear (click)="goToDetail(event)" style="background-color:white; font-size: 1.5em;">\n\n                          {{event}}\n\n                        </button>\n\n                      </section>\n\n                    </ion-icon>\n\n                  </section>\n\n                </span>\n\n              </div>\n\n            </td>\n\n          </tr>\n\n        </tbody>\n\n      </table>\n\n      <!-- ウィンドウが小さくなったときに、表示されるリスト -->\n\n      <div class="spanEventDates" *ngFor="let event of showThisMonthEvent(c.month)">\n\n        <ion-card>\n\n          <ion-card-content>\n\n            <ion-icon name="star" style="color : green;">\n\n              <button clear (click)="goToDetail(event.text)" style="background-color:white; font-size: 1em;">\n\n                {{event.date.day}}日：{{event.text}}\n\n              </button>\n\n            </ion-icon>\n\n          </ion-card-content>\n\n        </ion-card>\n\n      </div>\n\n      <!-- ウィンドウが小さくなったときに、表示されるリスト -->\n\n    </ion-slide>\n\n  </ion-slides>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page3\page3.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_2__providers_calendar_calendar__["a" /* CalendarProvider */]],
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_calendar_calendar__["a" /* CalendarProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_calendar_calendar__["a" /* CalendarProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__app_data_service_num__["a" /* DataServiceNum */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__app_data_service_num__["a" /* DataServiceNum */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_calendar_calendar__["a" /* CalendarProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */],
+            __WEBPACK_IMPORTED_MODULE_4__app_data_service_num__["a" /* DataServiceNum */]])
     ], Page3);
     return Page3;
-    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=page3.js.map
@@ -711,9 +714,7 @@ var MyApp = (function () {
         this.formElement.nativeElement.submit();
         */
         if (this.dataServiceFavo.getMKFavo() != '-1') {
-            window.location.href = '../src/cgi/logout.cgi?' + this.qNum + '+'
-                + this.dataServiceFavo.getUsrName()
-                + "+" + this.dataServiceFavo.getMKFavo();
+            window.location.href = '../src/cgi/logout.cgi?' + this.qNum + '+' + this.dataServiceFavo.getMKFavo();
         }
         else {
             window.location.href = '../src/cgi/logout.cgi?' + this.qNum;
@@ -721,7 +722,7 @@ var MyApp = (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */]),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('form'),
@@ -731,10 +732,14 @@ var MyApp = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'sample-component',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <section *ngIf="showText == \'Page1\'">\n\n        <button menuClose ion-item *ngFor="let p of page1" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </section>\n\n      <section *ngIf="showText == \'Page2\'">\n\n        <button menuClose ion-item *ngFor="let p of page2" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </section>\n\n      <section *ngIf="showText == \'Page3\'">\n\n        <button menuClose ion-item *ngFor="let p of page3" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </section>\n\n      <section *ngIf="showText == \'Page4\'">\n\n        <button menuClose ion-item *ngFor="let p of page4" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </section>\n\n      <section *ngIf="q == undefined">\n\n        <button menuClose ion-item (click)="openPage(pageReLo)" color="secondary">\n\n          {{pageReLo.title}}\n\n        </button>\n\n      </section>\n\n      <section *ngIf="q != undefined">\n\n        <button menuClose ion-item (click)="logOut()" color="danger">\n\n          ログアウトする\n\n        </button>\n\n      </section>\n\n    </ion-list>\n\n  </ion-content>\n\n  <!--\n\n  <form #form>\n\n    <input type="hidden" [(ngModel)]="this.qNum" name="num" id="content" value="{{this.qNum}}" readonly />\n\n  </form>\n\n  -->\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_10__data_service__["a" /* DataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__data_service__["a" /* DataService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_11__data_service_num__["a" /* DataServiceNum */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__data_service_num__["a" /* DataServiceNum */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_12__data_service_favorite__["a" /* DataServiceFavo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_12__data_service_favorite__["a" /* DataServiceFavo */]) === "function" && _g || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
+            __WEBPACK_IMPORTED_MODULE_10__data_service__["a" /* DataService */],
+            __WEBPACK_IMPORTED_MODULE_11__data_service_num__["a" /* DataServiceNum */],
+            __WEBPACK_IMPORTED_MODULE_12__data_service_favorite__["a" /* DataServiceFavo */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=app.component.js.map
@@ -807,7 +812,7 @@ var HomePage = (function () {
                 this.dataServiceNum.sendSampleNum(-4);
                 break;
         }
-        if (Q[1] == "regi" || this.dataServiceFavo.confiOfq1(Q[1]) == 1) {
+        if (Q[1] == "regi" || Q[1] == "login") {
             this.flag = 'login';
             this.dataServiceFavo.sendSampleEvent('', 999);
             this.sendToDataService();
@@ -855,9 +860,7 @@ var HomePage = (function () {
         this.formElement.nativeElement.submit();
         */
         if (this.dataServiceFavo.getMKFavo() != '-1') {
-            window.location.href = '../src/cgi/logout.cgi?5+'
-                + this.dataServiceFavo.getUsrName()
-                + "+" + this.dataServiceFavo.getMKFavo();
+            window.location.href = '../src/cgi/logout.cgi?5+' + this.dataServiceFavo.getMKFavo();
         }
         else {
             window.location.href = '../src/cgi/logout.cgi?5';
@@ -871,10 +874,13 @@ var HomePage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <ion-title>Wakapper</ion-title>\n\n    <button *ngIf="flag==\'logout\'" ion-button (click)="goToRegi()" color="secondary">\n\n      アカウント登録・ログイン\n\n    </button>\n\n    <button *ngIf="flag==\'login\'" ion-button (click)="logOut()" color="danger">\n\n      ログアウト\n\n    </button>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding class="links">\n\n  <button ion-button (click)="goToPage1()">\n\n    <ion-icon name="map">\n\n      <p>マップ</p>\n\n    </ion-icon>\n\n  </button>\n\n  <button ion-button (click)="goToPage2()">\n\n    <ion-icon name="chatbubbles">\n\n      <p>掲示板</p>\n\n    </ion-icon>\n\n  </button>\n\n  <button ion-button (click)="goToPage3()">\n\n    <ion-icon name="paper">\n\n      <p>カレンダー</p>\n\n    </ion-icon>\n\n  </button>\n\n  <button ion-button (click)="goToPage4()">\n\n    <ion-icon name="subway">\n\n      <p>運行表</p>\n\n    </ion-icon>\n\n  </button>\n\n  <!--\n\n  <form #form>\n\n    <input type="hidden" name="num" id="content" value="5" readonly />\n\n  </form>\n\n  -->\n\n</ion-content>'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_data_service__["a" /* DataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_data_service__["a" /* DataService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__app_data_service_num__["a" /* DataServiceNum */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__app_data_service_num__["a" /* DataServiceNum */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__app_data_service_favorite__["a" /* DataServiceFavo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__app_data_service_favorite__["a" /* DataServiceFavo */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__app_data_service__["a" /* DataService */],
+            __WEBPACK_IMPORTED_MODULE_4__app_data_service_num__["a" /* DataServiceNum */],
+            __WEBPACK_IMPORTED_MODULE_5__app_data_service_favorite__["a" /* DataServiceFavo */]])
     ], HomePage);
     return HomePage;
-    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -1029,10 +1035,14 @@ var Page1 = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-page1',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page1\page1.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>区内マップ</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <button ion-button (click)="markerVisible()">{{mkState}}</button>\n\n  <div #map id="map"></div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page1\page1.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_maps__["a" /* GoogleMaps */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_maps__["a" /* GoogleMaps */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__app_data_service_num__["a" /* DataServiceNum */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_data_service_num__["a" /* DataServiceNum */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__app_data_service_favorite__["a" /* DataServiceFavo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__app_data_service_favorite__["a" /* DataServiceFavo */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_maps__["a" /* GoogleMaps */],
+            __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */],
+            __WEBPACK_IMPORTED_MODULE_3__app_data_service_num__["a" /* DataServiceNum */],
+            __WEBPACK_IMPORTED_MODULE_4__app_data_service_favorite__["a" /* DataServiceFavo */]])
     ], Page1);
     return Page1;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=page1.js.map
@@ -1087,7 +1097,7 @@ var Page2 = (function () {
         var Url = document.location.search.substring(1);
         var urlParams = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* URLSearchParams */](Url, new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* QueryEncoder */]());
         var Q = urlParams.getAll("q");
-        if (Q[1] == "regi" || this.dataServiceFavo.confiOfq1(Q[1]) == 1) {
+        if (Q[1] == "regi" || Q[1] == "login") {
             this.login = "ログイン中";
         }
         else {
@@ -1128,9 +1138,9 @@ var Page2 = (function () {
         this.formElement.nativeElement.submit();
         */
         if (this.dataServiceFavo.getMKFavo() != '-1') {
-            window.location.href = '../src/cgi/logout.cgi?2+'
-                + this.dataServiceFavo.getUsrName()
-                + "+" + this.dataServiceFavo.getMKFavo();
+            window.location.href = '../src/cgi/logout.cgi?2+' + this.dataServiceFavo.getMKFavo();
+        }
+        else {
             window.location.href = '../src/cgi/logout.cgi?2';
         }
     };
@@ -1150,10 +1160,13 @@ var Page2 = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-page2',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\page2.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <div id="topContent">\n\n    <button ion-button id="Registration" *ngIf="!login" (click)="goToRegi()" color="secondary">アカウントの登録・ログイン</button>\n\n    \n\n    <button ion-button id="Submit" *ngIf="login!=null" (click)="goToSubm()">コメントの投稿</button>\n\n    <button ion-button id="Registration" *ngIf="login!=null" (click)="logOut()" color="danger">ログアウト</button>\n\n  </div>\n\n\n\n  <div style="text-align: center;">\n\n      総投稿数：{{datasNum}}\n\n  </div><br>\n\n  <div *ngFor="let cont of contribution">\n\n    <ion-card>\n\n      <ion-card-header>\n\n        {{cont[0].title}}\n\n      </ion-card-header>\n\n      <ion-card-content>\n\n        {{cont[0].comments}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n  </div>\n\n  <!--\n\n  <form #form>\n\n    <input type="hidden" name="num" id="content" value="2" readonly />\n\n  </form>\n\n  -->\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\page2.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_7__app_data_service_num__["a" /* DataServiceNum */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__app_data_service_num__["a" /* DataServiceNum */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__app_data_service_favorite__["a" /* DataServiceFavo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__app_data_service_favorite__["a" /* DataServiceFavo */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */],
+            __WEBPACK_IMPORTED_MODULE_7__app_data_service_num__["a" /* DataServiceNum */],
+            __WEBPACK_IMPORTED_MODULE_4__app_data_service_favorite__["a" /* DataServiceFavo */]])
     ], Page2);
     return Page2;
-    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=page2.js.map
@@ -1167,6 +1180,7 @@ var Page2 = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SubmForm; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_data_service_favorite__ = __webpack_require__(35);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1178,30 +1192,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var SubmForm = (function () {
-    function SubmForm(navCtrl, navParams) {
+    function SubmForm(navCtrl, navParams, dataServiceFavo) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.dataServiceFavo = dataServiceFavo;
         // 投稿数
         this.num = navParams.get("num");
     }
     SubmForm.prototype.postURL = function (url) {
-        //var Form = <HTMLFormElement>this.formElement.nativeElement;
-        this.formElement.nativeElement.method = "POST";
-        this.formElement.nativeElement.action = url;
-        this.formElement.nativeElement.submit();
+        var Form = this.formElement.nativeElement;
+        window.location.href = url + '?' + Form.elements['titleID'].value
+            + "+" + Form.elements['commentID'].value
+            + "+" + this.num;
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('comments'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('form'),
         __metadata("design:type", Object)
     ], SubmForm.prototype, "formElement", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('title'),
+        __metadata("design:type", Object)
+    ], SubmForm.prototype, "titleElement", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('comment'),
+        __metadata("design:type", Object)
+    ], SubmForm.prototype, "commentElement", void 0);
     SubmForm = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-submit',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\submit\submit.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板:コメントの投稿</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <form #comments class="test_form">\n\n    投稿タイトル :<br>\n\n    <input type="text" id="content" name="title" /><br>\n\n    投稿コメント :<br>\n\n    <input type="text" id="content" name="comments" /><br><br>\n\n    <input type="hidden" [(ngModel)]="this.num" id="num" name="num" value="{{this.num}}" readonly />\n\n\n\n    <input type="submit" (click)="postURL(\'../src/cgi/subm.cgi\')" />\n\n  </form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\submit\submit.html"*/
+            selector: 'page-submit',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\submit\submit.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板:コメントの投稿</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <form #form class="test_form">\n\n    投稿タイトル :<br>\n\n    <input #title type="text" id="titleID" name="title" /><br>\n\n    投稿コメント :<br>\n\n    <input #comment type="text" id="commentID" name="comments" /><br><br>\n\n\n\n    <input type="submit" (click)="postURL(\'../src/cgi/subm.cgi\')" />\n\n  </form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\submit\submit.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__app_data_service_favorite__["a" /* DataServiceFavo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_data_service_favorite__["a" /* DataServiceFavo */]) === "function" && _c || Object])
     ], SubmForm);
     return SubmForm;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=submit.js.map
@@ -1537,20 +1562,6 @@ var DataServiceFavo = (function () {
         this.mkFavo = [];
         this.flag = 0;
     }
-    DataServiceFavo.prototype.confiOfq1 = function (str) {
-        if (str != null && str.indexOf("usr") === 0) {
-            this.usrName = str;
-            console.log("this.usrName");
-            console.log(this.usrName);
-            return 1;
-        }
-        else {
-            return 0;
-        }
-    };
-    DataServiceFavo.prototype.getUsrName = function () {
-        return this.usrName;
-    };
     DataServiceFavo.prototype.loaMKdData = function () {
         var _this = this;
         this.dataService.getData('../src/assets/data/logout.json').subscribe(function (data) {
@@ -1638,10 +1649,9 @@ var DataServiceFavo = (function () {
     };
     DataServiceFavo = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__json_data__["a" /* JsonData */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__json_data__["a" /* JsonData */]])
     ], DataServiceFavo);
     return DataServiceFavo;
-    var _a;
 }());
 
 //# sourceMappingURL=data.service.favorite.js.map
