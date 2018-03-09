@@ -41,11 +41,11 @@ echo $url > $inpd/url.txt
 # aaa : www.~~~
 aaa=$(awk -F"?" -v "num=1" '{print $num}' $inpd/url.txt)
 echo $DATA > $inpd/eee.txt
-bbb=$(awk -F"\\" -v "num=2" '{print $num}' $inpd/eee.txt)
-echo $bbb > $inpd/ddd.txt
-ccc=$(awk -F"\"" -v "num=2" '{print $num}' $inpd/ddd.txt)
+# bbb=$(awk -F"\\" -v "num=2" '{print $num}' $inpd/eee.txt)
+# echo $bbb > $inpd/ddd.txt
+# ccc=$(awk -F"\"" -v "num=2" '{print $num}' $inpd/ddd.txt)
 
-echo "{\"data\": [\"$ccc\"]}" > $assd/logout.json
+echo "{\"data\": [\"$DATA\"]}" > $assd/logout.json
 
 if [ "$NUM" != "null" ]; then
   echo "Location: $aaa?q=$NUM"
