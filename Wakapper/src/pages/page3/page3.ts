@@ -35,7 +35,6 @@ export class Page3 {
     ) {
         this.text = navParams.get("text");
         this.showText = this.text;
-        console.log(this.showText);
 
         let t = this.calendar.getToday(); // 今日の日付けを取得
         this.current_calendar = t;

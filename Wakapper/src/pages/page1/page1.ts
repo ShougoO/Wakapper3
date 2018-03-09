@@ -49,7 +49,6 @@ export class Page1 {
               private dataServiceFavo: DataServiceFavo) {
     this.text = navParams.get("text");
     this.showText = this.text;
-    console.log(this.showText);
     // 読み込み時に受け取った緯度と経度の位置に Marker を設置
     
     this.lat = 33.9144938;

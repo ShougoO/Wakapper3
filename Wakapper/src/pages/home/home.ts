@@ -27,7 +27,6 @@ export class HomePage {
                 private dataServiceFavo: DataServiceFavo) {
       this.text = navParams.get("text");
       this.showText = this.text;
-      console.log(this.showText);
     }
 
     //画面表示後、掲示板の登録用のcgiから
@@ -39,11 +38,9 @@ export class HomePage {
       var Q = urlParams.getAll("q");
 
       if(Q[2] == "subm"){
-        console.log("Q[2] : "+Q[2]);
         this.dataServiceNum.sendSampleNum(0);
       }
 
-      console.log("Q[0] : "+Q[0]);
       switch(Q[0]){
         case '1' :
                   this.dataServiceNum.sendSampleNum(-1);
@@ -104,16 +101,6 @@ export class HomePage {
     logOut(){
       this.flag= 'logout';
       
-      /*
-      this.formElement.nativeElement.method = "POST";
-      if(this.dataServiceFavo.getMKFavo()!='999'){
-        this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+'?5,'+this.dataServiceFavo.getMKFavo();
-      }else{
-        this.formElement.nativeElement.action = '../src/cgi/logout.cgi';
-      }
-      alert(this.formElement.nativeElement.action);
-      this.formElement.nativeElement.submit();
-      */
       if(this.dataServiceFavo.getMKFavo()!='-1'){
         window.location.href = '../src/cgi/logout.cgi?5+'
                                 +this.dataServiceFavo.getUsrName()

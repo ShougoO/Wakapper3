@@ -6,7 +6,7 @@ LANG=js_JP.UTF-8
 PATH=/usr/local/bin:$PATH
 
 homd=/home/dshougo/Wakapper3/Wakapper/src
-assd=$homd/assets/data
+ased=$homd/assets/data
 logd=$homd/log
 
 tmp=$ased/tmp_$$
@@ -15,9 +15,6 @@ array=()
 
 
 exec 2> $logd/LOG.$(basename $0).$(date +%Y%m%d)
-
-# dd bs=$CONTENT_LENGTH   |
-# cgi-name -i _ -d_       > $tmp-name
 
 Title=$1
 Comments=$2

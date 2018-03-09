@@ -27,8 +27,7 @@ export class Page4 {
               getJson:JsonData,
               private dataServiceNum: DataServiceNum) {
     this.text = navParams.get("text");
-    this.showText = this.text;
-    console.log(this.showText);
+    this.showText = this.text;;
     
     this.testJsonURL = 'https://gist.githubusercontent.com/ueken0307/6d7205f2492a48cbc2c4bcdbeb2754b1/raw/d140717972a7efe8e0bbc04728e4356643ffae2e/station.json';
 

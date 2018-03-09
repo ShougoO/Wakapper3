@@ -32,7 +32,7 @@ export class Page2{
               private dataServiceFavo: DataServiceFavo) {
     this.text = navParams.get("text");
     this.showText = this.text;
-    console.log(this.showText);
+    
     this.datasNum = 0;
 
     this.dataServiceNum.sendSampleNum(2);
@@ -75,16 +75,7 @@ export class Page2{
   // ログアアウト
   logOut(){
     this.login = null;
-    /*
-    this.formElement.nativeElement.method = "POST";
-    if(this.dataServiceFavo.getMKFavo()!='999'){
-      this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+'?'+this.dataServiceFavo.getMKFavo();
-    }else{
-      this.formElement.nativeElement.action = '../src/cgi/logout.cgi';
-    }
-    alert(this.formElement.nativeElement.action);
-    this.formElement.nativeElement.submit();
-    */
+
     if(this.dataServiceFavo.getMKFavo()!='-1'){
       window.location.href = '../src/cgi/logout.cgi?2+'
                               +this.dataServiceFavo.getUsrName()

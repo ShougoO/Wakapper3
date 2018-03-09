@@ -150,7 +150,6 @@ export class MyApp {
 
       this.dataServiceNum.Num$.subscribe(num => {
         if(num == 0){
-          console.log("num : "+num);
           this.qNum = 2;
           this.showText = "Page2";
           this.nav.setRoot(Page2, "Page2");
@@ -178,16 +177,6 @@ export class MyApp {
   }
 
   logOut(){
-    /*
-    this.formElement.nativeElement.method = "POST";
-    if(this.dataServiceFavo.getMKFavo()!='999'){
-      this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+'?'+this.dataServiceFavo.getMKFavo();
-    }else{
-      this.formElement.nativeElement.action = '../src/cgi/logout.cgi';
-    }
-    alert(this.formElement.nativeElement.action);
-    this.formElement.nativeElement.submit();
-    */
     if(this.dataServiceFavo.getMKFavo()!='-1'){
       window.location.href = '../src/cgi/logout.cgi?'+this.qNum+'+'
                               +this.dataServiceFavo.getUsrName()

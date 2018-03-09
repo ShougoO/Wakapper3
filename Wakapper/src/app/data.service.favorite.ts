@@ -14,8 +14,6 @@ export class DataServiceFavo {
     confiOfq1(str: string){
         if(str!=null&&str.indexOf("usr") === 0){
             this.usrName=str;
-            console.log("this.usrName");
-            console.log(this.usrName);
             return 1;
         }else{
             return 0;
@@ -32,12 +30,7 @@ export class DataServiceFavo {
             for(let i=0;this.data[i]!=null;i++){
                 this.mkFavo.push(this.data[i]);
             }
-            console.log("this.mkFavo");
-            console.log(this.mkFavo);
         });
-        
-        console.log("this.mkFavo");
-        console.log(this.mkFavo);
     }
 
     sendSampleEvent(str: string, num: number){
@@ -49,12 +42,9 @@ export class DataServiceFavo {
         } else {
             if(0<=num){         // num ≧ 0 : mkFavoに追加・取り出し
                 let x = this.searchNum(str);
-                console.log("ここ大事");
                 if(x==0){
                     // mkFavo内に無い
                     this.mkFavo.push(str);
-                    console.log("this.mkFavo");
-                    console.log(this.mkFavo);
 
                     return 0;
                 }else{
@@ -66,8 +56,7 @@ export class DataServiceFavo {
                                 this.mkFavo[j]=this.mkFavo[j+1];
                             }
                             this.mkFavo.pop();
-                            console.log("this.mkFavo");
-                            console.log(this.mkFavo);
+                            
                             break;
                         }
                     }

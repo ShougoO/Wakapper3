@@ -28,7 +28,6 @@ export class DataServiceNum {
         // 6 : さっきまでどのページにいたかを返す
 
         if(num<=0){
-            console.log("num : "+num);
             if(num==0){
                 this.SampleNum.next(this.submFlag);
             }else if(num<0&&this.submFlag==0){
@@ -39,10 +38,8 @@ export class DataServiceNum {
                 this.submFlag = 1;
             }
         } else if(1<=num&&num<=5){
-            console.log("num : "+num);
             this.tracks = num;
         } else if(num==6){
-            console.log("num : "+num);
             return this.tracks;
         }
     }

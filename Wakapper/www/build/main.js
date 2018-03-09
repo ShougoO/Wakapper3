@@ -267,7 +267,6 @@ var Page3 = (function () {
         this.testDatas = [];
         this.text = navParams.get("text");
         this.showText = this.text;
-        console.log(this.showText);
         var t = this.calendar.getToday(); // 今日の日付けを取得
         this.current_calendar = t;
         var l = this.calendar.lastMonth(t[0], t[1]); // 前月の年月を取得
@@ -678,7 +677,6 @@ var MyApp = (function () {
             });
             _this.dataServiceNum.Num$.subscribe(function (num) {
                 if (num == 0) {
-                    console.log("num : " + num);
                     _this.qNum = 2;
                     _this.showText = "Page2";
                     _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_6__pages_page2_page2__["a" /* Page2 */], "Page2");
@@ -703,18 +701,10 @@ var MyApp = (function () {
         this.dataService.sendSampleText(page.name);
     };
     MyApp.prototype.logOut = function () {
-        /*
-        this.formElement.nativeElement.method = "POST";
-        if(this.dataServiceFavo.getMKFavo()!='999'){
-          this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+'?'+this.dataServiceFavo.getMKFavo();
-        }else{
-          this.formElement.nativeElement.action = '../src/cgi/logout.cgi';
-        }
-        alert(this.formElement.nativeElement.action);
-        this.formElement.nativeElement.submit();
-        */
         if (this.dataServiceFavo.getMKFavo() != '-1') {
-            window.location.href = '../src/cgi/logout.cgi?' + this.qNum + '+' + this.dataServiceFavo.getMKFavo();
+            window.location.href = '../src/cgi/logout.cgi?' + this.qNum + '+'
+                + this.dataServiceFavo.getUsrName()
+                + "+" + this.dataServiceFavo.getMKFavo();
         }
         else {
             window.location.href = '../src/cgi/logout.cgi?' + this.qNum;
@@ -784,7 +774,6 @@ var HomePage = (function () {
         this.flag = 'logout';
         this.text = navParams.get("text");
         this.showText = this.text;
-        console.log(this.showText);
     }
     //画面表示後、掲示板の登録用のcgiから
     //パラメータが送られてきた場合(q = regi)
@@ -794,10 +783,8 @@ var HomePage = (function () {
         var urlParams = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* URLSearchParams */](Url, new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* QueryEncoder */]());
         var Q = urlParams.getAll("q");
         if (Q[2] == "subm") {
-            console.log("Q[2] : " + Q[2]);
             this.dataServiceNum.sendSampleNum(0);
         }
-        console.log("Q[0] : " + Q[0]);
         switch (Q[0]) {
             case '1':
                 this.dataServiceNum.sendSampleNum(-1);
@@ -812,7 +799,7 @@ var HomePage = (function () {
                 this.dataServiceNum.sendSampleNum(-4);
                 break;
         }
-        if (Q[1] == "regi" || Q[1] == "login") {
+        if (Q[1] == "regi" || this.dataServiceFavo.confiOfq1(Q[1]) == 1) {
             this.flag = 'login';
             this.dataServiceFavo.sendSampleEvent('', 999);
             this.sendToDataService();
@@ -849,18 +836,10 @@ var HomePage = (function () {
     // ログアアウト
     HomePage.prototype.logOut = function () {
         this.flag = 'logout';
-        /*
-        this.formElement.nativeElement.method = "POST";
-        if(this.dataServiceFavo.getMKFavo()!='999'){
-          this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+'?5,'+this.dataServiceFavo.getMKFavo();
-        }else{
-          this.formElement.nativeElement.action = '../src/cgi/logout.cgi';
-        }
-        alert(this.formElement.nativeElement.action);
-        this.formElement.nativeElement.submit();
-        */
         if (this.dataServiceFavo.getMKFavo() != '-1') {
-            window.location.href = '../src/cgi/logout.cgi?5+' + this.dataServiceFavo.getMKFavo();
+            window.location.href = '../src/cgi/logout.cgi?5+'
+                + this.dataServiceFavo.getUsrName()
+                + "+" + this.dataServiceFavo.getMKFavo();
         }
         else {
             window.location.href = '../src/cgi/logout.cgi?5';
@@ -927,7 +906,6 @@ var Page1 = (function () {
         this.snippet = "hoge";
         this.text = navParams.get("text");
         this.showText = this.text;
-        console.log(this.showText);
         // 読み込み時に受け取った緯度と経度の位置に Marker を設置
         this.lat = 33.9144938;
         this.lng = 130.7528295;
@@ -1089,7 +1067,6 @@ var Page2 = (function () {
         this.contribution = [];
         this.text = navParams.get("text");
         this.showText = this.text;
-        console.log(this.showText);
         this.datasNum = 0;
         this.dataServiceNum.sendSampleNum(2);
     }
@@ -1097,7 +1074,7 @@ var Page2 = (function () {
         var Url = document.location.search.substring(1);
         var urlParams = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* URLSearchParams */](Url, new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* QueryEncoder */]());
         var Q = urlParams.getAll("q");
-        if (Q[1] == "regi" || Q[1] == "login") {
+        if (Q[1] == "regi" || this.dataServiceFavo.confiOfq1(Q[1]) == 1) {
             this.login = "ログイン中";
         }
         else {
@@ -1127,20 +1104,10 @@ var Page2 = (function () {
     // ログアアウト
     Page2.prototype.logOut = function () {
         this.login = null;
-        /*
-        this.formElement.nativeElement.method = "POST";
-        if(this.dataServiceFavo.getMKFavo()!='999'){
-          this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+'?'+this.dataServiceFavo.getMKFavo();
-        }else{
-          this.formElement.nativeElement.action = '../src/cgi/logout.cgi';
-        }
-        alert(this.formElement.nativeElement.action);
-        this.formElement.nativeElement.submit();
-        */
         if (this.dataServiceFavo.getMKFavo() != '-1') {
-            window.location.href = '../src/cgi/logout.cgi?2+' + this.dataServiceFavo.getMKFavo();
-        }
-        else {
+            window.location.href = '../src/cgi/logout.cgi?2+'
+                + this.dataServiceFavo.getUsrName()
+                + "+" + this.dataServiceFavo.getMKFavo();
             window.location.href = '../src/cgi/logout.cgi?2';
         }
     };
@@ -1200,12 +1167,6 @@ var SubmForm = (function () {
     }
     SubmForm.prototype.postURL = function (url) {
         var Form = this.formElement.nativeElement;
-        console.log(Form.elements['titleID'].value);
-        console.log(Form.elements['commentID'].value);
-        console.log(url + '?' + Form.elements['titleID'].value
-            + "+" + Form.elements['commentID'].value
-            + "+" + this.num);
-        alert("aaa");
         window.location.href = url + '?' + Form.elements['titleID'].value
             + "+" + Form.elements['commentID'].value
             + "+" + this.num;
@@ -1218,10 +1179,9 @@ var SubmForm = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-submit',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\submit\submit.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板:コメントの投稿</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <form #form class="test_form">\n\n    投稿タイトル :<br>\n\n    <input #title type="text" id="titleID" name="title" /><br>\n\n    投稿コメント :<br>\n\n    <input #comment type="text" id="commentID" name="comments" /><br><br>\n\n\n\n    <input type="submit" (click)="postURL(\'../src/cgi/subm.cgi\')" />\n\n  </form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\submit\submit.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
     ], SubmForm);
     return SubmForm;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=submit.js.map
@@ -1261,7 +1221,7 @@ var Page4 = (function () {
         this.traffic = "boat";
         this.text = navParams.get("text");
         this.showText = this.text;
-        console.log(this.showText);
+        ;
         this.testJsonURL = 'https://gist.githubusercontent.com/ueken0307/6d7205f2492a48cbc2c4bcdbeb2754b1/raw/d140717972a7efe8e0bbc04728e4356643ffae2e/station.json';
         getJson.getData(this.testJsonURL).subscribe(function (input) {
             //渡船場データ取得
@@ -1502,7 +1462,6 @@ var DataServiceNum = (function () {
         // 5 : homepにいる(いた)
         // 6 : さっきまでどのページにいたかを返す
         if (num <= 0) {
-            console.log("num : " + num);
             if (num == 0) {
                 this.SampleNum.next(this.submFlag);
             }
@@ -1514,11 +1473,9 @@ var DataServiceNum = (function () {
             }
         }
         else if (1 <= num && num <= 5) {
-            console.log("num : " + num);
             this.tracks = num;
         }
         else if (num == 6) {
-            console.log("num : " + num);
             return this.tracks;
         }
     };
@@ -1557,6 +1514,18 @@ var DataServiceFavo = (function () {
         this.mkFavo = [];
         this.flag = 0;
     }
+    DataServiceFavo.prototype.confiOfq1 = function (str) {
+        if (str != null && str.indexOf("usr") === 0) {
+            this.usrName = str;
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    };
+    DataServiceFavo.prototype.getUsrName = function () {
+        return this.usrName;
+    };
     DataServiceFavo.prototype.loaMKdData = function () {
         var _this = this;
         this.dataService.getData('../src/assets/data/logout.json').subscribe(function (data) {
@@ -1564,11 +1533,7 @@ var DataServiceFavo = (function () {
             for (var i = 0; _this.data[i] != null; i++) {
                 _this.mkFavo.push(_this.data[i]);
             }
-            console.log("this.mkFavo");
-            console.log(_this.mkFavo);
         });
-        console.log("this.mkFavo");
-        console.log(this.mkFavo);
     };
     DataServiceFavo.prototype.sendSampleEvent = function (str, num) {
         if (num == 999 && this.flag != 1) {
@@ -1581,12 +1546,9 @@ var DataServiceFavo = (function () {
         else {
             if (0 <= num) {
                 var x = this.searchNum(str);
-                console.log("ここ大事");
                 if (x == 0) {
                     // mkFavo内に無い
                     this.mkFavo.push(str);
-                    console.log("this.mkFavo");
-                    console.log(this.mkFavo);
                     return 0;
                 }
                 else {
@@ -1598,8 +1560,6 @@ var DataServiceFavo = (function () {
                                 this.mkFavo[j] = this.mkFavo[j + 1];
                             }
                             this.mkFavo.pop();
-                            console.log("this.mkFavo");
-                            console.log(this.mkFavo);
                             break;
                         }
                     }
