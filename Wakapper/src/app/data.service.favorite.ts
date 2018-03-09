@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import { DataServiceNum } from './data.service.num';
 import { JsonData } from './json-data';
 
 @Injectable()
@@ -9,7 +8,7 @@ export class DataServiceFavo {
     mkFavo:Array<string> = [];
     flag: number = 0;
 
-    constructor(public dataService: JsonData, private dataServiceNum: DataServiceNum) { }
+    constructor(public dataService: JsonData) { }
 
     loaMKdData(){
         this.dataService.getData('../src/assets/data/logout.json').subscribe(data => {//../assets/data/(local)
@@ -17,7 +16,6 @@ export class DataServiceFavo {
             for(let i=0;this.data[i]!=null;i++){
                 this.mkFavo.push(this.data[i]);
             }
-            this.mkFavo.shift();
             console.log("this.mkFavo");
             console.log(this.mkFavo);
         });
