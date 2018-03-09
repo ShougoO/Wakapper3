@@ -714,7 +714,7 @@ var MyApp = (function () {
         this.formElement.nativeElement.submit();
         */
         if (this.dataServiceFavo.getMKFavo() != '999') {
-            window.location.href = '../src/cgi/logout.cgi?' + this.qNum + ',' + this.dataServiceFavo.getMKFavo();
+            window.location.href = '../src/cgi/logout.cgi?' + this.qNum + '+' + this.dataServiceFavo.getMKFavo();
         }
         else {
             window.location.href = '../src/cgi/logout.cgi?' + this.qNum;
@@ -856,7 +856,7 @@ var HomePage = (function () {
         this.formElement.nativeElement.submit();
         */
         if (this.dataServiceFavo.getMKFavo() != '999') {
-            window.location.href = '../src/cgi/logout.cgi?5,' + this.dataServiceFavo.getMKFavo();
+            window.location.href = '../src/cgi/logout.cgi?5+' + this.dataServiceFavo.getMKFavo();
         }
         else {
             window.location.href = '../src/cgi/logout.cgi?5';
@@ -1131,7 +1131,7 @@ var Page2 = (function () {
         this.formElement.nativeElement.submit();
         */
         if (this.dataServiceFavo.getMKFavo() != '999') {
-            window.location.href = '../src/cgi/logout.cgi?2,' + this.dataServiceFavo.getMKFavo();
+            window.location.href = '../src/cgi/logout.cgi?2+' + this.dataServiceFavo.getMKFavo();
         }
         else {
             window.location.href = '../src/cgi/logout.cgi?2';

@@ -115,7 +115,7 @@ export class HomePage {
       this.formElement.nativeElement.submit();
       */
       if(this.dataServiceFavo.getMKFavo()!='999'){
-        window.location.href = '../src/cgi/logout.cgi?5,'+this.dataServiceFavo.getMKFavo();
+        window.location.href = '../src/cgi/logout.cgi?5+'+this.dataServiceFavo.getMKFavo();
       }else{
         window.location.href = '../src/cgi/logout.cgi?5';
       }
