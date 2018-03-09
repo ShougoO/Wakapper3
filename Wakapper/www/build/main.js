@@ -276,7 +276,7 @@ var Page3 = (function () {
         var last = this.calendar.getCalendarYM(l[0], l[1]); // 前月のカレンダー情報を作成
         var next = this.calendar.getCalendarYM(n[0], n[1]); // 来月のカレンダー情報を作成
         this.cal = [last, now, next];
-        this.dataService.getData('../src/assets/data/event.json').subscribe(function (data) {
+        this.dataService.getData('assets/data/event.json').subscribe(function (data) {
             _this.testEvents = data.events;
             for (var i = 0; _this.testEvents[i] != null; i++) {
                 _this.testDatas.push(_this.testEvents[i]);
@@ -374,13 +374,10 @@ var Page3 = (function () {
             selector: 'page-page3',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page3\page3.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>イベントカレンダー</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content no-bounce>\n\n  <ion-grid class="calendar-header" no-padding>\n\n    <ion-row>\n\n      <ion-col>\n\n        <button ion-button (click)="beforeSlide()">\n\n          ＜\n\n        </button>\n\n        <span class="title">\n\n          {{current_calendar[0]}}年{{current_calendar[1]}}月\n\n        </span>\n\n        <button ion-button (click)="nextSlide()">\n\n          ＞\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n  \n\n  <ion-slides class="slide" #Slides (ionSlidePrevEnd)="beforeSlide()" (ionSlideNextEnd)="nextSlide()" initialSlide="1">\n\n    <ion-slide *ngFor="let c of cal; let idx = index;">\n\n      <table class="date-table">\n\n        <tbody class="date-body">\n\n          <tr class="weekday">\n\n            <td>日</td>\n\n            <td>月</td>\n\n            <td>火</td>\n\n            <td>水</td>\n\n            <td>木</td>\n\n            <td>金</td>\n\n            <td>土</td>\n\n          </tr>\n\n          <tr *ngFor="let week of c.week; let w = index;">\n\n            <td *ngFor="let day of week; let d = index;">\n\n              <div class="day">\n\n                <span [ngClass]="{\'other\':day.other}">\n\n                  {{day.day}}\n\n                </span>\n\n                <br>\n\n                <span *ngIf="showEventFlag(current_calendar[0], c.month, day.day, day.other)==1">\n\n                  <br>\n\n                  <section class="spanSection" *ngFor="let event of showEvent(current_calendar[0], c.month, day.day, day.other)">\n\n                    <ion-icon name="star" style="color : green;">\n\n                      <section class="spanText">\n\n                        <button clear (click)="goToDetail(event)" style="background-color:white; font-size: 1.5em;">\n\n                          {{event}}\n\n                        </button>\n\n                      </section>\n\n                    </ion-icon>\n\n                  </section>\n\n                </span>\n\n              </div>\n\n            </td>\n\n          </tr>\n\n        </tbody>\n\n      </table>\n\n      <!-- ウィンドウが小さくなったときに、表示されるリスト -->\n\n      <div class="spanEventDates" *ngFor="let event of showThisMonthEvent(c.month)">\n\n        <ion-card>\n\n          <ion-card-content>\n\n            <ion-icon name="star" style="color : green;">\n\n              <button clear (click)="goToDetail(event.text)" style="background-color:white; font-size: 1em;">\n\n                {{event.date.day}}日：{{event.text}}\n\n              </button>\n\n            </ion-icon>\n\n          </ion-card-content>\n\n        </ion-card>\n\n      </div>\n\n      <!-- ウィンドウが小さくなったときに、表示されるリスト -->\n\n    </ion-slide>\n\n  </ion-slides>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page3\page3.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_2__providers_calendar_calendar__["a" /* CalendarProvider */]],
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_calendar_calendar__["a" /* CalendarProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */],
-            __WEBPACK_IMPORTED_MODULE_4__app_data_service_num__["a" /* DataServiceNum */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_calendar_calendar__["a" /* CalendarProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_calendar_calendar__["a" /* CalendarProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__app_data_service_num__["a" /* DataServiceNum */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__app_data_service_num__["a" /* DataServiceNum */]) === "function" && _e || Object])
     ], Page3);
     return Page3;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=page3.js.map
@@ -940,7 +937,7 @@ var Page1 = (function () {
     Page1.prototype.mapInit = function () {
         var _this = this;
         // json取得
-        this.dataService.getData('../src/assets/data/mkData.json').subscribe(function (data) {
+        this.dataService.getData('assets/data/mkData.json').subscribe(function (data) {
             _this.mkData = data.mkData;
             _this.loadMap();
         });
@@ -972,7 +969,7 @@ var Page1 = (function () {
                 title: this_1.mkData[i].title,
                 snippet: this_1.mkData[i].snippet,
                 icon: {
-                    url: '../src/assets/img/' + this_1.mkData[i].icon + '.png',
+                    url: 'assets/img/' + this_1.mkData[i].icon + '.png',
                     scaledSize: new google.maps.Size(this_1.mkData[i].width, this_1.mkData[i].height)
                 },
                 address: this_1.mkData[i].address,
@@ -1035,14 +1032,10 @@ var Page1 = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-page1',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page1\page1.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>区内マップ</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <button ion-button (click)="markerVisible()">{{mkState}}</button>\n\n  <div #map id="map"></div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page1\page1.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_maps__["a" /* GoogleMaps */],
-            __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */],
-            __WEBPACK_IMPORTED_MODULE_3__app_data_service_num__["a" /* DataServiceNum */],
-            __WEBPACK_IMPORTED_MODULE_4__app_data_service_favorite__["a" /* DataServiceFavo */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_maps__["a" /* GoogleMaps */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_maps__["a" /* GoogleMaps */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__app_data_service_num__["a" /* DataServiceNum */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_data_service_num__["a" /* DataServiceNum */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__app_data_service_favorite__["a" /* DataServiceFavo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__app_data_service_favorite__["a" /* DataServiceFavo */]) === "function" && _f || Object])
     ], Page1);
     return Page1;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=page1.js.map
@@ -1110,12 +1103,12 @@ var Page2 = (function () {
         var _this = this;
         console.log("reading datas");
         // コメントが書いてあるリストの読み込み
-        this.dataService.getData('../src/assets/data/datas.json').subscribe(function (dataName) {
+        this.dataService.getData('assets/data/datas.json').subscribe(function (dataName) {
             _this.dataNames = dataName.dataNames;
             // 各々のjsonを読み込みcontributionに格納 -> htmlで表示
             for (var i = 0; _this.dataNames[i] != null; i++) {
                 console.log("reading data");
-                _this.dataService.getData('../src/assets/data/' + _this.dataNames[i]).subscribe(function (data) {
+                _this.dataService.getData('assets/data/' + _this.dataNames[i]).subscribe(function (data) {
                     _this.contribution.push(data.contribution);
                 });
                 // 投稿数
@@ -1160,13 +1153,10 @@ var Page2 = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-page2',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\page2.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>掲示板</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <div id="topContent">\n\n    <button ion-button id="Registration" *ngIf="!login" (click)="goToRegi()" color="secondary">アカウントの登録・ログイン</button>\n\n    \n\n    <button ion-button id="Submit" *ngIf="login!=null" (click)="goToSubm()">コメントの投稿</button>\n\n    <button ion-button id="Registration" *ngIf="login!=null" (click)="logOut()" color="danger">ログアウト</button>\n\n  </div>\n\n\n\n  <div style="text-align: center;">\n\n      総投稿数：{{datasNum}}\n\n  </div><br>\n\n  <div *ngFor="let cont of contribution">\n\n    <ion-card>\n\n      <ion-card-header>\n\n        {{cont[0].title}}\n\n      </ion-card-header>\n\n      <ion-card-content>\n\n        {{cont[0].comments}}\n\n      </ion-card-content>\n\n    </ion-card>\n\n  </div>\n\n  <!--\n\n  <form #form>\n\n    <input type="hidden" name="num" id="content" value="2" readonly />\n\n  </form>\n\n  -->\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page2\page2.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */],
-            __WEBPACK_IMPORTED_MODULE_7__app_data_service_num__["a" /* DataServiceNum */],
-            __WEBPACK_IMPORTED_MODULE_4__app_data_service_favorite__["a" /* DataServiceFavo */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_json_data__["a" /* JsonData */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_7__app_data_service_num__["a" /* DataServiceNum */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__app_data_service_num__["a" /* DataServiceNum */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__app_data_service_favorite__["a" /* DataServiceFavo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__app_data_service_favorite__["a" /* DataServiceFavo */]) === "function" && _e || Object])
     ], Page2);
     return Page2;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=page2.js.map
@@ -1552,12 +1542,11 @@ var DataServiceFavo = (function () {
     }
     DataServiceFavo.prototype.loaMKdData = function () {
         var _this = this;
-        this.dataService.getData('../src/assets/data/logout.json').subscribe(function (data) {
+        this.dataService.getData('assets/data/logout.json').subscribe(function (data) {
             _this.data = data.data;
             for (var i = 0; _this.data[i] != null; i++) {
                 _this.mkFavo.push(_this.data[i]);
             }
-            _this.mkFavo.shift();
             console.log("this.mkFavo");
             console.log(_this.mkFavo);
         });
@@ -1638,9 +1627,10 @@ var DataServiceFavo = (function () {
     };
     DataServiceFavo = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__json_data__["a" /* JsonData */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__json_data__["a" /* JsonData */]) === "function" && _a || Object])
     ], DataServiceFavo);
     return DataServiceFavo;
+    var _a;
 }());
 
 //# sourceMappingURL=data.service.favorite.js.map

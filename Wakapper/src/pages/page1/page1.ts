@@ -65,7 +65,7 @@ export class Page1 {
 
   mapInit() {
     // json取得
-    this.dataService.getData('../src/assets/data/mkData.json').subscribe(data => {
+    this.dataService.getData('assets/data/mkData.json').subscribe(data => {
       this.mkData = data.mkData;
       this.loadMap();
     });
@@ -100,7 +100,7 @@ export class Page1 {
         title: this.mkData[i].title,
         snippet: this.mkData[i].snippet,
         icon: {
-          url: '../src/assets/img/'+this.mkData[i].icon+'.png',
+          url: 'assets/img/'+this.mkData[i].icon+'.png',
           scaledSize: new google.maps.Size(this.mkData[i].width, this.mkData[i].height)
         },
         address: this.mkData[i].address,
