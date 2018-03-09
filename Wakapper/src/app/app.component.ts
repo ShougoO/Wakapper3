@@ -130,7 +130,6 @@ export class MyApp {
               this.qNum = 1;
               this.nav.setRoot(Page1, { text: "Page1" });
             } else {
-              let N = [0,1,2,3];
               let PN = ["Page1", "Page2", "Page3", "Page4"];
               let flag = 0;
               for(let i=0;i<4;i++){

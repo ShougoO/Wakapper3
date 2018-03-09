@@ -659,7 +659,6 @@ var MyApp = (function () {
                             _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_5__pages_page1_page1__["a" /* Page1 */], { text: "Page1" });
                         }
                         else {
-                            var N = [0, 1, 2, 3];
                             var PN = ["Page1", "Page2", "Page3", "Page4"];
                             var flag = 0;
                             for (var i = 0; i < 4; i++) {
