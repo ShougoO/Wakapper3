@@ -22,8 +22,9 @@ export class DataServiceFavo {
     }
 
     sendSampleEvent(str: string, num: number){
-        if(num==999){           // num = 999 : ログインしたことを保存
+        if(num==999&&this.flag!=1){           // num = 999 : ログインしたことを保存
             this.flag=1;
+            this.loaMKdData();
         }else if(num==666){
             return this.flag;   // num = 666 : ログイン状態を返す
         }else {
