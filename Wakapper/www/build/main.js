@@ -969,7 +969,7 @@ var Page1 = (function () {
                 title: this_1.mkData[i].title,
                 snippet: this_1.mkData[i].snippet,
                 icon: {
-                    url: 'assets/img/' + this_1.mkData[i].icon + '.png',
+                    url: '../src/assets/img/' + this_1.mkData[i].icon + '.png',
                     scaledSize: new google.maps.Size(this_1.mkData[i].width, this_1.mkData[i].height)
                 },
                 address: this_1.mkData[i].address,
