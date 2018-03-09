@@ -1,17 +1,13 @@
 import { Injectable } from '@angular/core';
 
-import { JsonData } from './json-data';
-
 @Injectable()
 export class DataServiceFavo {
     mkFavo:Array<number> = [];
     flag: number = 0;
 
-    constructor(public dataService: JsonData) { }
+    constructor() { }
 
     sendSampleEvent(num: number) {
-        this.dataService.sendData('../src/assets/data/favoDatas.json');
-
         if(num<0){
             num*=-1;
             if(num >= 555){
@@ -20,10 +16,13 @@ export class DataServiceFavo {
             }else{
                 num--;
             }
+            
+            console.log(this.mkFavo);
             return this.searchNum(num);
         } else if(num==999){
             this.flag = 1;
         } else if(num==666){
+            console.log(this.mkFavo);
             return this.flag;
         } else {// num ≧ 0
             let x = this.searchNum(num);
@@ -38,9 +37,13 @@ export class DataServiceFavo {
                         break;
                     }
                 }
+
+                console.log(this.mkFavo);
                 return 1;
             }
             this.mkFavo.push(num);
+            
+            console.log(this.mkFavo);
             return 0;
         }
     }

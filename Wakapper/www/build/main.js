@@ -756,7 +756,7 @@ var HomePage = (function () {
     //page2へ遷移する
     HomePage.prototype.ionViewDidEnter = function () {
         var Url = document.location.search.substring(1);
-        var urlParams = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["f" /* URLSearchParams */](Url, new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* QueryEncoder */]());
+        var urlParams = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* URLSearchParams */](Url, new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* QueryEncoder */]());
         var Q = urlParams.getAll("q");
         if (Q[2] == "subm") {
             console.log("Q[2] : " + Q[2]);
@@ -1041,7 +1041,7 @@ var Page2 = (function () {
     }
     Page2.prototype.ionViewDidLoad = function () {
         var Url = document.location.search.substring(1);
-        var urlParams = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["f" /* URLSearchParams */](Url, new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* QueryEncoder */]());
+        var urlParams = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* URLSearchParams */](Url, new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* QueryEncoder */]());
         var Q = urlParams.getAll("q");
         if (Q[1] == "regi" || Q[1] == "login") {
             this.login = "ログイン中";
@@ -1312,7 +1312,7 @@ var AppModule = (function () {
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_11__pages_page3_page3_module__["Page3Module"]
             ],
             bootstrap: [
@@ -1444,25 +1444,9 @@ var JsonData = (function () {
             .map(function (res) { return res.json(); });
     };
     ;
-    JsonData.prototype.sendData = function (path) {
-        alert("favo");
-        var data = '{"data":["aaa"]}';
-        var body = JSON.stringify(data);
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
-        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* RequestOptions */]({ headers: headers, url: path });
-        alert("fin");
-        console.log(path);
-        console.log(body);
-        console.log(options);
-        return this.http.put(path, body, options)
-            .map(function (res) {
-            return res.json();
-        });
-    };
-    ;
     JsonData = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
     ], JsonData);
     return JsonData;
     var _a;
@@ -1478,7 +1462,6 @@ var JsonData = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataServiceFavo; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__json_data__ = __webpack_require__(32);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1489,15 +1472,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
 var DataServiceFavo = (function () {
-    function DataServiceFavo(dataService) {
-        this.dataService = dataService;
+    function DataServiceFavo() {
         this.mkFavo = [];
         this.flag = 0;
     }
     DataServiceFavo.prototype.sendSampleEvent = function (num) {
-        this.dataService.sendData('../src/assets/data/favoDatas.json');
         if (num < 0) {
             num *= -1;
             if (num >= 555) {
@@ -1507,12 +1487,14 @@ var DataServiceFavo = (function () {
             else {
                 num--;
             }
+            console.log(this.mkFavo);
             return this.searchNum(num);
         }
         else if (num == 999) {
             this.flag = 1;
         }
         else if (num == 666) {
+            console.log(this.mkFavo);
             return this.flag;
         }
         else {
@@ -1528,9 +1510,11 @@ var DataServiceFavo = (function () {
                         break;
                     }
                 }
+                console.log(this.mkFavo);
                 return 1;
             }
             this.mkFavo.push(num);
+            console.log(this.mkFavo);
             return 0;
         }
     };
@@ -1544,10 +1528,9 @@ var DataServiceFavo = (function () {
     };
     DataServiceFavo = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__json_data__["a" /* JsonData */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [])
     ], DataServiceFavo);
     return DataServiceFavo;
-    var _a;
 }());
 
 //# sourceMappingURL=data.service.favorite.js.map
