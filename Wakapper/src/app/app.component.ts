@@ -162,6 +162,7 @@ export class MyApp {
   logOut(){
     this.formElement.nativeElement.method = "POST";
     this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+this.dataServiceFavo.getMKFavo();
-    this.formElement.nativeElement.submit();
+    alert('../src/cgi/logout.cgi'+this.dataServiceFavo.getMKFavo());
+    //this.formElement.nativeElement.submit();
   }
 }

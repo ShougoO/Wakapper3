@@ -687,7 +687,8 @@ var MyApp = (function () {
     MyApp.prototype.logOut = function () {
         this.formElement.nativeElement.method = "POST";
         this.formElement.nativeElement.action = '../src/cgi/logout.cgi' + this.dataServiceFavo.getMKFavo();
-        this.formElement.nativeElement.submit();
+        alert('../src/cgi/logout.cgi' + this.dataServiceFavo.getMKFavo());
+        //this.formElement.nativeElement.submit();
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */]),
@@ -816,7 +817,8 @@ var HomePage = (function () {
         this.flag = 'logout';
         this.formElement.nativeElement.method = "POST";
         this.formElement.nativeElement.action = '../src/cgi/logout.cgi' + this.dataServiceFavo.getMKFavo();
-        this.formElement.nativeElement.submit();
+        alert('../src/cgi/logout.cgi' + this.dataServiceFavo.getMKFavo());
+        //this.formElement.nativeElement.submit();
         //window.location.href = '../src/cgi/logout.cgi';
     };
     __decorate([
@@ -1075,7 +1077,8 @@ var Page2 = (function () {
         this.login = null;
         this.formElement.nativeElement.method = "POST";
         this.formElement.nativeElement.action = '../src/cgi/logout.cgi' + this.dataServiceFavo.getMKFavo();
-        this.formElement.nativeElement.submit();
+        alert('../src/cgi/logout.cgi' + this.dataServiceFavo.getMKFavo());
+        //this.formElement.nativeElement.submit();
         //window.location.href = '../src/cgi/logout.cgi';
     };
     // 投稿ページへ
