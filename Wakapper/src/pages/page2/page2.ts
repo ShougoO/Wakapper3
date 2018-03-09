@@ -75,8 +75,8 @@ export class Page2{
   // ログアアウト
   logOut(){
     this.login = null;
-    this.formElement.nativeElement.method = "POST";
-    this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+this.dataServiceFavo.getMKFavo();
+    //this.formElement.nativeElement.method = "POST";
+    //this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+this.dataServiceFavo.getMKFavo();
     alert('../src/cgi/logout.cgi'+this.dataServiceFavo.getMKFavo());
     //this.formElement.nativeElement.submit();
     //window.location.href = '../src/cgi/logout.cgi';

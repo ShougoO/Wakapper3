@@ -160,8 +160,8 @@ export class MyApp {
   }
 
   logOut(){
-    this.formElement.nativeElement.method = "POST";
-    this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+this.dataServiceFavo.getMKFavo();
+    //this.formElement.nativeElement.method = "POST";
+    //this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+this.dataServiceFavo.getMKFavo();
     alert('../src/cgi/logout.cgi'+this.dataServiceFavo.getMKFavo());
     //this.formElement.nativeElement.submit();
   }

@@ -685,8 +685,8 @@ var MyApp = (function () {
         this.dataService.sendSampleText(page.name);
     };
     MyApp.prototype.logOut = function () {
-        this.formElement.nativeElement.method = "POST";
-        this.formElement.nativeElement.action = '../src/cgi/logout.cgi' + this.dataServiceFavo.getMKFavo();
+        //this.formElement.nativeElement.method = "POST";
+        //this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+this.dataServiceFavo.getMKFavo();
         alert('../src/cgi/logout.cgi' + this.dataServiceFavo.getMKFavo());
         //this.formElement.nativeElement.submit();
     };
@@ -815,8 +815,8 @@ var HomePage = (function () {
     // ログアアウト
     HomePage.prototype.logOut = function () {
         this.flag = 'logout';
-        this.formElement.nativeElement.method = "POST";
-        this.formElement.nativeElement.action = '../src/cgi/logout.cgi' + this.dataServiceFavo.getMKFavo();
+        //this.formElement.nativeElement.method = "POST";
+        //this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+this.dataServiceFavo.getMKFavo();
         alert('../src/cgi/logout.cgi' + this.dataServiceFavo.getMKFavo());
         //this.formElement.nativeElement.submit();
         //window.location.href = '../src/cgi/logout.cgi';
@@ -1075,8 +1075,8 @@ var Page2 = (function () {
     // ログアアウト
     Page2.prototype.logOut = function () {
         this.login = null;
-        this.formElement.nativeElement.method = "POST";
-        this.formElement.nativeElement.action = '../src/cgi/logout.cgi' + this.dataServiceFavo.getMKFavo();
+        //this.formElement.nativeElement.method = "POST";
+        //this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+this.dataServiceFavo.getMKFavo();
         alert('../src/cgi/logout.cgi' + this.dataServiceFavo.getMKFavo());
         //this.formElement.nativeElement.submit();
         //window.location.href = '../src/cgi/logout.cgi';
