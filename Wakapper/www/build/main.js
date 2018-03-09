@@ -1015,7 +1015,7 @@ var Page1 = (function () {
     };
     Page1.prototype.setBool = function (bool) {
         for (var i = 0; i < 3; i++) {
-            if (this.dataServiceFavo.sendSampleEvent('', -1 * (i + 1)) == 0) {
+            if (this.dataServiceFavo.sendSampleEvent(this.marker[i].title, -1 * (i + 1)) == 0) {
                 this.marker[i].setVisible(bool);
             }
         }
@@ -1564,9 +1564,12 @@ var DataServiceFavo = (function () {
         else {
             if (0 <= num) {
                 var x = this.searchNum(str);
+                console.log("ここ大事");
                 if (x == 0) {
                     // mkFavo内に無い
                     this.mkFavo.push(str);
+                    console.log("this.mkFavo");
+                    console.log(this.mkFavo);
                     return 0;
                 }
                 else {
@@ -1578,6 +1581,8 @@ var DataServiceFavo = (function () {
                                 this.mkFavo[j] = this.mkFavo[j + 1];
                             }
                             this.mkFavo.pop();
+                            console.log("this.mkFavo");
+                            console.log(this.mkFavo);
                             break;
                         }
                     }

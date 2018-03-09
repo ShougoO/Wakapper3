@@ -65,7 +65,7 @@ export class Page1 {
 
   mapInit() {
     // json取得
-    this.dataService.getData('../src/assets/data/mkData.json').subscribe(data => {//../assets/data/mkData.json(local)
+    this.dataService.getData('../src/assets/data/mkData.json').subscribe(data => {
       this.mkData = data.mkData;
       this.loadMap();
     });
@@ -151,7 +151,7 @@ export class Page1 {
   
   setBool(bool){
     for(let i=0;i<3;i++){
-      if(this.dataServiceFavo.sendSampleEvent('', -1*(i+1))==0){
+      if(this.dataServiceFavo.sendSampleEvent(this.marker[i].title, -1*(i+1))==0){
         this.marker[i].setVisible(bool);
       }
     }

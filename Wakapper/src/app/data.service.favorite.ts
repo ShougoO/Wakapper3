@@ -32,9 +32,10 @@ export class DataServiceFavo {
             this.loaMKdData();
         }else if(num==666){
             return this.flag;   // num = 666 : ログイン状態を返す
-        }else {
+        } else {
             if(0<=num){         // num ≧ 0 : mkFavoに追加・取り出し
                 let x = this.searchNum(str);
+                console.log("ここ大事");
                 if(x==0){
                     // mkFavo内に無い
                     this.mkFavo.push(str);
