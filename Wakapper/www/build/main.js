@@ -1563,11 +1563,9 @@ var DataServiceFavo = (function () {
             }
             return this.searchNum(num);
         }
-        else if (num == 999) {
-            this.flag = 1;
-            if (this.dataServiceNum.getSubmFlag() == 0) {
-                this.loaMKdData();
-            }
+        else if (num == 999 && this.flag < 1) {
+            this.flag++;
+            this.loaMKdData();
         }
         else if (num == 666) {
             return this.flag;
