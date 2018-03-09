@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { URLSearchParams, QueryEncoder } from '@angular/http';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -11,6 +11,8 @@ import { MyApp } from '../../app/app.component';
     templateUrl: 'home.html'
 })
 export class HomePage {
+    @ViewChild('form') formElement;
+
     page: any;
     flag: string= 'logout';
 
@@ -98,6 +100,10 @@ export class HomePage {
     // ログアアウト
     logOut(){
       this.flag= 'logout';
-      window.location.href = '../src/cgi/logout.cgi';
+      
+      this.formElement.nativeElement.method = "POST";
+      this.formElement.nativeElement.action = '../src/cgi/logout.cgi';
+      this.formElement.nativeElement.submit();
+      //window.location.href = '../src/cgi/logout.cgi';
     }
 }
