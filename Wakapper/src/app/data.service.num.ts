@@ -16,6 +16,7 @@ export class DataServiceNum {
         // 0 : page2に遷移するか : submFlagが0なら遷移
 
         if(num==0){
+            console.log("num : "+num);
             this.SampleNum.next(this.submFlag);
             if(this.submFlag == 0){
                 this.submFlag = 1;

@@ -650,6 +650,7 @@ var MyApp = (function () {
             });
             _this.dataServiceNum.Num$.subscribe(function (num) {
                 if (num == 0) {
+                    console.log("num : " + num);
                     _this.showText = "Page2";
                     _this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_6__pages_page2_page2__["a" /* Page2 */], "Page2");
                 }
@@ -733,6 +734,7 @@ var HomePage = (function () {
             this.flag = 'login';
             this.sendToDataService();
             if (Q[1] == "subm") {
+                console.log("Q[1] : " + Q[1]);
                 this.dataServiceNum.sendSampleNum(0);
             }
         }
@@ -1334,6 +1336,7 @@ var DataServiceNum = (function () {
         // numリスト
         // 0 : page2に遷移するか : submFlagが0なら遷移
         if (num == 0) {
+            console.log("num : " + num);
             this.SampleNum.next(this.submFlag);
             if (this.submFlag == 0) {
                 this.submFlag = 1;

@@ -32,6 +32,7 @@ export class HomePage {
         this.flag = 'login';
         this.sendToDataService();
         if(Q[1] == "subm"){
+          console.log("Q[1] : "+Q[1]);
           this.dataServiceNum.sendSampleNum(0);
         }
       } else {

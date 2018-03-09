@@ -130,6 +130,7 @@ export class MyApp {
 
       this.dataServiceNum.Num$.subscribe(num => {
         if(num == 0){
+          console.log("num : "+num);
           this.showText = "Page2";
           this.nav.setRoot(Page2, "Page2");
         }
