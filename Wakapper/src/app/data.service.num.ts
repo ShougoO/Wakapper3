@@ -1,27 +1,31 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
-import { DataServiceFavo } from './data.service.favorite';
 
 @Injectable()
 export class DataServiceNum {
     submFlag: number = 0;
     tracks: number;
 
-    constructor(private dataServiceFavo: DataServiceFavo) { }
+    constructor() { }
 
     private SampleNum = new Subject<number>();
 
     public Num$ = this.SampleNum.asObservable();
 
+    getSubmFlag(){
+        return this.submFlag;
+    }
+
     sendSampleNum(num: number) {
         // numリスト
         // 0 : page2に遷移するか : submFlagが0なら遷移
-        // 1 : page1
-        // 2 : page2
-        // 3 : page3
-        // 4 : page4
-        // 5 : homep
+        // 1 : page1にいる(いた)
+        // 2 : page2にいる(いた)
+        // 3 : page3にいる(いた)
+        // 4 : page4にいる(いた)
+        // 5 : homepにいる(いた)
+        // 6 : さっきまでどのページにいたかを返す
 
         if(num<=0){
             console.log("num : "+num);
@@ -33,7 +37,6 @@ export class DataServiceNum {
 
             if(this.submFlag == 0){
                 this.submFlag = 1;
-                this.dataServiceFavo.loaMKdData();
             }
         } else if(1<=num&&num<=5){
             console.log("num : "+num);

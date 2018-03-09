@@ -1414,7 +1414,6 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service_favorite__ = __webpack_require__(35);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1426,22 +1425,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 var DataServiceNum = (function () {
-    function DataServiceNum(dataServiceFavo) {
-        this.dataServiceFavo = dataServiceFavo;
+    function DataServiceNum() {
         this.submFlag = 0;
         this.SampleNum = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
         this.Num$ = this.SampleNum.asObservable();
     }
+    DataServiceNum.prototype.getSubmFlag = function () {
+        return this.submFlag;
+    };
     DataServiceNum.prototype.sendSampleNum = function (num) {
         // numリスト
         // 0 : page2に遷移するか : submFlagが0なら遷移
-        // 1 : page1
-        // 2 : page2
-        // 3 : page3
-        // 4 : page4
-        // 5 : homep
+        // 1 : page1にいる(いた)
+        // 2 : page2にいる(いた)
+        // 3 : page3にいる(いた)
+        // 4 : page4にいる(いた)
+        // 5 : homepにいる(いた)
+        // 6 : さっきまでどのページにいたかを返す
         if (num <= 0) {
             console.log("num : " + num);
             if (num == 0) {
@@ -1452,7 +1453,6 @@ var DataServiceNum = (function () {
             }
             if (this.submFlag == 0) {
                 this.submFlag = 1;
-                this.dataServiceFavo.loaMKdData();
             }
         }
         else if (1 <= num && num <= 5) {
@@ -1466,10 +1466,9 @@ var DataServiceNum = (function () {
     };
     DataServiceNum = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__data_service_favorite__["a" /* DataServiceFavo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__data_service_favorite__["a" /* DataServiceFavo */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [])
     ], DataServiceNum);
     return DataServiceNum;
-    var _a;
 }());
 
 //# sourceMappingURL=data.service.num.js.map
@@ -1523,7 +1522,8 @@ var JsonData = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataServiceFavo; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__json_data__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_service_num__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__json_data__ = __webpack_require__(32);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1535,9 +1535,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var DataServiceFavo = (function () {
-    function DataServiceFavo(dataService) {
+    function DataServiceFavo(dataService, dataServiceNum) {
         this.dataService = dataService;
+        this.dataServiceNum = dataServiceNum;
         this.mkFavo = [];
         this.flag = 0;
     }
@@ -1563,6 +1565,9 @@ var DataServiceFavo = (function () {
         }
         else if (num == 999) {
             this.flag = 1;
+            if (this.dataServiceNum.getSubmFlag() == 0) {
+                this.loaMKdData();
+            }
         }
         else if (num == 666) {
             return this.flag;
@@ -1609,10 +1614,10 @@ var DataServiceFavo = (function () {
     };
     DataServiceFavo = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__json_data__["a" /* JsonData */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__json_data__["a" /* JsonData */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__data_service_num__["a" /* DataServiceNum */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__data_service_num__["a" /* DataServiceNum */]) === "function" && _b || Object])
     ], DataServiceFavo);
     return DataServiceFavo;
-    var _a;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=data.service.favorite.js.map

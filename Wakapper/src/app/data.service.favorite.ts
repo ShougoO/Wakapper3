@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+import { DataServiceNum } from './data.service.num';
 import { JsonData } from './json-data';
 
 @Injectable()
@@ -7,7 +8,7 @@ export class DataServiceFavo {
     mkFavo:Array<number> = [];
     flag: number = 0;
 
-    constructor(public dataService: JsonData) { }
+    constructor(public dataService: JsonData, private dataServiceNum: DataServiceNum) { }
 
     loaMKdData(){
         this.dataService.getData('../src/assets/data/logout.json').subscribe(data => {//../assets/data/(local)
@@ -31,6 +32,9 @@ export class DataServiceFavo {
             return this.searchNum(num);
         } else if(num==999){
             this.flag = 1;
+            if(this.dataServiceNum.getSubmFlag()==0){
+                this.loaMKdData();
+            }
         } else if(num==666){
             return this.flag;
         } else {// num ≧ 0
