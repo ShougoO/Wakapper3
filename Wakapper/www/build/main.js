@@ -755,7 +755,11 @@ var HomePage = (function () {
         var Url = document.location.search.substring(1);
         var urlParams = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* URLSearchParams */](Url, new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* QueryEncoder */]());
         var Q = urlParams.getAll("q");
-        console.log("Q[1] : " + Q[0]);
+        if (Q[2] == "subm") {
+            console.log("Q[2] : " + Q[2]);
+            this.dataServiceNum.sendSampleNum(0);
+        }
+        console.log("Q[0] : " + Q[0]);
         switch (Q[0]) {
             case '1':
                 this.dataServiceNum.sendSampleNum(-1);
@@ -773,10 +777,6 @@ var HomePage = (function () {
         if (Q[1] == "regi" || Q[1] == "login") {
             this.flag = 'login';
             this.sendToDataService();
-            if (Q[2] == "subm") {
-                console.log("Q[2] : " + Q[2]);
-                this.dataServiceNum.sendSampleNum(0);
-            }
         }
         else {
             this.flag = 'logout';

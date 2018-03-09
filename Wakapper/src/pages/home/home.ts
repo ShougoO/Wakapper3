@@ -36,7 +36,12 @@ export class HomePage {
       var urlParams = new URLSearchParams(Url, new QueryEncoder());
       var Q = urlParams.getAll("q");
 
-      console.log("Q[1] : "+Q[0]);
+      if(Q[2] == "subm"){
+        console.log("Q[2] : "+Q[2]);
+        this.dataServiceNum.sendSampleNum(0);
+      }
+
+      console.log("Q[0] : "+Q[0]);
       switch(Q[0]){
         case '1' :
                   this.dataServiceNum.sendSampleNum(-1);
@@ -55,11 +60,6 @@ export class HomePage {
       if (Q[1] == "regi" || Q[1] == "login") {
         this.flag = 'login';
         this.sendToDataService();
-
-        if(Q[2] == "subm"){
-          console.log("Q[2] : "+Q[2]);
-          this.dataServiceNum.sendSampleNum(0);
-        }
       } else {
         this.flag= 'logout';
       }
