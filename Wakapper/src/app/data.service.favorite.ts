@@ -11,9 +11,11 @@ export class DataServiceFavo {
 
     constructor(public dataService: JsonData) { }
 
-    confiOfq1(str){
-        if(str.indexOf("usr") === 0){
+    confiOfq1(str: string){
+        if(str!=null&&str.indexOf("usr") === 0){
             this.usrName=str;
+            console.log("this.usrName");
+            console.log(this.usrName);
             return 1;
         }else{
             return 0;

@@ -1538,8 +1538,10 @@ var DataServiceFavo = (function () {
         this.flag = 0;
     }
     DataServiceFavo.prototype.confiOfq1 = function (str) {
-        if (str.indexOf("usr") === 0) {
+        if (str != null && str.indexOf("usr") === 0) {
             this.usrName = str;
+            console.log("this.usrName");
+            console.log(this.usrName);
             return 1;
         }
         else {
