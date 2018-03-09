@@ -65,7 +65,7 @@ export class Page1 {
 
   mapInit() {
     // json取得
-    this.dataService.getData('assets/data/mkData.json').subscribe(data => {
+    this.dataService.getData('../src/assets/data/mkData.json').subscribe(data => {
       this.mkData = data.mkData;
       this.loadMap();
     });

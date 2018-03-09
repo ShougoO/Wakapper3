@@ -276,7 +276,7 @@ var Page3 = (function () {
         var last = this.calendar.getCalendarYM(l[0], l[1]); // 前月のカレンダー情報を作成
         var next = this.calendar.getCalendarYM(n[0], n[1]); // 来月のカレンダー情報を作成
         this.cal = [last, now, next];
-        this.dataService.getData('assets/data/event.json').subscribe(function (data) {
+        this.dataService.getData('../src/assets/data/event.json').subscribe(function (data) {
             _this.testEvents = data.events;
             for (var i = 0; _this.testEvents[i] != null; i++) {
                 _this.testDatas.push(_this.testEvents[i]);
@@ -937,7 +937,7 @@ var Page1 = (function () {
     Page1.prototype.mapInit = function () {
         var _this = this;
         // json取得
-        this.dataService.getData('assets/data/mkData.json').subscribe(function (data) {
+        this.dataService.getData('../src/assets/data/mkData.json').subscribe(function (data) {
             _this.mkData = data.mkData;
             _this.loadMap();
         });
@@ -1103,12 +1103,12 @@ var Page2 = (function () {
         var _this = this;
         console.log("reading datas");
         // コメントが書いてあるリストの読み込み
-        this.dataService.getData('assets/data/datas.json').subscribe(function (dataName) {
+        this.dataService.getData('../src/assets/data/datas.json').subscribe(function (dataName) {
             _this.dataNames = dataName.dataNames;
             // 各々のjsonを読み込みcontributionに格納 -> htmlで表示
             for (var i = 0; _this.dataNames[i] != null; i++) {
                 console.log("reading data");
-                _this.dataService.getData('assets/data/' + _this.dataNames[i]).subscribe(function (data) {
+                _this.dataService.getData('../src/assets/data/' + _this.dataNames[i]).subscribe(function (data) {
                     _this.contribution.push(data.contribution);
                 });
                 // 投稿数
@@ -1542,7 +1542,7 @@ var DataServiceFavo = (function () {
     }
     DataServiceFavo.prototype.loaMKdData = function () {
         var _this = this;
-        this.dataService.getData('assets/data/logout.json').subscribe(function (data) {
+        this.dataService.getData('../src/assets/data/logout.json').subscribe(function (data) {
             _this.data = data.data;
             for (var i = 0; _this.data[i] != null; i++) {
                 _this.mkFavo.push(_this.data[i]);
