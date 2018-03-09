@@ -19,9 +19,9 @@ exec 2> $logd/LOG.$(basename $0).$(date +%Y%m%d)
 # dd bs=$CONTENT_LENGTH   |
 # cgi-name -i _ -d_       > $tmp-name
 
-Title=$2
-Comments=$3
-Num=$4
+Title=$1
+Comments=$2
+Num=$3
 
 echo "{
   \"contribution\": [
