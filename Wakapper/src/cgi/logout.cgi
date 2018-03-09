@@ -31,21 +31,36 @@ ERROR_CHECK(){
 ################################################
 # データの保存(NUM)
 NUM=$1
-DATA=$2
+USNA=$2
+DATA=$3
 ERROR_CHECK
 
 ################################################
 # 出力
 url=$HTTP_REFERER
 echo $url > $inpd/url.txt
-# aaa : www.~~~
 aaa=$(awk -F"?" -v "num=1" '{print $num}' $inpd/url.txt)
-echo $DATA > $inpd/eee.txt
-# bbb=$(awk -F"\\" -v "num=2" '{print $num}' $inpd/eee.txt)
-# echo $bbb > $inpd/ddd.txt
-# ccc=$(awk -F"\"" -v "num=2" '{print $num}' $inpd/ddd.txt)
 
-echo "{\"data\": [\"$DATA\"]}" > $assd/logout.json
+echo $DATA > $inpd/eee.txt
+var=1
+array=()
+while :
+do
+  com=$(awk -F"," -v "num=$var" '{print $num}' $inpd/eee.txt)
+  sub=("\"$com\"")
+
+  if [ "$sub" == "\"\"" ]; then
+    break;
+  fi
+
+  if [ "$var" != "1" ]; then
+    array+=","
+  fi
+  array+=$sub
+  let var++
+done
+
+echo "{\"data\": [${array[*]}]}" > $assd/$USNA.json
 
 if [ "$NUM" != "null" ]; then
   echo "Location: $aaa?q=$NUM"
@@ -60,5 +75,6 @@ fi
 rm -f $tmp-*
 rm -f $url
 rm -f $inpd/url.txt
+rm -f $inpd/eee.txt
 rm -f $aaa
 exit 0

@@ -59,7 +59,7 @@ export class HomePage {
                   break;
       }
 
-      if (Q[1] == "regi" || Q[1] == "login") {
+      if (Q[1] == "regi" || this.dataServiceFavo.confiOfq1(Q[1]) == 1) {
         this.flag = 'login';
         this.dataServiceFavo.sendSampleEvent('', 999);
         this.sendToDataService();
@@ -115,7 +115,9 @@ export class HomePage {
       this.formElement.nativeElement.submit();
       */
       if(this.dataServiceFavo.getMKFavo()!='-1'){
-        window.location.href = '../src/cgi/logout.cgi?5+'+this.dataServiceFavo.getMKFavo();
+        window.location.href = '../src/cgi/logout.cgi?5+'
+                                +this.dataServiceFavo.getUsrName()
+                                +"+"+this.dataServiceFavo.getMKFavo();
       }else{
         window.location.href = '../src/cgi/logout.cgi?5';
       }

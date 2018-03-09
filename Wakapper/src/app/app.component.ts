@@ -189,7 +189,9 @@ export class MyApp {
     this.formElement.nativeElement.submit();
     */
     if(this.dataServiceFavo.getMKFavo()!='-1'){
-      window.location.href = '../src/cgi/logout.cgi?'+this.qNum+'+'+this.dataServiceFavo.getMKFavo();
+      window.location.href = '../src/cgi/logout.cgi?'+this.qNum+'+'
+                              +this.dataServiceFavo.getUsrName()
+                              +"+"+this.dataServiceFavo.getMKFavo();
     }else{
       window.location.href = '../src/cgi/logout.cgi?'+this.qNum;
     }

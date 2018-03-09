@@ -80,8 +80,6 @@ do
   var=$(( var+2 ))
 done
 
-# echo "${array[*]}" > $inpd/loginData.json
-
 for var in "${array[@]}"
 do
   id=("$(awk -F"\"" -v "num=4" '{print $num}' $inpd/$var)")
@@ -89,6 +87,10 @@ do
 
   if [ "$id" == "$ID" -a "$pa" == "$PASS" ]; then
     str="Login"
+
+    echo $var > $inpd/name.txt
+    com2=$(awk -F"\"" -v "num=1" '{print $num}' $inpd/name.txt)
+    NAME=$com2
     break
   fi
   str="Login not"
@@ -97,39 +99,17 @@ ERROR_CHECK
 
 ################################################
 # 出力
-# echo "Content-type: text/html"
-# echo ""
-# echo $str Successful.
-
-################################################
-# urlにqを付け足す
-#
-# url=$HTTP_REFERER
-# echo $url > $inpd/url.txt
-# aaa=$(awk -F"?" -v "num=2" '{print $num}' $inpd/url.txt)
-# if [ "$str" == "Login" ]; then
-#   if [ "$aaa" == "q=regi"  ]; then
-#     echo "Location: $HTTP_REFERER&q=regi"
-#     echo ""
-#   else
-#     echo "Location: $HTTP_REFERER?q=regi"
-#     echo ""
-#   fi
-# else
-#   if [ "$aaa" == "q=regi"  ]; then
-#     echo "Location: $HTTP_REFERER&q=re"
-#     echo ""
-#   else
-#     echo "Location: $HTTP_REFERER?q=re"
-#     echo ""
-#   fi
-# fi
-url=$HTTP_REFERER
-echo $url > $inpd/url.txt
-# aaa : www.~~~
-aaa=$(awk -F"?" -v "num=1" '{print $num}' $inpd/url.txt)
-echo "Location: $aaa?q=$NUM&q=login"
-echo ""
+if [ "$str" == "Login" ]; then
+  url=$HTTP_REFERER
+  echo $url > $inpd/url.txt
+  aaa=$(awk -F"?" -v "num=1" '{print $num}' $inpd/url.txt)
+  echo "Location: $aaa?q=$NUM&q=$NAME"
+  echo ""
+else
+  echo "Content-type: text/html"
+  echo ""
+  echo "$str Success."
+fi
 
 ################################################
 # 終了処理

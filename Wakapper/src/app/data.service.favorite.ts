@@ -5,10 +5,24 @@ import { JsonData } from './json-data';
 @Injectable()
 export class DataServiceFavo {
     data: any;
+    usrName: string;
     mkFavo:Array<string> = [];
     flag: number = 0;
 
     constructor(public dataService: JsonData) { }
+
+    confiOfq1(str){
+        if(str[0] == "u" && str[2] == "s" && str[3] == "r"){
+            this.usrName=str;
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
+    getUsrName(){
+        return this.usrName;
+    }
 
     loaMKdData(){
         this.dataService.getData('../src/assets/data/logout.json').subscribe(data => {

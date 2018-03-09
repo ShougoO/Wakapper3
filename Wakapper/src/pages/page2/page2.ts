@@ -43,7 +43,7 @@ export class Page2{
     var urlParams = new URLSearchParams(Url, new QueryEncoder());
     var Q = urlParams.getAll("q");
 
-    if (Q[1] == "regi" || Q[1] == "login") {
+    if (Q[1] == "regi" || this.dataServiceFavo.confiOfq1(Q[1]) == 1) {
       this.login = "ログイン中";
     }else{
       this.login = null;
@@ -86,8 +86,9 @@ export class Page2{
     this.formElement.nativeElement.submit();
     */
     if(this.dataServiceFavo.getMKFavo()!='-1'){
-      window.location.href = '../src/cgi/logout.cgi?2+'+this.dataServiceFavo.getMKFavo();
-    }else{
+      window.location.href = '../src/cgi/logout.cgi?2+'
+                              +this.dataServiceFavo.getUsrName()
+                              +"+"+this.dataServiceFavo.getMKFavo();
       window.location.href = '../src/cgi/logout.cgi?2';
     }
   }
