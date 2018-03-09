@@ -1,11 +1,19 @@
 import { Injectable } from '@angular/core';
 
+import { JsonData } from './json-data';
+
 @Injectable()
 export class DataServiceFavo {
     mkFavo:Array<number> = [];
     flag: number = 0;
 
-    constructor() { }
+    constructor(public dataService: JsonData) { }
+
+    loaMKdData(){
+        this.dataService.getData('../src/assets/data/logout.json').subscribe(data => {//../assets/data/(local)
+            this.mkFavo.push(data.data);
+        });
+    }
 
     sendSampleEvent(num: number) {
         if(num<0){

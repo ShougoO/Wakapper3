@@ -28,20 +28,9 @@ ERROR_CHECK(){
         exit 1
 }
 ################################################
-# POSTデータの受け取り
-if [ ! -z "$CONTENT_LENGTH" ] ; then
-        dd bs=$CONTENT_LENGTH   |
-        cgi-name -i _ -d_       > $tmp-name
-        ERROR_CHECK
-else
-        # POSTデータがなければ空のnameファイルを作成
-        touch $tmp-name
-        ERROR_CHECK
-fi
-
-################################################
-# 登録データの保存(NUM)
-NUM=$(nameread num $tmp-name)
+# データの保存(NUM)
+NUM=$1
+DATA=$2
 ERROR_CHECK
 
 ################################################
@@ -50,6 +39,10 @@ url=$HTTP_REFERER
 echo $url > $inpd/url.txt
 # aaa : www.~~~
 aaa=$(awk -F"?" -v "num=1" '{print $num}' $inpd/url.txt)
+
+echo "{
+  \"data\": [$DATA]
+}" > $inpd/logout.txt
 
 if [ "$NUM" != "null" ]; then
   echo "Location: $aaa?q=$NUM"

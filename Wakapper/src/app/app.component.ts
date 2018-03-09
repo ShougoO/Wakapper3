@@ -156,8 +156,8 @@ export class MyApp {
           this.nav.setRoot(Page2, "Page2");
         }else if(num < 0){
           num*=-1;
-          this.qNum = num;
           num-=1;
+          this.qNum = num;
           let P = [Page1, Page2, Page3, Page4];
           let PN = ["Page1", "Page2", "Page3", "Page4"];
           

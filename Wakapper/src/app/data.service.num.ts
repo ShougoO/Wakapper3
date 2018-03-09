@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
+import { DataServiceFavo } from './data.service.favorite';
+
 @Injectable()
 export class DataServiceNum {
     submFlag: number = 0;
     tracks: number;
 
-    constructor() { }
+    constructor(private dataServiceFavo: DataServiceFavo) { }
 
     private SampleNum = new Subject<number>();
 
@@ -31,6 +33,7 @@ export class DataServiceNum {
 
             if(this.submFlag == 0){
                 this.submFlag = 1;
+                this.dataServiceFavo.loaMKdData();
             }
         } else if(1<=num&&num<=5){
             console.log("num : "+num);

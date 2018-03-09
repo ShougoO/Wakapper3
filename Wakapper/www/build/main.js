@@ -685,8 +685,8 @@ var MyApp = (function () {
                 }
                 else if (num < 0) {
                     num *= -1;
-                    _this.qNum = num;
                     num -= 1;
+                    _this.qNum = num;
                     var P = [__WEBPACK_IMPORTED_MODULE_5__pages_page1_page1__["a" /* Page1 */], __WEBPACK_IMPORTED_MODULE_6__pages_page2_page2__["a" /* Page2 */], __WEBPACK_IMPORTED_MODULE_7__pages_page3_page3__["a" /* Page3 */], __WEBPACK_IMPORTED_MODULE_8__pages_page4_page4__["a" /* Page4 */]];
                     var PN = ["Page1", "Page2", "Page3", "Page4"];
                     _this.showText = PN[num];
@@ -1414,6 +1414,7 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service_favorite__ = __webpack_require__(35);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1425,8 +1426,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var DataServiceNum = (function () {
-    function DataServiceNum() {
+    function DataServiceNum(dataServiceFavo) {
+        this.dataServiceFavo = dataServiceFavo;
         this.submFlag = 0;
         this.SampleNum = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
         this.Num$ = this.SampleNum.asObservable();
@@ -1449,6 +1452,7 @@ var DataServiceNum = (function () {
             }
             if (this.submFlag == 0) {
                 this.submFlag = 1;
+                this.dataServiceFavo.loaMKdData();
             }
         }
         else if (1 <= num && num <= 5) {
@@ -1462,9 +1466,10 @@ var DataServiceNum = (function () {
     };
     DataServiceNum = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__data_service_favorite__["a" /* DataServiceFavo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__data_service_favorite__["a" /* DataServiceFavo */]) === "function" && _a || Object])
     ], DataServiceNum);
     return DataServiceNum;
+    var _a;
 }());
 
 //# sourceMappingURL=data.service.num.js.map
@@ -1518,6 +1523,7 @@ var JsonData = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataServiceFavo; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__json_data__ = __webpack_require__(32);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1528,11 +1534,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var DataServiceFavo = (function () {
-    function DataServiceFavo() {
+    function DataServiceFavo(dataService) {
+        this.dataService = dataService;
         this.mkFavo = [];
         this.flag = 0;
     }
+    DataServiceFavo.prototype.loaMKdData = function () {
+        var _this = this;
+        this.dataService.getData('../src/assets/data/logout.json').subscribe(function (data) {
+            _this.mkFavo.push(data.data);
+        });
+    };
     DataServiceFavo.prototype.sendSampleEvent = function (num) {
         if (num < 0) {
             num *= -1;
@@ -1593,9 +1607,10 @@ var DataServiceFavo = (function () {
     };
     DataServiceFavo = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__json_data__["a" /* JsonData */]) === "function" && _a || Object])
     ], DataServiceFavo);
     return DataServiceFavo;
+    var _a;
 }());
 
 //# sourceMappingURL=data.service.favorite.js.map
