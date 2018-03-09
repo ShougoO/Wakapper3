@@ -124,7 +124,11 @@ ERROR_CHECK
 #     echo ""
 #   fi
 # fi
-echo "Location: $HTTP_REFERER?q=$NUM&q=login"
+url=$HTTP_REFERER
+echo $url > $inpd/url.txt
+# aaa : www.~~~
+aaa=$(awk -F"?" -v "num=1" '{print $num}' $inpd/url.txt)
+echo "Location: $aaa?q=$NUM&q=login"
 echo ""
 
 ################################################

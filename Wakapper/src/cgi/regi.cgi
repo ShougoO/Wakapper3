@@ -110,7 +110,12 @@ ERROR_CHECK
 #  echo "Location: $HTTP_REFERER?q=regi"
 #  echo ""
 # fi
-echo "Location: $HTTP_REFERER?q=$NUM&q=regi"
+
+url=$HTTP_REFERER
+echo $url > $inpd/url.txt
+# aaa : www.~~~
+aaa=$(awk -F"?" -v "num=1" '{print $num}' $inpd/url.txt)
+echo "Location: $aaa?q=$NUM&q=regi"
 echo ""
 
 ################################################
@@ -121,7 +126,7 @@ rm -f $count
 rm -f $array
 rm -f $sub
 rm -f $com
-# rm -f $url
-# rm -f $inpd/url.txt
-# rm -f $aaa
+rm -f $url
+rm -f $inpd/url.txt
+rm -f $aaa
 exit 0
