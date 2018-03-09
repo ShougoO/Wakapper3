@@ -77,7 +77,7 @@ export class DataServiceFavo {
         let str: string = "";
         for(let i=0;;i++){
             if(this.mkFavo[0]==null) return '-1'; // nkFavoが空の時
-            str+=this.mkFavo[i];
+            str+='\"'+this.mkFavo[i]+'\"';
             if(this.mkFavo[i+1]==null) break;     // 最後に来たら終了
             else str+=',';
         }

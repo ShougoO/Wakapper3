@@ -41,7 +41,7 @@ export class DetailPage {
 
   setFavo(){
     if(this.flag==1){
-      let x = this.dataServiceFavo.sendSampleEvent('', this.num);
+      let x = this.dataServiceFavo.sendSampleEvent(this.name, this.num);
       if(x==1){
         alert("お気に入り解除しました");
       }else{
