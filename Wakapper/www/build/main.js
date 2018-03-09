@@ -1542,7 +1542,11 @@ var DataServiceFavo = (function () {
     DataServiceFavo.prototype.loaMKdData = function () {
         var _this = this;
         this.dataService.getData('../src/assets/data/logout.json').subscribe(function (data) {
-            _this.mkFavo.push(data.data);
+            _this.data = data.data;
+            for (var i = 0; _this.data[i] != null; i++) {
+                _this.mkFavo.push(_this.data[i]);
+            }
+            _this.mkFavo.shift();
             console.log("this.mkFavo");
             console.log(_this.mkFavo);
         });

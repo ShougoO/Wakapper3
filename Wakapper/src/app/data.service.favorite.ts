@@ -5,6 +5,7 @@ import { JsonData } from './json-data';
 
 @Injectable()
 export class DataServiceFavo {
+    data: any;
     mkFavo:Array<string> = [];
     flag: number = 0;
 
@@ -12,7 +13,11 @@ export class DataServiceFavo {
 
     loaMKdData(){
         this.dataService.getData('../src/assets/data/logout.json').subscribe(data => {//../assets/data/(local)
-            this.mkFavo.push(data.data);
+            this.data = data.data;
+            for(let i=0;this.data[i]!=null;i++){
+                this.mkFavo.push(this.data[i]);
+            }
+            this.mkFavo.shift();
             console.log("this.mkFavo");
             console.log(this.mkFavo);
         });
