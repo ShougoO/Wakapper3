@@ -13,10 +13,10 @@ export class DataServiceFavo {
     loaMKdData(){
         this.dataService.getData('../src/assets/data/logout.json').subscribe(data => {//../assets/data/(local)
             this.mkFavo.push(data.data);
-            console.log(this.mkFavo);
+            console.log("this.mkFavo"+this.mkFavo);
         });
         
-        console.log(this.mkFavo);
+        console.log("this.mkFavo"+this.mkFavo);
     }
 
     sendSampleEvent(num: number) {
