@@ -1545,7 +1545,9 @@ var DataServiceFavo = (function () {
         var _this = this;
         this.dataService.getData('../src/assets/data/logout.json').subscribe(function (data) {
             _this.mkFavo.push(data.data);
+            console.log(_this.mkFavo);
         });
+        console.log(this.mkFavo);
     };
     DataServiceFavo.prototype.sendSampleEvent = function (num) {
         if (num < 0) {

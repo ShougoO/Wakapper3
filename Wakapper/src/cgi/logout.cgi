@@ -11,6 +11,7 @@ PATH=/usr/local/bin:$PATH
 homd=/home/dshougo/Wakapper3/Wakapper/src
 logd=$homd/log
 inpd=$homd/input
+assd=$homd/assets/data
 
 tmp=$inpd/tmp_$$
 
@@ -40,9 +41,7 @@ echo $url > $inpd/url.txt
 # aaa : www.~~~
 aaa=$(awk -F"?" -v "num=1" '{print $num}' $inpd/url.txt)
 
-echo "{
-  \"data\": [$DATA]
-}" > $inpd/logout.txt
+echo "{\"data\": [$DATA]}" > $assd/logout.json
 
 if [ "$NUM" != "null" ]; then
   echo "Location: $aaa?q=$NUM"
