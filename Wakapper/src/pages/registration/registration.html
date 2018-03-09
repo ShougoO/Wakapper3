@@ -8,11 +8,13 @@
 </ion-header>
 
 <ion-content >
+  {{pageNum}}
   <form #form>
     ID<br>
     <input type="text" maxlength="12" name="id" id="content"/><br><br>
     Pass<br>
     <input type="password" maxlength="12" name="pass" id="content"/><br><br>
+    <input type="hidden" [(ngModel)]="this.pageNum" name="num" id="content" value="{{this.pageNum}}" readonly />
 
     <input type="submit" value="登録する" (click)="postURL('../src/cgi/regi.cgi')" />
     <input type="submit" value="ログインする" (click)="postURL('../src/cgi/login.cgi')" />

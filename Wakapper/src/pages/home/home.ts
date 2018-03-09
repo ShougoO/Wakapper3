@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { URLSearchParams, QueryEncoder } from '@angular/http';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { DataService } from '../../app/data.service';
 import { DataServiceNum } from '../../app/data.service.num';
@@ -14,9 +14,17 @@ export class HomePage {
     page: any;
     flag: string= 'logout';
 
+    text: string;
+    showText: string;
+
     constructor(public navCtrl: NavController,
+                public navParams: NavParams,
                 private dataService: DataService,
-                private dataServiceNum: DataServiceNum) { }
+                private dataServiceNum: DataServiceNum) {
+      this.text = navParams.get("text");
+      this.showText = this.text;
+      console.log(this.showText);
+    }
 
     //画面表示後、掲示板の登録用のcgiから
     //パラメータが送られてきた場合(q = regi)
@@ -31,13 +39,17 @@ export class HomePage {
       if (Q[0] == "regi" || Q[0] == "login") {
         this.flag = 'login';
         this.sendToDataService();
-        if(Q[1] == "subm"){
-          console.log("Q[1] : "+Q[1]);
+        
+        console.log("Q[1] : "+Q[1]);
+        if(Q[2] == "subm"){
+          console.log("Q[2] : "+Q[2]);
           this.dataServiceNum.sendSampleNum(0);
         }
       } else {
         this.flag= 'logout';
       }
+
+      this.dataServiceNum.sendSampleNum(5);
     }
     
     sendToDataService(){

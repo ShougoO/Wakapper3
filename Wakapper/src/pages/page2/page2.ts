@@ -7,6 +7,8 @@ import { JsonData } from '../../app/json-data';
 import { RegiForm } from '../registration/registration';
 import { SubmForm } from './submit/submit';
 
+import { DataServiceNum } from '../../app/data.service.num';
+
 @Component({
   selector: 'page-page2',
   templateUrl: 'page2.html'
@@ -23,10 +25,14 @@ export class Page2{
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public dataService: JsonData) {
+              public dataService: JsonData,
+              private dataServiceNum: DataServiceNum) {
     this.text = navParams.get("text");
     this.showText = this.text;
+    console.log(this.showText);
     this.datasNum = 0;
+
+    this.dataServiceNum.sendSampleNum(2);
   }
 
   ionViewDidLoad() {

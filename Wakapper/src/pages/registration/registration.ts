@@ -10,9 +10,14 @@ import { DataServiceNum } from '../../app/data.service.num';
 export class RegiForm {
   @ViewChild('form') formElement;
 
+  pageNum: number;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private dataServiceNum: DataServiceNum) {}
+              private dataServiceNum: DataServiceNum
+  ) {
+    this.pageNum = this.dataServiceNum.sendSampleNum(6);
+  }
 
   postURL(url) {
     //var Form = <HTMLFormElement>this.formElement.nativeElement;

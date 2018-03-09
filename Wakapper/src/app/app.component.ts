@@ -24,7 +24,6 @@ export class MyApp {
   q: string = undefined;
   static text: string;
   showText: string;
-  position: any = { lat: 33.9144938, lng: 130.7528295 };
 
   rootPage: any = HomePage;
   pagesNames: Array<string> = [
@@ -94,19 +93,19 @@ export class MyApp {
       this.dataService.Text$.subscribe(text => {
         if (text == "Page01") {
           this.showText = "Page1";
-          this.nav.setRoot(Page1, this.position);
+          this.nav.setRoot(Page1, { text: "Page1" });
 
         } else if (text == "Page02") {
           this.showText = "Page2";
-          this.nav.setRoot(Page2, "Page2");
+          this.nav.setRoot(Page2, { text: "Page2" });
 
         } else if (text == "Page03") {
           this.showText = "Page3";
-          this.nav.setRoot(Page3, "Page3");
+          this.nav.setRoot(Page3, { text: "Page3" });
 
         } else if (text == "Page04") {
           this.showText = "Page4";
-          this.nav.setRoot(Page4, "Page4");
+          this.nav.setRoot(Page4, { text: "Page4" });
 
         } else if (text == "Regi") {
           this.nav.push(RegiForm);
@@ -120,9 +119,9 @@ export class MyApp {
           } else {
             this.showText = text;
             if (text == "Page1") {
-              this.nav.setRoot(Page1, this.position);
+              this.nav.setRoot(Page1, { text: "Page1" });
             } else {
-              this.nav.setRoot(this.page.component, { text });
+              this.nav.setRoot(this.page.component, { text: text });
             }
           }
         }
