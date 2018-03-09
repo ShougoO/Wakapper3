@@ -38,6 +38,8 @@ export class DataServiceFavo {
                 if(x==0){
                     // mkFavo内に無い
                     this.mkFavo.push(str);
+                    console.log("this.mkFavo");
+                    console.log(this.mkFavo);
 
                     return 0;
                 }else{
@@ -49,6 +51,8 @@ export class DataServiceFavo {
                                 this.mkFavo[j]=this.mkFavo[j+1];
                             }
                             this.mkFavo.pop();
+                            console.log("this.mkFavo");
+                            console.log(this.mkFavo);
                             break;
                         }
                     }
