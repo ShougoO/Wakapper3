@@ -909,7 +909,7 @@ var Page1 = (function () {
     Page1.prototype.mapInit = function () {
         var _this = this;
         // json取得
-        this.dataService.getData('../assets/data/mkData.json').subscribe(function (data) {
+        this.dataService.getData('../src/assets/data/mkData.json').subscribe(function (data) {
             _this.mkData = data.mkData;
             _this.loadMap();
         });
@@ -941,7 +941,7 @@ var Page1 = (function () {
                 title: this_1.mkData[i].title,
                 snippet: this_1.mkData[i].snippet,
                 icon: {
-                    url: '../assets/img/' + this_1.mkData[i].icon + '.png',
+                    url: '../src/assets/img/' + this_1.mkData[i].icon + '.png',
                     scaledSize: new google.maps.Size(this_1.mkData[i].width, this_1.mkData[i].height)
                 },
                 address: this_1.mkData[i].address,
@@ -1336,8 +1336,8 @@ var AppModule = (function () {
             imports: [
                 __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/page3/page3.module#Page3Module', name: 'Page3', segment: 'page3', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/detail/detail.module#DetailPageModule', name: 'DetailPage', segment: 'detail', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/page3/page3.module#Page3Module', name: 'Page3', segment: 'page3', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/time-table/time-table.module#TimeTablePageModule', name: 'TimeTablePage', segment: 'time-table', priority: 'low', defaultHistory: [] }
                     ]
                 }),
