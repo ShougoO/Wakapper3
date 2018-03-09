@@ -12,7 +12,7 @@ export class DataServiceFavo {
     constructor(public dataService: JsonData) { }
 
     confiOfq1(str){
-        if(str[0] == "u" && str[2] == "s" && str[3] == "r"){
+        if(str.indexOf("usr") === 0){
             this.usrName=str;
             return 1;
         }else{
