@@ -32,8 +32,14 @@ ERROR_CHECK(){
 # 出力
 url=$HTTP_REFERER
 echo $url > $inpd/url.txt
+# aaa : www.~~~
 aaa=$(awk -F"?" -v "num=1" '{print $num}' $inpd/url.txt)
-echo "Location: $aaa"
+# bbb : q='number'
+bbb=$(awk -F"?" -v "num=2" '{print $num}' $inpd/url.txt)
+echo $bbb > $inpd/url.txt
+bbb=$(awk -F"&" -v "num=1" '{print $num}' $inpd/url.txt)
+
+echo "Location: $aaa?$bbb"
 echo ""
 
 ################################################
@@ -42,4 +48,5 @@ rm -f $tmp-*
 rm -f $url
 rm -f $inpd/url.txt
 rm -f $aaa
+rm -f $bbb
 exit 0

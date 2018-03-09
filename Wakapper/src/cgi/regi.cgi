@@ -110,7 +110,7 @@ ERROR_CHECK
 #  echo "Location: $HTTP_REFERER?q=regi"
 #  echo ""
 # fi
-echo "Location: $HTTP_REFERER?q=regi&q=$NUM"
+echo "Location: $HTTP_REFERER?q=$NUM&q=regi"
 echo ""
 
 ################################################

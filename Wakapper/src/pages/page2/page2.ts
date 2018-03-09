@@ -40,7 +40,7 @@ export class Page2{
     var urlParams = new URLSearchParams(Url, new QueryEncoder());
     var Q = urlParams.getAll("q");
 
-    if (Q[0] == "regi" || Q[0] == "login") {
+    if (Q[1] == "regi" || Q[1] == "login") {
       this.login = "ログイン中";
     }else{
       this.login = null;

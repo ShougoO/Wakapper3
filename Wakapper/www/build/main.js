@@ -748,26 +748,24 @@ var HomePage = (function () {
         var Url = document.location.search.substring(1);
         var urlParams = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* URLSearchParams */](Url, new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* QueryEncoder */]());
         var Q = urlParams.getAll("q");
-        // 全パラメータの中の先頭で判断
-        // "regi"(登録・ログイン),"login"(ログイン)したときdataserviceに送信
-        if (Q[0] == "regi" || Q[0] == "login") {
+        console.log("Q[1] : " + Q[0]);
+        switch (Q[0]) {
+            case '1':
+                this.dataServiceNum.sendSampleNum(-1);
+                break;
+            case '2':
+                this.dataServiceNum.sendSampleNum(-2);
+                break;
+            case '3':
+                this.dataServiceNum.sendSampleNum(-3);
+                break;
+            case '4':
+                this.dataServiceNum.sendSampleNum(-4);
+                break;
+        }
+        if (Q[1] == "regi" || Q[1] == "login") {
             this.flag = 'login';
             this.sendToDataService();
-            console.log("Q[1] : " + Q[1]);
-            switch (Q[1]) {
-                case '1':
-                    this.dataServiceNum.sendSampleNum(-1);
-                    break;
-                case '2':
-                    this.dataServiceNum.sendSampleNum(-2);
-                    break;
-                case '3':
-                    this.dataServiceNum.sendSampleNum(-3);
-                    break;
-                case '4':
-                    this.dataServiceNum.sendSampleNum(-4);
-                    break;
-            }
             if (Q[2] == "subm") {
                 console.log("Q[2] : " + Q[2]);
                 this.dataServiceNum.sendSampleNum(0);
@@ -1029,7 +1027,7 @@ var Page2 = (function () {
         var Url = document.location.search.substring(1);
         var urlParams = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* URLSearchParams */](Url, new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* QueryEncoder */]());
         var Q = urlParams.getAll("q");
-        if (Q[0] == "regi" || Q[0] == "login") {
+        if (Q[1] == "regi" || Q[1] == "login") {
             this.login = "ログイン中";
         }
         else {

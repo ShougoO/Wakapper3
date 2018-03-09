@@ -124,7 +124,7 @@ ERROR_CHECK
 #     echo ""
 #   fi
 # fi
-echo "Location: $HTTP_REFERER?q=login&q=$NUM"
+echo "Location: $HTTP_REFERER?q=$NUM&q=login"
 echo ""
 
 ################################################
