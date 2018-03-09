@@ -47,7 +47,7 @@ export class Page3 {
         let next = this.calendar.getCalendarYM(n[0], n[1]);// 来月のカレンダー情報を作成
         this.cal = [last, now, next];
 
-        this.dataService.getData('../src/assets/data/event.json').subscribe(data => {
+        this.dataService.getData('assets/data/event.json').subscribe(data => {
             this.testEvents = data.events;
             for(let i=0;this.testEvents[i]!=null;i++){
                 this.testDatas.push(this.testEvents[i]);

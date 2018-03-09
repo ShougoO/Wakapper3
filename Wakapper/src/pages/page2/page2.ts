@@ -56,13 +56,13 @@ export class Page2{
   getJsonDatas() {
     console.log("reading datas");
     // コメントが書いてあるリストの読み込み
-    this.dataService.getData('../src/assets/data/datas.json').subscribe(dataName => {
+    this.dataService.getData('assets/data/datas.json').subscribe(dataName => {
       this.dataNames = dataName.dataNames;
       
       // 各々のjsonを読み込みcontributionに格納 -> htmlで表示
       for(var i=0; this.dataNames[i]!=null;i++){
         console.log("reading data");
-        this.dataService.getData('../src/assets/data/'+ this.dataNames[i]).subscribe(data => {
+        this.dataService.getData('assets/data/'+ this.dataNames[i]).subscribe(data => {
           this.contribution.push(data.contribution);
         });
         // 投稿数

@@ -11,7 +11,7 @@ export class DataServiceFavo {
     constructor(public dataService: JsonData) { }
 
     loaMKdData(){
-        this.dataService.getData('../src/assets/data/logout.json').subscribe(data => {
+        this.dataService.getData('assets/data/logout.json').subscribe(data => {
             this.data = data.data;
             for(let i=0;this.data[i]!=null;i++){
                 this.mkFavo.push(this.data[i]);
