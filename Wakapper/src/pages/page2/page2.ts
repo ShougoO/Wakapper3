@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { URLSearchParams, QueryEncoder } from '@angular/http';
 
@@ -14,6 +14,7 @@ import { DataServiceNum } from '../../app/data.service.num';
   templateUrl: 'page2.html'
 })
 export class Page2{
+  @ViewChild('form') formElement;
   text: string;
   showText: string;
 
@@ -72,7 +73,10 @@ export class Page2{
   // ログアアウト
   logOut(){
     this.login = null;
-    window.location.href = '../src/cgi/logout.cgi';
+    this.formElement.nativeElement.method = "POST";
+    this.formElement.nativeElement.action = '../src/cgi/logout.cgi';
+    this.formElement.nativeElement.submit();
+    //window.location.href = '../src/cgi/logout.cgi';
   }
 
   // 投稿ページへ
