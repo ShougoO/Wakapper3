@@ -1359,7 +1359,7 @@ var DataServiceNum = (function () {
             if (num == 0) {
                 this.SampleNum.next(this.submFlag);
             }
-            else if (num < 0) {
+            else if (num < 0 && this.submFlag == 0) {
                 this.SampleNum.next(num);
             }
             if (this.submFlag == 0) {
