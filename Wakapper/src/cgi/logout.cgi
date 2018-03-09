@@ -11,7 +11,7 @@ PATH=/usr/local/bin:$PATH
 homd=/home/dshougo/Wakapper3/Wakapper/src
 logd=$homd/log
 inpd=$homd/input
-assd=/home/dshougo/Wakapper3/Wakapper/www/assets/data
+assd=$homd/assets/data
 
 tmp=$inpd/tmp_$$
 

@@ -6,7 +6,7 @@ LANG=js_JP.UTF-8
 PATH=/usr/local/bin:$PATH
 
 homd=/home/dshougo/Wakapper3/Wakapper/src
-assd=/home/dshougo/Wakapper3/Wakapper/www/assets/data
+assd=$homd/assets/data
 logd=$homd/log
 
 tmp=$ased/tmp_$$
