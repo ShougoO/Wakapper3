@@ -6,7 +6,7 @@ import { NavController, NavParams } from 'ionic-angular';
     templateUrl: 'submit.html'
 })
 export class SubmForm {
-  @ViewChild('comments') formElement;
+  @ViewChild('form') formElement;
   num: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -15,10 +15,17 @@ export class SubmForm {
   }
 
   postURL(url) {
-    //var Form = <HTMLFormElement>this.formElement.nativeElement;
-    
-    this.formElement.nativeElement.method = "POST";
-    this.formElement.nativeElement.action = url;
-    this.formElement.nativeElement.submit();
+    var Form = <HTMLFormElement>this.formElement.nativeElement;
+ 
+    console.log(Form.elements['titleID'].value);
+    console.log(Form.elements['commentID'].value);
+    console.log(url+'?'+Form.elements['titleID'].value
+    +"+"+Form.elements['commentID'].value
+    +"+"+this.num);
+    alert("aaa");
+
+    window.location.href = url+'?'+Form.elements['titleID'].value
+                           +"+"+Form.elements['commentID'].value
+                           +"+"+this.num
   }
 }
