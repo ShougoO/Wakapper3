@@ -36,20 +36,20 @@ export class DetailPage {
   }
 
   ionViewDidLoad(){
-    this.showFlag = this.dataServiceFavo.sendSampleEvent(-1000*this.num-555);
+    this.showFlag = this.dataServiceFavo.sendSampleEvent('', -1*(this.num+1));
   }
 
   setFavo(){
     if(this.flag==1){
-      let x = this.dataServiceFavo.sendSampleEvent(this.num);
+      let x = this.dataServiceFavo.sendSampleEvent('', this.num);
       if(x==1){
         alert("お気に入り解除しました");
       }else{
         alert("お気に入り登録しました");
       }
       
-      this.showFlag = this.dataServiceFavo.sendSampleEvent(-1000*this.num-555);
-    }else if(this.flag<=0){
+      this.showFlag = this.dataServiceFavo.sendSampleEvent('', -1*(this.num+1));
+    }else if(this.flag!=1){
       alert("ログインしてください");
     }
   }

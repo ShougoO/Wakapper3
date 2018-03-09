@@ -85,7 +85,7 @@ export class Page2{
     alert(this.formElement.nativeElement.action);
     this.formElement.nativeElement.submit();
     */
-    if(this.dataServiceFavo.getMKFavo()!='999'){
+    if(this.dataServiceFavo.getMKFavo()!='-1'){
       window.location.href = '../src/cgi/logout.cgi?2+'+this.dataServiceFavo.getMKFavo();
     }else{
       window.location.href = '../src/cgi/logout.cgi?2';

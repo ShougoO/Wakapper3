@@ -713,7 +713,7 @@ var MyApp = (function () {
         alert(this.formElement.nativeElement.action);
         this.formElement.nativeElement.submit();
         */
-        if (this.dataServiceFavo.getMKFavo() != '999') {
+        if (this.dataServiceFavo.getMKFavo() != '-1') {
             window.location.href = '../src/cgi/logout.cgi?' + this.qNum + '+' + this.dataServiceFavo.getMKFavo();
         }
         else {
@@ -810,7 +810,7 @@ var HomePage = (function () {
         }
         if (Q[1] == "regi" || Q[1] == "login") {
             this.flag = 'login';
-            this.dataServiceFavo.sendSampleEvent(999);
+            this.dataServiceFavo.sendSampleEvent('', 999);
             this.sendToDataService();
         }
         else {
@@ -855,7 +855,7 @@ var HomePage = (function () {
         alert(this.formElement.nativeElement.action);
         this.formElement.nativeElement.submit();
         */
-        if (this.dataServiceFavo.getMKFavo() != '999') {
+        if (this.dataServiceFavo.getMKFavo() != '-1') {
             window.location.href = '../src/cgi/logout.cgi?5+' + this.dataServiceFavo.getMKFavo();
         }
         else {
@@ -994,7 +994,7 @@ var Page1 = (function () {
                     address: _this.marker[i].address,
                     open: _this.marker[i].open,
                     num: i,
-                    flag: _this.dataServiceFavo.sendSampleEvent(666)
+                    flag: _this.dataServiceFavo.sendSampleEvent('', 666)
                 });
             });
         };
@@ -1015,7 +1015,7 @@ var Page1 = (function () {
     };
     Page1.prototype.setBool = function (bool) {
         for (var i = 0; i < 3; i++) {
-            if (this.dataServiceFavo.sendSampleEvent(-1 * (i + 1)) == 0) {
+            if (this.dataServiceFavo.sendSampleEvent('', -1 * (i + 1)) == 0) {
                 this.marker[i].setVisible(bool);
             }
         }
@@ -1028,14 +1028,10 @@ var Page1 = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-page1',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page1\page1.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>区内マップ</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <button ion-button (click)="markerVisible()">{{mkState}}</button>\n\n  <div #map id="map"></div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\page1\page1.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_maps__["a" /* GoogleMaps */],
-            __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */],
-            __WEBPACK_IMPORTED_MODULE_3__app_data_service_num__["a" /* DataServiceNum */],
-            __WEBPACK_IMPORTED_MODULE_4__app_data_service_favorite__["a" /* DataServiceFavo */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_maps__["a" /* GoogleMaps */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_maps__["a" /* GoogleMaps */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__app_data_service_num__["a" /* DataServiceNum */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_data_service_num__["a" /* DataServiceNum */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__app_data_service_favorite__["a" /* DataServiceFavo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__app_data_service_favorite__["a" /* DataServiceFavo */]) === "function" && _f || Object])
     ], Page1);
     return Page1;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=page1.js.map
@@ -1130,7 +1126,7 @@ var Page2 = (function () {
         alert(this.formElement.nativeElement.action);
         this.formElement.nativeElement.submit();
         */
-        if (this.dataServiceFavo.getMKFavo() != '999') {
+        if (this.dataServiceFavo.getMKFavo() != '-1') {
             window.location.href = '../src/cgi/logout.cgi?2+' + this.dataServiceFavo.getMKFavo();
         }
         else {
@@ -1553,60 +1549,67 @@ var DataServiceFavo = (function () {
         console.log("this.mkFavo");
         console.log(this.mkFavo);
     };
-    DataServiceFavo.prototype.sendSampleEvent = function (num) {
-        if (num < 0) {
-            num *= -1;
-            if (num >= 555) {
-                num -= 555;
-                num /= 1000;
-            }
-            else {
-                num--;
-            }
-            return this.searchNum(num);
-        }
-        else if (num == 999 && this.flag < 1) {
-            this.flag++;
-            this.loaMKdData();
+    DataServiceFavo.prototype.sendSampleEvent = function (str, num) {
+        if (num == 999) {
+            this.flag = 1;
         }
         else if (num == 666) {
-            return this.flag;
+            return this.flag; // num = 666 : ログイン状態を返す
         }
         else {
-            var x = this.searchNum(num);
-            if (x != 0) {
-                x--;
-                for (var i = 0; this.mkFavo[i] != null; i++) {
-                    if (i == x) {
-                        for (var j = i; this.mkFavo[j] != null; j++) {
-                            this.mkFavo[j] = this.mkFavo[j + 1];
-                        }
-                        this.mkFavo.pop();
-                        break;
-                    }
+            if (0 <= num) {
+                var x = this.searchNum(str);
+                if (x == 0) {
+                    // mkFavo内に無い
+                    this.mkFavo.push(str);
+                    return 0;
                 }
-                return 1;
+                else {
+                    x--;
+                    //mkFavoのx番目にある
+                    for (var i = 0; this.mkFavo[i] != null; i++) {
+                        if (i == x) {
+                            for (var j = i; this.mkFavo[j] != null; j++) {
+                                this.mkFavo[j] = this.mkFavo[j + 1];
+                            }
+                            this.mkFavo.pop();
+                            break;
+                        }
+                    }
+                    return 1;
+                }
             }
-            this.mkFavo.push(num);
-            return 0;
+            else if (num < 0) {
+                var x = this.searchNum(str);
+                if (x == 0) {
+                    // mkFavo内に無い
+                    return 0;
+                }
+                else {
+                    //mkFavoのx番目にある
+                    return 1;
+                }
+            }
         }
     };
-    DataServiceFavo.prototype.searchNum = function (num) {
+    // mkFavoの中に探してる文字列がないなら「0」, あれば「番号+1」を返す
+    DataServiceFavo.prototype.searchNum = function (str) {
         for (var i = 0; this.mkFavo[i] != null; i++) {
-            if (this.mkFavo[i] == num) {
+            if (this.mkFavo[i] == str) {
                 return i + 1;
             }
         }
         return 0;
     };
+    // url用にmkFavoの中身全てを結合して返す
     DataServiceFavo.prototype.getMKFavo = function () {
         var str = "";
         for (var i = 0;; i++) {
             if (this.mkFavo[0] == null)
-                return '999';
+                return '-1'; // nkFavoが空の時
             str += this.mkFavo[i];
             if (this.mkFavo[i + 1] == null)
-                break;
+                break; // 最後に来たら終了
             else
                 str += ',';
         }
@@ -1661,20 +1664,20 @@ var DetailPage = (function () {
         this.flag = navParams.get('flag');
     }
     DetailPage.prototype.ionViewDidLoad = function () {
-        this.showFlag = this.dataServiceFavo.sendSampleEvent(-1000 * this.num - 555);
+        this.showFlag = this.dataServiceFavo.sendSampleEvent('', -1 * (this.num + 1));
     };
     DetailPage.prototype.setFavo = function () {
         if (this.flag == 1) {
-            var x = this.dataServiceFavo.sendSampleEvent(this.num);
+            var x = this.dataServiceFavo.sendSampleEvent('', this.num);
             if (x == 1) {
                 alert("お気に入り解除しました");
             }
             else {
                 alert("お気に入り登録しました");
             }
-            this.showFlag = this.dataServiceFavo.sendSampleEvent(-1000 * this.num - 555);
+            this.showFlag = this.dataServiceFavo.sendSampleEvent('', -1 * (this.num + 1));
         }
-        else if (this.flag <= 0) {
+        else if (this.flag != 1) {
             alert("ログインしてください");
         }
     };
@@ -1682,12 +1685,10 @@ var DetailPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-detail',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\detail\detail.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>{{name}}</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n  <ion-card>\n\n    <img src="http://3.bp.blogspot.com/-jHdA_6VWQFw/WYAxqtZz54I/AAAAAAABFuk/rDsnpKBPpsQ1gMDDrJYRjh5IVdUBkd30QCLcBGAs/s800/building_fastfood.png"/>\n\n    \n\n    <ion-card-title>\n\n        {{name}}\n\n    </ion-card-title>\n\n    \n\n    <ion-card-content>\n\n      <p>場所：{{address}}</p>\n\n      \n\n      <p>営業時間：{{open}}</p>\n\n    </ion-card-content>\n\n    \n\n    <ion-row>\n\n      <ion-col>\n\n        <button *ngIf="showFlag==0" ion-button icon-left clear small (click)="setFavo()">\n\n          <ion-icon name="star"></ion-icon>\n\n          <div>お気に入り登録</div>\n\n        </button>\n\n        <button *ngIf="showFlag!=0" ion-button icon-left clear small (click)="setFavo()">\n\n          <ion-icon name="star"></ion-icon>\n\n          <div>お気に入り解除</div>\n\n        </button>\n\n      </ion-col>\n\n    </ion-row>\n\n    \n\n  </ion-card>\n\n\n\n  <ion-card> \n\n    <ion-card-title>\n\n      コメント\n\n    </ion-card-title>\n\n    <ion-card-content>\n\n      {{comment}}\n\n    </ion-card-content>\n\n  </ion-card>\n\n  <!--\n\n  <ion-card *ngFor="let item of comment"> \n\n    <ion-card-title>\n\n      {{item.title}}\n\n    </ion-card-title>\n\n    \n\n    <ion-card-content>\n\n      {{item.comment}}\n\n    </ion-card-content>\n\n  </ion-card>\n\n  -->\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\detail\detail.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */],
-            __WEBPACK_IMPORTED_MODULE_3__app_data_service_favorite__["a" /* DataServiceFavo */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_json_data__["a" /* JsonData */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__app_data_service_favorite__["a" /* DataServiceFavo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_data_service_favorite__["a" /* DataServiceFavo */]) === "function" && _d || Object])
     ], DetailPage);
     return DetailPage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=detail.js.map

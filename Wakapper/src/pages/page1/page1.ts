@@ -133,7 +133,7 @@ export class Page1 {
             address: this.marker[i].address,
             open: this.marker[i].open,
             num: i,
-            flag: this.dataServiceFavo.sendSampleEvent(666)
+            flag: this.dataServiceFavo.sendSampleEvent('', 666)
           });
       });
     }
@@ -151,7 +151,7 @@ export class Page1 {
   
   setBool(bool){
     for(let i=0;i<3;i++){
-      if(this.dataServiceFavo.sendSampleEvent(-1*(i+1))==0){
+      if(this.dataServiceFavo.sendSampleEvent('', -1*(i+1))==0){
         this.marker[i].setVisible(bool);
       }
     }
