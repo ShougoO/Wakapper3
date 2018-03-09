@@ -77,7 +77,7 @@ var RegiForm = (function () {
     ], RegiForm.prototype, "formElement", void 0);
     RegiForm = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-registration',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\registration\registration.html"*/'<ion-header>\n\n  <ion-navbar color="secondary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>アカウントの登録・ログイン</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n  {{pageNum}}\n\n  <form #form>\n\n    ID<br>\n\n    <input type="text" maxlength="12" name="id" id="content"/><br><br>\n\n    Pass<br>\n\n    <input type="password" maxlength="12" name="pass" id="content"/><br><br>\n\n    <input type="hidden" [(ngModel)]="this.pageNum" name="num" id="content" value="{{this.pageNum}}" readonly />\n\n\n\n    <input type="submit" value="登録する" (click)="postURL(\'../src/cgi/regi.cgi\')" />\n\n    <input type="submit" value="ログインする" (click)="postURL(\'../src/cgi/login.cgi\')" />\n\n  </form>\n\n</ion-content>'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\registration\registration.html"*/
+            selector: 'page-registration',template:/*ion-inline-start:"C:\Users\micro\Wakapper3\Wakapper\src\pages\registration\registration.html"*/'<ion-header>\n\n  <ion-navbar color="secondary">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>アカウントの登録・ログイン</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n  <form #form>\n\n    ID<br>\n\n    <input type="text" maxlength="12" name="id" id="content"/><br><br>\n\n    Pass<br>\n\n    <input type="password" maxlength="12" name="pass" id="content"/><br><br>\n\n    <input type="hidden" [(ngModel)]="this.pageNum" name="num" id="content" value="{{this.pageNum}}" readonly />\n\n\n\n    <input type="submit" value="登録する" (click)="postURL(\'../src/cgi/regi.cgi\')" />\n\n    <input type="submit" value="ログインする" (click)="postURL(\'../src/cgi/login.cgi\')" />\n\n  </form>\n\n</ion-content>'/*ion-inline-end:"C:\Users\micro\Wakapper3\Wakapper\src\pages\registration\registration.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
@@ -746,6 +746,20 @@ var HomePage = (function () {
             this.flag = 'login';
             this.sendToDataService();
             console.log("Q[1] : " + Q[1]);
+            switch (Q[1]) {
+                case '1':
+                    this.goToPage1();
+                    break;
+                case '2':
+                    this.goToPage2();
+                    break;
+                case '3':
+                    this.goToPage3();
+                    break;
+                case '4':
+                    this.goToPage4();
+                    break;
+            }
             if (Q[2] == "subm") {
                 console.log("Q[2] : " + Q[2]);
                 this.dataServiceNum.sendSampleNum(0);

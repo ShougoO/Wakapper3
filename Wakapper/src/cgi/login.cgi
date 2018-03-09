@@ -56,6 +56,7 @@ ERROR_CHECK
 # 登録データの保存(ID, PASS)
 ID=$(nameread id $tmp-name)
 PASS=$(nameread pass $tmp-name)
+NUM=$(nameread num $tmp-name)
 ERROR_CHECK
 
 ################################################
@@ -123,7 +124,7 @@ ERROR_CHECK
 #     echo ""
 #   fi
 # fi
-echo "Location: $HTTP_REFERER?q=login"
+echo "Location: $HTTP_REFERER?q=login&q=$NUM"
 echo ""
 
 ################################################
