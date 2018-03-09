@@ -40,11 +40,6 @@ else
 fi
 
 ################################################
-# 正しく遷移が行われていれば、ここで入力チェックエラーとなることはない
-check_attr_name $tmp-check $tmp-name > $tmp-result
-ERROR_CHECK
-
-################################################
 # 登録データの保存(NUM)
 NUM=$(nameread num $tmp-name)
 ERROR_CHECK
