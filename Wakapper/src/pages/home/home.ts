@@ -104,14 +104,20 @@ export class HomePage {
     logOut(){
       this.flag= 'logout';
       
+      /*
       this.formElement.nativeElement.method = "POST";
       if(this.dataServiceFavo.getMKFavo()!='999'){
-        this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+'?'+this.dataServiceFavo.getMKFavo();
+        this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+'?5,'+this.dataServiceFavo.getMKFavo();
       }else{
         this.formElement.nativeElement.action = '../src/cgi/logout.cgi';
       }
       alert(this.formElement.nativeElement.action);
       this.formElement.nativeElement.submit();
-      //window.location.href = '../src/cgi/logout.cgi';
+      */
+      if(this.dataServiceFavo.getMKFavo()!='999'){
+        window.location.href = '../src/cgi/logout.cgi?5,'+this.dataServiceFavo.getMKFavo();
+      }else{
+        window.location.href = '../src/cgi/logout.cgi?5';
+      }
     }
 }

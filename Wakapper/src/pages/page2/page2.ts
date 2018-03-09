@@ -75,6 +75,7 @@ export class Page2{
   // ログアアウト
   logOut(){
     this.login = null;
+    /*
     this.formElement.nativeElement.method = "POST";
     if(this.dataServiceFavo.getMKFavo()!='999'){
       this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+'?'+this.dataServiceFavo.getMKFavo();
@@ -83,7 +84,12 @@ export class Page2{
     }
     alert(this.formElement.nativeElement.action);
     this.formElement.nativeElement.submit();
-    //window.location.href = '../src/cgi/logout.cgi';
+    */
+    if(this.dataServiceFavo.getMKFavo()!='999'){
+      window.location.href = '../src/cgi/logout.cgi?2,'+this.dataServiceFavo.getMKFavo();
+    }else{
+      window.location.href = '../src/cgi/logout.cgi?2';
+    }
   }
 
   // 投稿ページへ

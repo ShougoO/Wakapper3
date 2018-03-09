@@ -178,6 +178,7 @@ export class MyApp {
   }
 
   logOut(){
+    /*
     this.formElement.nativeElement.method = "POST";
     if(this.dataServiceFavo.getMKFavo()!='999'){
       this.formElement.nativeElement.action = '../src/cgi/logout.cgi'+'?'+this.dataServiceFavo.getMKFavo();
@@ -186,5 +187,11 @@ export class MyApp {
     }
     alert(this.formElement.nativeElement.action);
     this.formElement.nativeElement.submit();
+    */
+    if(this.dataServiceFavo.getMKFavo()!='999'){
+      window.location.href = '../src/cgi/logout.cgi?'+this.qNum+','+this.dataServiceFavo.getMKFavo();
+    }else{
+      window.location.href = '../src/cgi/logout.cgi?'+this.qNum;
+    }
   }
 }
